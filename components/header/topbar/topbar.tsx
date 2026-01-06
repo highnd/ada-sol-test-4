@@ -44,7 +44,7 @@ export default function Topbar() {
   return (
     <div className="w-full h-[50px] sm:h-[60px] lg:h-[70px] bg-[#FFF6F2] font-normal">
       <nav
-        className="flex flex-col md:flex-row h-full py-2 sm:py-0 items-center justify-between px-4 xl:px-6"
+        className="flex flex-col md:flex-row h-full py-2 sm:py-0 items-center justify-between px-4 xl:px-12"
         dir="ltr"
       >
         {/* left part  */}
