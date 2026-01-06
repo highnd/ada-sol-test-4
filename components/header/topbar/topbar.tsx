@@ -44,11 +44,7 @@ export default function Topbar() {
   return (
     <div className="w-full h-[50px] sm:h-[60px] lg:h-[70px] bg-[#FFF6F2] font-normal">
       <nav
-        className="flex flex-col md:flex-row h-full py-2 sm:py-0 items-center justify-between "
-        style={{
-          paddingLeft: "clamp(1rem, 3vw + 0.5rem, 5rem)",
-          paddingRight: "clamp(1rem, 3vw + 0.5rem, 5rem)",
-        }}
+        className="flex flex-col md:flex-row h-full py-2 sm:py-0 items-center justify-between px-4 xl:px-6"
         dir="ltr"
       >
         {/* left part  */}
@@ -75,7 +71,7 @@ export default function Topbar() {
         </div>
 
         {/*  right list menu  - hidden on mobile, visible on desktop */}
-        <div className="hidden lg:flex items-center gap-2 sm:gap-2 lg:gap-3 xl:gap-6 2xl:gap-8 justify-center sm:justify-end text-xs sm:text-sm md:text-[12px] lg:text-[11px] xl:text-[14px] 2xl:text-[18px]">
+        <div className="hidden lg:flex items-center gap-2  lg:gap-3 xl:gap-4 2xl:gap-8 justify-center sm:justify-end text-xs sm:text-sm md:text-[10px] lg:text-[11px] xl:text-[13px] 2xl:text-[16px]">
           {/* Visible items - show all on desktop */}
           {TOPBAR_ITEMS.map((item) => {
             const hasSubmenu = item.submenu && item.submenu.length > 0;

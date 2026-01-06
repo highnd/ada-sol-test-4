@@ -253,19 +253,10 @@ const Navbar = () => {
 
   return (
     <>
-      <div 
-        className="bg-white h-[72px] relative shadow-[0_2px_8px_0_rgba(0,0,0,0.15)]"
-        style={{
-          paddingLeft: "clamp(0.5rem, 4vw + 0.5rem, 8rem)",
-          paddingRight: "clamp(0.5rem, 4vw + 0.5rem, 8rem)",
-        }}
-      >
+      <div className="bg-white h-[72px] relative shadow-[0_2px_8px_0_rgba(0,0,0,0.15)]">
         <nav
           ref={navRef}
-          className=" h-full flex flex-col lg:flex-row items-center justify-between gap-3 lg:gap-0 py-2 lg:py-0 pr-0 "
-          style={{
-            paddingLeft: "clamp(0.5rem, 1vw + 0.25rem, 1rem)",
-          }}
+          className=" h-full flex flex-col lg:flex-row items-center justify-between gap-3 lg:gap-0 py-2  px-2  xl:px-24  "
           dir="rtl"
         >
           {/* right: logo - hidden on mobile (shown in drawer), visible on desktop */}
@@ -283,7 +274,7 @@ const Navbar = () => {
           </div>
 
           {/* center: menu items - hidden on mobile, visible on desktop */}
-          <ul className="hidden lg:flex items-center gap-2 lg:gap-3 xl:gap-6 2xl:gap-8  ">
+          <ul className="hidden lg:flex items-center gap-2 xl:gap-4 2xl:gap-8  ">
             {PRODUCTS_MENU_ITEMS.map((item) => {
               const isActive = activeItemId === item.label;
               const hasSubmenu = item.submenu && item.submenu.length > 0;

@@ -45,7 +45,7 @@ const Hero = () => {
         </div>
 
         {/*  left part  (images) sliders */}
-        <div className="w-full xl:w-[65%] relative  overflow-hidden flex items-center justify-center">
+        <div className="w-full xl:w-[65%] relative lg:mt-0 mt-10 overflow-hidden flex items-center justify-center">
           <Image
             src={"/hero/hero-section-image-2.webp"}
             alt={""}
