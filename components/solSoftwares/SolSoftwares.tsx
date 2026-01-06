@@ -38,7 +38,7 @@ const SolSoftwares = () => {
               <h2 className="extrabold-fanum-font text-xl sm:text-2xl lg:text-4xl 2xl:text-5xl text-[#0A2745] leading-snug">
                 نرم افزار اتوماسیون تغذیه
               </h2>
-              <p className="fanum-font text-sm sm:text-base 2xl:text-xl text-[#0A2745] leading-loose">
+              <p className="fanum-font text-sm sm:text-base 2xl:text-xl text-[#0A2745] leading-loose text-justify">
                 اتوماسیون تغذیه سیستمی پیشرفته که بصورت نرم افزار تحت وب
                 فرآیندهای مدیریت سلف غذاخوری در سازمان‌ها، از جمله رزرو غذا،
                 سفارش‌دهی، مدیریت منو، کنترل موجودی و گزارش‌گیری را به‌صورت
@@ -56,7 +56,7 @@ const SolSoftwares = () => {
                     <span className="flex h-6 w-6 -rotate-40 items-center justify-center text-[#FF4C00] group-hover:text-[#0A2745]  text-lg leading-none">
                       <FaArrowLeft />
                     </span>
-                    <p className="bold-fanum-font text-xs sm:text-sm 2xl:text-lg text-[#0A2745] group-hover:text-[#FF4C00] transition-colors duration-100 leading-relaxed text-right">
+                    <p className="bold-fanum-font text-xs sm:text-sm 2xl:text-lg text-[#0A2745] group-hover:text-[#FF4C00] transition-colors duration-100 leading-relaxed text-right text-justify">
                       {feature.label}
                     </p>
                   </div>

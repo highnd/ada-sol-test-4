@@ -26,7 +26,7 @@ const Hero = () => {
             نرم‌افزار رستورانی و اتوماسیون تغذیه
           </h1>
 
-          <p className="py-6 sm:py-8 md:py-8 lg:py-12 font-light leading-relaxed text-center lg:text-right text-base sm:text-lg xl:text-[16px] 2xl:text-[24px] fanum-font">
+          <p className="py-6 sm:py-8 md:py-8 lg:py-12 font-light leading-relaxed text-center lg:text-justify text-base sm:text-lg xl:text-[16px] 2xl:text-[24px] fanum-font">
             محصولی از شرکت نرم افزاری آدا با تکنولوژی به‌روز، جهت ساده‌سازی
             فرایند‌های مدیریتی و حسابداری در رستوران شما
           </p>

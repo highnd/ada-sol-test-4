@@ -1,10 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import { IoStar, IoStarOutline } from "react-icons/io5";
+import { IoStar, IoStarOutline, IoStarHalf } from "react-icons/io5";
 
 const Stars = () => {
-  const DEFAULT_RATING = 4; // Product's average rating
+  const DEFAULT_RATING = 4.5; // Product's average rating
 
   const [temporaryRating, setTemporaryRating] = useState(0); // For brief visual flash only
   const [finalUserRating, setFinalUserRating] = useState(0); // Saved permanently for the message
@@ -42,12 +42,16 @@ const Stars = () => {
   return (
     <div className="flex flex-col items-start pt-4 sm:pt-5 md:pt-6">
       <div className="flex flex-wrap items-center gap-2 text-[#0A2745] regular-fanum-font">
-        <p className="pt-1 text-sm sm:text-base">از {reviewCount.toLocaleString("fa-IR")} نظر</p>
+        <p className="pt-1 text-sm sm:text-base">
+          <span className="text-[#FF4C00] font-bold">{DEFAULT_RATING.toFixed(1)}</span>
+          {" "}میانگین | از <span className="text-[#FF4C00] font-bold">{reviewCount.toLocaleString("fa-IR")}</span> نظر
+        </p>
 
         {/* Stars - filling from right to left */}
         <div className="flex flex-row-reverse gap-1">
           {[1, 2, 3, 4, 5].map((star) => {
             const isFilled = displayedRating >= star;
+            const isHalfFilled = displayedRating >= star - 0.5 && displayedRating < star;
 
             return (
               <button
@@ -60,7 +64,9 @@ const Stars = () => {
                 className="transition-all duration-300 hover:scale-110 focus:outline-none"
               >
                 {isFilled ? (
-                  <IoStar className="text-xl sm:text-2xl text-[#0A2745]" />
+                  <IoStar className="text-xl sm:text-2xl text-[#FF4C00]" />
+                ) : isHalfFilled ? (
+                  <IoStarHalf className="text-xl sm:text-2xl text-[#FF4C00]" />
                 ) : (
                   <IoStarOutline className="text-xl sm:text-2xl text-gray-400" />
                 )}

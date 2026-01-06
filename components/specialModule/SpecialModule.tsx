@@ -47,7 +47,7 @@ const FeatureCircle: React.FC<FeatureCircleProps> = ({
     </div>
     <p
       className={
-        "text-[#0A2745] text-xs sm:text-sm md:text-xs lg:text-sm bold-fanum-font max-w-[200px] md:max-w-[140px] lg:max-w-[180px] xl:hidden"
+        "text-[#0A2745] text-xs sm:text-sm md:text-xs lg:text-sm bold-fanum-font max-w-[200px] md:max-w-[140px] lg:max-w-[180px] xl:hidden text-justify"
       }
     >
       {text}
@@ -69,7 +69,7 @@ const SpecialModule = () => {
         {/* Title */}
         <h2
           className={
-            "extrabold-fanum-font text-[#0A2745] text-2xl md:text-2xl lg:text-4xl  2xl:text-5xl text-center mb-10 sm:mb-12 md:mb-16 lg:mb-36"
+            "extrabold-fanum-font text-[#0A2745] text-2xl md:text-2xl lg:text-4xl  2xl:text-5xl text-center mb-10 sm:mb-12 md:mb-16 lg:mb-36 cursor-pointer"
           }
         >
           ماژول‌های تخصصی نرم‌افزار مدیریت رستوران سول
@@ -88,7 +88,7 @@ const SpecialModule = () => {
               />
               <p
                 className={
-                  "text-[#0A2745] text-xs sm:text-sm 2xl:text-lg bold-fanum-font max-w-[200px] absolute bottom-15 2xl:right-70 right-35 hidden xl:block"
+                  "text-[#0A2745] text-xs sm:text-sm 2xl:text-lg bold-fanum-font max-w-[200px] absolute bottom-15 2xl:right-70 right-35 hidden xl:block cursor-pointer z-60 text-justify"
                 }
               >
                 {"نرم افزار مدیریت شعب"}
@@ -106,7 +106,7 @@ const SpecialModule = () => {
               />
               <p
                 className={
-                  "text-[#0A2745] text-xs sm:text-sm 2xl:text-lg bold-fanum-font max-w-[200px] absolute bottom-15 2xl:right-70 right-35 hidden xl:block"
+                  "text-[#0A2745] text-xs sm:text-sm 2xl:text-lg bold-fanum-font max-w-[200px] absolute bottom-15 2xl:right-70 right-35 hidden xl:block cursor-pointer z-60 text-justify"
                 }
               >
                 {"منو دیجیتال (QR Code)"}
@@ -124,7 +124,7 @@ const SpecialModule = () => {
               />
               <p
                 className={
-                  "text-[#0A2745] text-xs sm:text-sm 2xl:text-lg bold-fanum-font max-w-[200px] absolute bottom-15 right-42 hidden xl:block"
+                  "text-[#0A2745] text-xs sm:text-sm 2xl:text-lg bold-fanum-font max-w-[200px] absolute bottom-15 right-42 hidden xl:block cursor-pointer z-60"
                 }
               >
                 {"انبارداری و کنترل موجودی"}
@@ -141,7 +141,7 @@ const SpecialModule = () => {
               />
               <p
                 className={
-                  "text-[#0A2745] text-xs sm:text-sm 2xl:text-lg bold-fanum-font max-w-[200px] absolute bottom-15 2xl:right-70 right-35 hidden xl:block"
+                  "text-[#0A2745] text-xs sm:text-sm 2xl:text-lg bold-fanum-font max-w-[200px] absolute bottom-15 2xl:right-70 right-35 hidden xl:block cursor-pointer z-60 text-justify"
                 }
               >
                 {"مالی و حسابداری"}
@@ -159,7 +159,7 @@ const SpecialModule = () => {
               />
               <p
                 className={
-                  "text-[#0A2745] text-xs sm:text-sm 2xl:text-lg bold-fanum-font max-w-[200px] absolute bottom-15 2xl:right-70 right-35 hidden xl:block"
+                  "text-[#0A2745] text-xs sm:text-sm 2xl:text-lg bold-fanum-font max-w-[200px] absolute bottom-15 2xl:right-70 right-35 hidden xl:block cursor-pointer z-60 text-justify"
                 }
               >
                 {"نظرسنجی هوشمند"}
@@ -198,7 +198,7 @@ const SpecialModule = () => {
 
               <p
                 className={
-                  "text-[#0A2745] text-xs sm:text-sm 2xl:text-lg bold-fanum-font text-center max-w-[150px] absolute bottom-15 2xl:left-68 left-35 hidden xl:block"
+                  "text-[#0A2745] text-xs sm:text-sm 2xl:text-lg bold-fanum-font text-center max-w-[150px] absolute bottom-15 2xl:left-68 left-35 hidden xl:block cursor-pointer z-60"
                 }
               >
                 {"باشگاه مشتریان هوشمند"}
@@ -216,7 +216,7 @@ const SpecialModule = () => {
               />
               <p
                 className={
-                  "text-[#0A2745] text-xs sm:text-sm 2xl:text-lg bold-fanum-font text-center max-w-[150px] absolute bottom-15 2xl:left-68 left-35 hidden xl:block"
+                  "text-[#0A2745] text-xs sm:text-sm 2xl:text-lg bold-fanum-font text-center max-w-[150px] absolute bottom-15 2xl:left-68 left-35 hidden xl:block cursor-pointer z-60"
                 }
               >
                 {"رزرو و نوبت دهی هوشمند"}
@@ -234,7 +234,7 @@ const SpecialModule = () => {
               />
               <p
                 className={
-                  "text-[#0A2745] text-xs sm:text-sm 2xl:text-lg bold-fanum-font 2xl:max-w-[240px] max-w-[140px] absolute bottom-15 2xl:left-68 left-35 hidden xl:block"
+                  "text-[#0A2745] text-xs sm:text-sm 2xl:text-lg bold-fanum-font 2xl:max-w-[240px] max-w-[140px] absolute bottom-15 2xl:left-68 left-35 hidden xl:block cursor-pointer z-60 text-justify"
                 }
               >
                 {"پیام کوتاه رستوران"}
@@ -251,7 +251,7 @@ const SpecialModule = () => {
               />
               <p
                 className={
-                  "text-[#0A2745] text-xs sm:text-sm 2xl:text-lg bold-fanum-font text-center max-w-[150px] absolute bottom-15 2xl:left-72 left-35 hidden xl:block"
+                  "text-[#0A2745] text-xs sm:text-sm 2xl:text-lg bold-fanum-font text-center max-w-[150px] absolute bottom-15 2xl:left-72 left-35 hidden xl:block cursor-pointer z-60"
                 }
               >
                 {"درگاه پرداخت"}
@@ -269,7 +269,7 @@ const SpecialModule = () => {
               />
               <p
                 className={
-                  "text-[#0A2745] text-xs sm:text-sm 2xl:text-lg bold-fanum-font text-center 2xl:max-w-[240px] max-w-[140px] absolute bottom-15 2xl:left-64 left-35 hidden xl:block"
+                  "text-[#0A2745] text-xs sm:text-sm 2xl:text-lg bold-fanum-font text-center 2xl:max-w-[240px] max-w-[140px] absolute bottom-15 2xl:left-64 left-35 hidden xl:block cursor-pointer z-60"
                 }
               >
                 {"مدیریت پیک و سفارش‌های بیرون‌بر با GPS"}

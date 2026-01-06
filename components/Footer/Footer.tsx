@@ -162,7 +162,7 @@ const Footer: React.FC = () => {
               })}
             </div>
 
-            <div className={TRUST_BADGES_CONTAINER_CLASSES}>
+            <div className={`${TRUST_BADGES_CONTAINER_CLASSES} hidden lg:flex`}>
               {TRUST_BADGES.map((badge) => (
                 <a
                   key={badge.name}
@@ -186,9 +186,12 @@ const Footer: React.FC = () => {
           </div>
 
           {/* Left Wrapper: محصولات، منابع، پل‌های ارتباطی (۲/۳ عرض) */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+          <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
             {/* Products Column */}
-            <nav className={COLUMN_CLASSES} aria-label="محصولات سول">
+            <nav
+              className={`${COLUMN_CLASSES} order-2 lg:order-1`}
+              aria-label="محصولات سول"
+            >
               <h3 className={COLUMN_TITLE_CLASSES}>محصولات سول</h3>
               <ul className={LINK_LIST_CLASSES}>
                 {PRODUCTS.map((product) => (
@@ -202,7 +205,10 @@ const Footer: React.FC = () => {
             </nav>
 
             {/* Resources Column */}
-            <nav className={COLUMN_CLASSES} aria-label="منابع">
+            <nav
+              className={`${COLUMN_CLASSES} order-3 lg:order-2`}
+              aria-label="منابع"
+            >
               <h3 className={COLUMN_TITLE_CLASSES}>منابع</h3>
               <ul className={LINK_LIST_CLASSES}>
                 {RESOURCES.map((resource) => (
@@ -216,7 +222,7 @@ const Footer: React.FC = () => {
             </nav>
 
             {/* Contact Column */}
-            <div className={COLUMN_CLASSES}>
+            <div className={`${COLUMN_CLASSES} order-1 lg:order-3`}>
               <h3 className={COLUMN_TITLE_CLASSES}>پل‌های ارتباطی</h3>
               <nav aria-label="لینک‌های ارتباطی">
                 <ul className={LINK_LIST_CLASSES}>
@@ -297,6 +303,31 @@ const Footer: React.FC = () => {
               </address>
             </div>
           </div>
+        </div>
+
+        {/* Trust Badges - Mobile Only (Bottom) */}
+        <div
+          className={`${TRUST_BADGES_CONTAINER_CLASSES} flex lg:hidden mt-6 sm:mt-8`}
+        >
+          {TRUST_BADGES.map((badge) => (
+            <a
+              key={badge.name}
+              href={badge.href}
+              target={badge.href !== "#" ? "_blank" : undefined}
+              rel={badge.href !== "#" ? "noopener noreferrer" : undefined}
+              className={TRUST_BADGE_CARD_CLASSES}
+              aria-label={badge.alt}
+            >
+              <Image
+                src={badge.src}
+                alt={badge.alt}
+                width={80}
+                height={80}
+                className={TRUST_BADGE_IMAGE_CLASSES}
+                loading="lazy"
+              />
+            </a>
+          ))}
         </div>
 
         {/* Copyright Bar */}

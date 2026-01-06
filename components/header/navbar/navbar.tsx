@@ -356,7 +356,7 @@ const Navbar = () => {
                                         {sub.label}
                                       </span>
                                       {hasNestedSubmenu && (
-                                        <IoChevronDownOutline className="text-xs text-[#FF4C00] shrink-0" />
+                                        <IoChevronDownOutline className="text-xs text-[#FF4C00] shrink-0 rotate-90" />
                                       )}
                                     </Link>
                                     {/* Nested submenu */}

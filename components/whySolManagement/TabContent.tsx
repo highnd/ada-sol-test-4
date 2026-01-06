@@ -94,14 +94,14 @@ export const TabContent = React.memo(
           <div className={TEXT_BOXES_CONTAINER_CLASSES}>
             {/* White Text Box - Top */}
             <div className={TEXT_BOX_WHITE_CLASSES}>
-              <p className={TEXT_PARAGRAPH_CLASSES}>
+              <p className={`${TEXT_PARAGRAPH_CLASSES} text-justify`}>
                 {selectedPill.whiteBoxText}
               </p>
             </div>
 
             {/* Dark Blue Text Box - Bottom */}
             <div className={TEXT_BOX_DARK_CLASSES}>
-              <p className={TEXT_PARAGRAPH_CLASSES}>
+              <p className={`${TEXT_PARAGRAPH_CLASSES} text-justify`}>
                 {selectedPill.darkBoxText}
               </p>
             </div>

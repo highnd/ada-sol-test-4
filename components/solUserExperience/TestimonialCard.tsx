@@ -69,7 +69,7 @@ export default function TestimonialCard({ data }: Props) {
 
       {/* Text Container */}
       <div className={TEXT_CONTAINER_CLASSES}>
-        <p className={isExpanded ? TEXT_CLASSES : TEXT_TRUNCATED_CLASSES}>
+        <p className={`${isExpanded ? TEXT_CLASSES : TEXT_TRUNCATED_CLASSES} text-justify`}>
           {displayText}
         </p>
 
@@ -84,7 +84,7 @@ export default function TestimonialCard({ data }: Props) {
       {/* Footer */}
       <div className={FOOTER_CLASSES}>
         <div className="text-right">
-          <p className={NAME_CLASSES}>{data.name}</p>
+          <p className={`${NAME_CLASSES} text-justify`}>{data.name}</p>
         </div>
 
         {/* Stars */}
@@ -104,7 +104,7 @@ export default function TestimonialCard({ data }: Props) {
               );
             })}
           </div>
-          <p className={ROLE_CLASSES}>{data.role}</p>
+          <p className={`${ROLE_CLASSES} text-justify`}>{data.role}</p>
         </div>
       </div>
     </article>

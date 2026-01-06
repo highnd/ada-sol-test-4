@@ -137,7 +137,7 @@ const Businesses: React.FC = () => {
           <h2 className="extrabold-fanum-font text-2xl md:text-2xl lg:text-4xl 2xl:text-5xl text-[#0A2745] mb-6">
             سول؛ سازگار با انواع کسب و کار
           </h2>
-          <p className="bold-fanum-font text-xs sm:text-sm md:text-lg leading-relaxed text-[#1F3B57CC] ">
+          <p className="bold-fanum-font text-xs sm:text-sm md:text-lg leading-relaxed text-[#1F3B57CC] text-justify">
             نرم‌افزار مدیریت رستوران سول برای انواع رستوران‌ها، فودکورت‌ها،
             کافی‌شاپ‌ها و فست‌فودها طراحی شده است. با قابلیت مدیریت یکپارچه شعب،
             امکان کنترل لحظه‌ای همه امور مهم کسب‌وکار را بدون محدودیت فراهم

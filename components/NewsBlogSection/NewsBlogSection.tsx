@@ -52,7 +52,7 @@ const CARD_CLASSES =
   "w-full  bg-[#FFF6F2] rounded-[24px] hover:shadow-lg p-4 sm:p-6 flex flex-col gap-4 sm:gap-5 h-full  cursor-pointer transition-shadow duration-300";
 
 const CARD_IMAGE_CLASSES =
-  " w-46 h-46 xl:w-44 xl:h-44 2xl:w-64 2xl:h-64 rounded-full object-cover absolute 2xl:top-0 top-12 left-[calc(50%-92px)] sm:left-[25%] md:left-17 lg:left-28 xl:left-10 2xl:left-11 ";
+  " w-46 h-46 xl:w-44 xl:h-44 2xl:w-64 2xl:h-64 rounded-full object-cover absolute 2xl:top-0 top-12 2xl:left-[calc(50%-120px)] left-[calc(50%-90px)] ";
 
 const CARD_TITLE_CLASSES =
   "extrabold-fanum-font text-[#0A2745] text-lg sm:text-xl  2xl:text-2xl leading-tight pt-36";

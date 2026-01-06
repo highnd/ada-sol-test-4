@@ -101,7 +101,7 @@ export default function Topbar() {
                     aria-haspopup="true"
                   >
                     <IoChevronDownOutline
-                      className={`text-[10px] sm:text-[12px] md:text-[14px] mt-0.5 transition-transform ${
+                      className={`text-[10px] sm:text-[12px] md:text-[14px] mt-0.5 mx-1 transition-transform ${
                         isSubmenuOpen ? "rotate-180" : ""
                       }`}
                     />

@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import Container from "../ui/container";
 import Dropdown from "../ui/dropdown";
-import { IoIosArrowBack, IoIosSend } from "react-icons/io";
+import { IoIosSend, IoMdMail, IoMdCall, IoMdChatbubbles } from "react-icons/io";
 import type { DropdownOption } from "../ui/dropdown";
 
 // Pre-computed className constants
@@ -18,7 +18,7 @@ const FORM_CARD_CLASSES =
   "w-full xl:w-1/2 bg-[#FF4C00] rounded-2xl sm:rounded-[36px] p-6 sm:p-8 md:p-10 lg:p-12 flex flex-col gap-4 sm:gap-5 md:gap-6";
 
 const FORM_FIELD_CONTAINER_CLASSES =
-  "flex md:flex-row flex-col items-center  w-full";
+  "flex lg:flex-row flex-col items-center  w-full";
 
 const FORM_LABEL_CLASSES =
   "text-white regular-fanum-font text-xs sm:text-sm md:text-base whitespace-nowrap flex-shrink-0 min-w-full sm:min-w-[120px] py-2 md:py-0 md:min-w-[130px] md:ml-6 lg:ml-8 xl:ml-10 text-right";
@@ -45,10 +45,10 @@ const DESCRIPTION_CLASSES =
   "regular-fanum-font text-[#0A2745] text-base sm:text-lg md:text-2xl leading-relaxed ";
 
 const CONTACT_ITEMS_CONTAINER_CLASSES =
-  "flex flex-col sm:flex-row-reverse gap-4 sm:gap-6 md:gap-24 items-start sm:items-center justify-end";
+  "flex flex-row-reverse gap-4 sm:gap-6 md:gap-24 items-start sm:items-center justify-end ";
 
 const CONTACT_ITEM_CLASSES =
-  "flex items-center gap-2 sm:gap-3 text-[#0A2745] regular-fanum-font text-sm sm:text-base 2xl:text-lg";
+  "flex items-center gap-2 sm:gap-3 text-[#0A2745] regular-fanum-font text-sm sm:text-base 2xl:text-lg cursor-pointer";
 
 const CONTACT_ICON_CLASSES =
   "w-8 h-8 sm:w-9 sm:h-9 2xl:w-12 2xl:h-10 rounded-full bg-[#FF4C00] flex items-center justify-center flex-shrink-0 transition-colors duration-200 group";
@@ -100,7 +100,7 @@ const ConsultingAndDemo: React.FC = () => {
                 قبل خرید، نرم‌افزار را کامل تست کنید!
               </span>
             </h2>
-            <p className={DESCRIPTION_CLASSES}>
+            <p className={`${DESCRIPTION_CLASSES} text-justify`}>
               برای انتخاب بهترین راهکار متناسب با کسب‌وکارتان، همین حالا درخواست
               مشاوره رایگان ثبت کنید. مشاوران ما در کوتاه‌ترین زمان با شما تماس
               می‌گیرند و راهنمایی تخصصی ارائه می‌دهند.
@@ -108,20 +108,20 @@ const ConsultingAndDemo: React.FC = () => {
             <div className={CONTACT_ITEMS_CONTAINER_CLASSES}>
               <div className={CONTACT_ITEM_CLASSES}>
                 <div className={CONTACT_ICON_CLASSES}>
-                  <IoIosArrowBack className={CONTACT_ICON_ICON_CLASSES} />
+                  <IoMdChatbubbles className={CONTACT_ICON_ICON_CLASSES} />
                 </div>
                 <span>مشاوره</span>
               </div>
 
               <div className={CONTACT_ITEM_CLASSES}>
                 <div className={CONTACT_ICON_CLASSES}>
-                  <IoIosArrowBack className={CONTACT_ICON_ICON_CLASSES} />
+                  <IoMdMail className={CONTACT_ICON_ICON_CLASSES} />
                 </div>
                 <span>info@sol.ir</span>
               </div>
               <div className={CONTACT_ITEM_CLASSES}>
                 <div className={CONTACT_ICON_CLASSES}>
-                  <IoIosArrowBack className={CONTACT_ICON_ICON_CLASSES} />
+                  <IoMdCall className={CONTACT_ICON_ICON_CLASSES} />
                 </div>
                 <span dir="ltr">۰۲۱ ۹۱۰۰ ۲۰۳۷</span>
               </div>

@@ -87,7 +87,7 @@ const HardwareBanner: React.FC = () => {
           </h1>
 
           {/* Subtitle */}
-          <p className={SUBTITLE_CLASSES}>
+          <p className={`${SUBTITLE_CLASSES} text-justify`}>
             مشاوران ما همراه شما هستند تا بهترین انتخاب را متناسب با نوع
             کسب‌وکارتان انجام دهند.
           </p>

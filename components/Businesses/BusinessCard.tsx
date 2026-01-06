@@ -40,7 +40,7 @@ const BusinessCard: React.FC<BusinessCardProps> = ({ category }) => {
       <Link href={category.href} className={linkClassName} prefetch={false}>
         {/* Label - بالا یا پایین بر اساس layout */}
         {isTextTop && (
-          <p className={`${TEXT_CLASSES} mb-8 sm:mb-9`}>{category.title}</p>
+          <p className={`${TEXT_CLASSES} mb-8 sm:mb-9 text-justify`}>{category.title}</p>
         )}
 
         {/* Circular image container - چسبیده به کپسول */}
@@ -57,7 +57,7 @@ const BusinessCard: React.FC<BusinessCardProps> = ({ category }) => {
 
         {/* Label - بالا یا پایین بر اساس layout */}
         {!isTextTop && (
-          <p className={`${TEXT_CLASSES} mt-8 sm:mt-9`}>{category.title}</p>
+          <p className={`${TEXT_CLASSES} mt-8 sm:mt-9 text-justify`}>{category.title}</p>
         )}
 
         {/* Floating Action Button (FAB) - decorative, inside Link so no separate button needed */}

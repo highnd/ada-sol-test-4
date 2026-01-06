@@ -29,14 +29,14 @@ const WhySol = () => {
         </h2>
 
         {/* Tabs */}
-        <div className="flex flex-wrap justify-center gap-2 sm:gap-3 md:gap-4 mb-8 sm:mb-12 md:mb-16 px-4">
+        <div className="flex flex-wrap justify-center gap-2 sm:gap-3 md:gap-4 mb-8 sm:mb-12 md:mb-16 md:px-4">
           {tabs.map((tab, index) => (
             <Button
               key={index}
               variant={activeTab === index ? "solid" : "outline"}
               color="#FF4C00"
               onClick={() => setActiveTab(index)}
-              className="px-4 sm:px-5 md:px-6 py-2 sm:py-2.5 md:py-3 bold-fanum-font  text-xs sm:text-sm md:text-base min-w-0 sm:min-w-[140px] md:min-w-[160px]"
+              className="px-4 sm:px-5 md:px-6 py-1 sm:py-2.5 md:py-3 bold-fanum-font  text-[10px]  md:text-base min-w-0 md:w-[200px] w-[130px]"
             >
               {tab.title}
             </Button>

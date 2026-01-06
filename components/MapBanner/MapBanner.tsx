@@ -59,13 +59,13 @@ const MapBanner: React.FC = () => {
             <h2 className={HEADING_CLASSES}>انتخاب رستوران‌های سراسر ایران</h2>
 
             {/* Paragraph 1 */}
-            <p className={PARAGRAPH_CLASSES}>
+            <p className={`${PARAGRAPH_CLASSES} text-justify`}>
               از رستوران‌های کوچک محلی تا شعبات بزرگ، سول به‌عنوان کامل‌ترین
               نرم‌افزار مدیریت رستوران انتخاب شده است.
             </p>
 
             {/* Paragraph 2 */}
-            <p className={PARAGRAPH_CLASSES}>
+            <p className={`${PARAGRAPH_CLASSES} text-justify`}>
               با قابلیت‌هایی مانند مدیریت سفارش‌ها، حسابداری دقیق، گزارش‌گیری
               پیشرفته و اتصال به دستگاه‌های کارتخوان، سول تجربه‌ای روان، سریع و
               بدون خطا را برای مدیران رستوران فراهم می‌کند.
