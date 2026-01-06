@@ -5,7 +5,7 @@ import type { FeaturePill } from "@/data/featurePills";
 
 // Pre-computed className constants
 const PILL_BASE_CLASSES =
-  "bold-fanum-font rounded-full px-4 sm:px-5 lg:px-5 xl:px-6 py-2 sm:py-2.5 lg:py-2.5 xl:py-3.5 text-xs sm:text-sm lg:text-sm xl:text-base transition-all duration-300 flex items-center justify-center text-center h-full min-w-[140px] sm:min-w-[160px] lg:min-w-[160px] xl:min-w-0 xl:w-full shrink-0 snap-start";
+  "bold-fanum-font rounded-full px-4 sm:px-2 lg:px-3 xl:px-4 py-1 lg:py-1.5 xl:py-2 2xl:py-3 text-xs sm:text-[12px]   2xl:text-[16px] transition-all duration-300 flex items-center justify-center text-center h-full min-w-[140px] sm:min-w-[160px] lg:min-w-[160px] xl:min-w-0 xl:w-full shrink-0 snap-start";
 
 const PILL_WHITE_CLASSES =
   "bg-[#FFF6F2] text-[#0A2745] hover:bg-[#FFE8DC] hover:shadow-md border border-transparent hover:border-[#FFE8DC]";

@@ -93,7 +93,7 @@ const SpecialModule = () => {
               >
                 {"نرم افزار مدیریت شعب"}
               </p>
-              <div className="absolute -top-2 right-62 rotate-180 hidden xl:block">
+              <div className="absolute -top-2 right-62 rotate-180 hidden 2xl:block">
                 <AngleLineToBottom />
               </div>
             </div>
@@ -111,7 +111,7 @@ const SpecialModule = () => {
               >
                 {"منو دیجیتال (QR Code)"}
               </p>
-              <div className="absolute top-3 right-62 rotate-180 hidden xl:block">
+              <div className="absolute top-3 right-62 rotate-180 hidden 2xl:block">
                 <AngleLineToTop />
               </div>
             </div>
@@ -146,7 +146,7 @@ const SpecialModule = () => {
               >
                 {"مالی و حسابداری"}
               </p>
-              <div className="absolute -top-2 right-62 rotate-180 hidden xl:block">
+              <div className="absolute -top-2 right-62 rotate-180 hidden 2xl:block">
                 <AngleLineToBottom />
               </div>
             </div>
@@ -164,7 +164,7 @@ const SpecialModule = () => {
               >
                 {"نظرسنجی هوشمند"}
               </p>
-              <div className="absolute top-3 right-62 rotate-180 hidden xl:block">
+              <div className="absolute top-3 right-62 rotate-180 hidden 2xl:block">
                 <AngleLineToTop />
               </div>
             </div>
@@ -203,7 +203,7 @@ const SpecialModule = () => {
               >
                 {"باشگاه مشتریان هوشمند"}
               </p>
-              <div className="absolute -top-2 left-62 hidden xl:block">
+              <div className="absolute -top-2 left-62 hidden 2xl:block">
                 <AngleLineToTop />
               </div>
             </div>
@@ -221,7 +221,7 @@ const SpecialModule = () => {
               >
                 {"رزرو و نوبت دهی هوشمند"}
               </p>
-              <div className="absolute top-3 left-62 hidden xl:block">
+              <div className="absolute top-3 left-62 hidden 2xl:block">
                 <AngleLineToBottom />
               </div>
             </div>
@@ -256,7 +256,7 @@ const SpecialModule = () => {
               >
                 {"درگاه پرداخت"}
               </p>
-              <div className="absolute -top-2 left-62 hidden xl:block">
+              <div className="absolute -top-2 left-62 hidden 2xl:block">
                 <AngleLineToTop />
               </div>
             </div>
@@ -274,7 +274,7 @@ const SpecialModule = () => {
               >
                 {"مدیریت پیک و سفارش‌های بیرون‌بر با GPS"}
               </p>
-              <div className="absolute top-3 left-62 hidden xl:block">
+              <div className="absolute top-3 left-62 hidden 2xl:block">
                 <AngleLineToBottom />
               </div>
             </div>
