@@ -283,7 +283,7 @@ const Navbar = () => {
                 <li key={item.label} className="relative">
                   <button
                     type="button"
-                    className="relative cursor-pointer text-[#0A2745] transition-colors text-xs lg:text-xs xl:text-[14px] 2xl:text-[18px] leading-[25px] flex items-center hover:text-[#FF4C00] after:absolute after:bottom-[-4px] after:right-0 after:left-0 after:h-[2px] 
+                    className="relative cursor-pointer text-[#0A2745] transition-colors text-xs lg:text-xs xl:text-[14px] 2xl:text-[16px] leading-[25px] flex items-center hover:text-[#FF4C00] after:absolute after:bottom-[-4px] after:right-0 after:left-0 after:h-[2px] 
                     after:bg-[#FF4C00] after:scale-x-0 after:origin-right after:transition-transform after:duration-300 after:ease-out 
                     hover:after:scale-x-100 aria-expanded:after:scale-x-100"
                     onClick={() =>
