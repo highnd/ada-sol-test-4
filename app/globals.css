@@ -1,0 +1,574 @@
+@import "tailwindcss";
+
+/* YEKANBAKH Font Family - @font-face declarations */
+@font-face {
+  font-family: "YEKANBAKH";
+  src: url("/fonts/YEKANBAKH-THIN.TTF") format("truetype");
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "YEKANBAKH";
+  src: url("/fonts/YEKANBAKH-LIGHT.TTF") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* YEKANBAKHFANUM Font Family - @font-face declarations */
+@font-face {
+  font-family: "YEKANBAKHFANUM";
+  src: url("/fonts/YEKANBAKHFANUM-THIN.TTF") format("truetype");
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "YEKANBAKHFANUM";
+  src: url("/fonts/YEKANBAKHFANUM-LIGHT.TTF") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "YEKANBAKHFANUM";
+  src: url("/fonts/YEKANBAKHFANUM-REGULAR.TTF") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "YEKANBAKHFANUM";
+  src: url("/fonts/YEKANBAKHFANUM-SEMIBOLD.TTF") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "YEKANBAKHFANUM";
+  src: url("/fonts/YEKANBAKHFANUM-BOLD.TTF") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "YEKANBAKHFANUM";
+  src: url("/fonts/YEKANBAKHFANUM-EXTRABOLD.TTF") format("truetype");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "YEKANBAKHFANUM";
+  src: url("/fonts/YEKANBAKHFANUM-BLACK.TTF") format("truetype");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "YEKANBAKHFANUM";
+  src: url("/fonts/YEKANBAKHFANUM-EXTRABLACK.TTF") format("truetype");
+  font-weight: 950;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  --font-yekanbakh: "YEKANBAKH", Arial, Helvetica, sans-serif;
+  --font-yekanbakh-fanum: "YEKANBAKHFANUM", Arial, Helvetica, sans-serif;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Respect user preferences for reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-yekanbakh);
+  --font-mono: var(--font-yekanbakh-fanum);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-yekanbakh-fanum), Arial, Helvetica, sans-serif;
+}
+
+/* Font utility classes - Use these classes to apply fonts */
+/* .regular-font {
+  font-family: var(--font-yekanbakh);
+  font-weight: 400;
+}
+
+.bold-font {
+  font-family: var(--font-yekanbakh);
+  font-weight: 700;
+}
+
+.extrabold-font {
+  font-family: var(--font-yekanbakh);
+  font-weight: 900;
+} */
+
+.fanum-font {
+  font-family: var(--font-yekanbakh-fanum);
+  font-weight: 400;
+}
+.regular-fanum-font {
+  font-family: var(--font-yekanbakh-fanum);
+  font-weight: 400;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: "liga" 1, "kern" 1;
+}
+
+.bold-fanum-font {
+  font-family: var(--font-yekanbakh-fanum);
+  font-weight: 600;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: "liga" 1, "kern" 1;
+}
+
+.extrabold-fanum-font {
+  font-family: var(--font-yekanbakh-fanum);
+  font-weight: 800;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: "liga" 1, "kern" 1;
+}
+
+/* Phone icon ring animation */
+@keyframes phoneRing {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+  10% {
+    transform: rotate(-10deg) scale(1.1);
+  }
+  20% {
+    transform: rotate(10deg) scale(1.1);
+  }
+  30% {
+    transform: rotate(-10deg) scale(1.1);
+  }
+  40% {
+    transform: rotate(10deg) scale(1.1);
+  }
+  50% {
+    transform: rotate(0deg) scale(1);
+  }
+  100% {
+    transform: rotate(0deg) scale(1);
+  }
+}
+
+@keyframes phoneRingPulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(10, 39, 69, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 8px rgba(10, 39, 69, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(10, 39, 69, 0);
+  }
+}
+
+.phone-ring-animation {
+  animation: phoneRing 1.5s ease-in-out infinite,
+    phoneRingPulse 2s ease-in-out infinite;
+  transform-origin: center;
+  display: inline-block;
+}
+
+/* Infinite scroll animation for brand logos */
+@keyframes brandScroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.brand-scroll-animation {
+  animation: brandScroll 30s linear infinite;
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+.brand-scroll-animation:hover {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .brand-scroll-animation {
+    animation: none;
+  }
+}
+@keyframes rotate {
+  100% {
+    transform: rotate(1turn);
+  }
+}
+
+.rainbow::before {
+  content: "";
+  position: absolute;
+  z-index: -2;
+  left: -50%;
+  top: -50%;
+  width: 200%;
+  height: 200%;
+  background-position: 100% 50%;
+  background-repeat: no-repeat;
+  background-size: 50% 30%;
+  filter: blur(6px);
+  background-image: linear-gradient(#0a2745);
+  animation: rotate 4s linear infinite;
+}
+/* COMMON PULSE - Comet effect with fading tail and glow */
+.angle-pulse-top,
+.angle-pulse-bottom {
+  position: absolute;
+  width: 30px;
+  height: 3px;
+  /* Gradient: fading tail on left, bright head on right */
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 76, 0, 0.03) 15%,
+    rgba(255, 76, 0, 0.08) 30%,
+    rgba(255, 76, 0, 0.15) 45%,
+    rgba(255, 76, 0, 0.3) 60%,
+    rgba(255, 76, 0, 0.6) 75%,
+    rgba(255, 107, 43, 0.85) 88%,
+    #ff4c00 100%
+  );
+  animation-duration: 4s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  z-index: 40;
+  /* 🔑 KEY FIX: Rotate around the bright head (right edge), not center */
+  /* This keeps the head precisely on the line while the tail swings */
+  transform-origin: 100% 50%;
+}
+
+/* TOP VERSION - starts at first horizontal segment */
+.angle-pulse-top {
+  top: 48px;
+  left: -30px; /* Offset by width (30px) so translate values track the HEAD position */
+  animation-name: pulse-top;
+}
+
+/* BOTTOM VERSION - starts at first horizontal segment */
+.angle-pulse-bottom {
+  bottom: 48px;
+  left: -30px; /* Offset by width (30px) so translate values track the HEAD position */
+  animation-name: pulse-bottom;
+}
+
+/* 🔶 KEYFRAMES — TOP 
+   Head positions (with transform-origin at right edge):
+   - Segment 1: x=0 to x=207 (horizontal)
+   - Segment 2: (207,0) to (255,-48) exact -45° diagonal
+   - Segment 3: x=256 to x=380 (horizontal at y=-48)
+*/
+@keyframes pulse-top {
+  /* Segment 1: Horizontal - even 10% steps */
+  0% {
+    transform: translate(30px, 0) rotate(0deg) scaleX(0.6);
+  }
+  10% {
+    transform: translate(60px, 0) rotate(0deg) scaleX(0.5);
+  }
+  20% {
+    transform: translate(100px, 0) rotate(0deg) scaleX(0.5);
+  }
+  30% {
+    transform: translate(145px, 0) rotate(0deg) scaleX(0.5);
+  }
+  40% {
+    transform: translate(190px, 0) rotate(0deg) scaleX(0.5);
+  }
+  /* Corner entry - gradual rotation */
+  45% {
+    transform: translate(207px, 0) rotate(-22deg) scaleX(0.4);
+  }
+  /* Diagonal - even steps */
+  50% {
+    transform: translate(219px, -12px) rotate(-45deg) scaleX(0.4);
+  }
+  55% {
+    transform: translate(231px, -24px) rotate(-45deg) scaleX(0.4);
+  }
+  60% {
+    transform: translate(243px, -36px) rotate(-45deg) scaleX(0.4);
+  }
+  /* Corner exit - gradual rotation back */
+  65% {
+    transform: translate(255px, -48px) rotate(-22deg) scaleX(0.4);
+  }
+  /* Segment 3: Horizontal - even steps */
+  70% {
+    transform: translate(280px, -48px) rotate(0deg) scaleX(0.5);
+  }
+  80% {
+    transform: translate(330px, -48px) rotate(0deg) scaleX(0.5);
+  }
+  90% {
+    transform: translate(375px, -48px) rotate(0deg) scaleX(0.6);
+  }
+  100% {
+    transform: translate(415px, -48px) rotate(0deg) scaleX(0.6);
+  }
+}
+
+@keyframes pulse-bottom {
+  /* Segment 1: Horizontal - even 10% steps */
+  0% {
+    transform: translate(30px, 0) rotate(0deg) scaleX(0.6);
+  }
+  10% {
+    transform: translate(60px, 0) rotate(0deg) scaleX(0.5);
+  }
+  20% {
+    transform: translate(100px, 0) rotate(0deg) scaleX(0.5);
+  }
+  30% {
+    transform: translate(145px, 0) rotate(0deg) scaleX(0.5);
+  }
+  40% {
+    transform: translate(190px, 0) rotate(0deg) scaleX(0.5);
+  }
+  /* Corner entry - gradual rotation */
+  45% {
+    transform: translate(207px, 0) rotate(22deg) scaleX(0.4);
+  }
+  /* Diagonal - even steps */
+  50% {
+    transform: translate(219px, 12px) rotate(45deg) scaleX(0.4);
+  }
+  55% {
+    transform: translate(231px, 24px) rotate(45deg) scaleX(0.4);
+  }
+  60% {
+    transform: translate(243px, 36px) rotate(45deg) scaleX(0.4);
+  }
+  /* Corner exit - gradual rotation back */
+  65% {
+    transform: translate(255px, 48px) rotate(22deg) scaleX(0.4);
+  }
+  /* Segment 3: Horizontal - even steps */
+  70% {
+    transform: translate(280px, 48px) rotate(0deg) scaleX(0.5);
+  }
+  80% {
+    transform: translate(330px, 48px) rotate(0deg) scaleX(0.5);
+  }
+  90% {
+    transform: translate(375px, 48px) rotate(0deg) scaleX(0.6);
+  }
+  100% {
+    transform: translate(415px, 48px) rotate(0deg) scaleX(0.6);
+  }
+}
+
+/* MIDDLE PULSE - Common styles */
+.angle-pulse-middle-right,
+.angle-pulse-middle-left {
+  position: absolute;
+  width: 180px;
+  height: 3px;
+  animation-duration: 4s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  z-index: 20;
+  bottom: 39px; /* Align with bottom-10 line */
+}
+
+/* RIGHT COLUMN: pulse goes RIGHT → LEFT (towards phone) */
+.angle-pulse-middle-right {
+  /* Impact effect: bright head on LEFT, long fading tail on right */
+  background: linear-gradient(
+    270deg,
+    transparent 0%,
+    rgba(255, 76, 0, 0.03) 15%,
+    rgba(255, 76, 0, 0.08) 30%,
+    rgba(255, 76, 0, 0.15) 45%,
+    rgba(255, 76, 0, 0.3) 60%,
+    rgba(255, 76, 0, 0.6) 75%,
+    rgba(255, 107, 43, 0.85) 88%,
+    #ff4c00 100%
+  );
+  border-radius: 4px 0 0 4px; /* Rounded on left (leading edge) */
+  right: -80px; /* Start from right side */
+  animation-name: pulse-middle-right;
+}
+
+/* LEFT COLUMN: pulse goes LEFT → RIGHT (towards phone) */
+.angle-pulse-middle-left {
+  /* Impact effect: bright head on RIGHT, long fading tail on left */
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 76, 0, 0.03) 15%,
+    rgba(255, 76, 0, 0.08) 30%,
+    rgba(255, 76, 0, 0.15) 45%,
+    rgba(255, 76, 0, 0.3) 60%,
+    rgba(255, 76, 0, 0.6) 75%,
+    rgba(255, 107, 43, 0.85) 88%,
+    #ff4c00 100%
+  );
+  border-radius: 0 4px 4px 0; /* Rounded on right (leading edge) */
+  left: -80px; /* Start from left side */
+  animation-name: pulse-middle-left;
+}
+
+/* RIGHT: travels from right to left (negative X direction) */
+@keyframes pulse-middle-right {
+  0% {
+    transform: translateX(0) scaleX(0.6);
+  }
+  10% {
+    transform: translateX(-50px) scaleX(0.5);
+  }
+  20% {
+    transform: translateX(-110px) scaleX(0.5);
+  }
+  30% {
+    transform: translateX(-180px) scaleX(0.5);
+  }
+  40% {
+    transform: translateX(-260px) scaleX(0.5);
+  }
+  50% {
+    transform: translateX(-340px) scaleX(0.5);
+  }
+  60% {
+    transform: translateX(-420px) scaleX(0.5);
+  }
+  70% {
+    transform: translateX(-500px) scaleX(0.5);
+  }
+  80% {
+    transform: translateX(-580px) scaleX(0.5);
+  }
+  90% {
+    transform: translateX(-650px) scaleX(0.6);
+  }
+  100% {
+    transform: translateX(-700px) scaleX(0.6);
+  }
+}
+
+/* LEFT: travels from left to right (positive X direction) */
+@keyframes pulse-middle-left {
+  0% {
+    transform: translateX(40px) scaleX(0.6);
+  }
+  10% {
+    transform: translateX(100px) scaleX(0.5);
+  }
+  20% {
+    transform: translateX(170px) scaleX(0.5);
+  }
+  30% {
+    transform: translateX(250px) scaleX(0.5);
+  }
+  40% {
+    transform: translateX(340px) scaleX(0.5);
+  }
+  50% {
+    transform: translateX(430px) scaleX(0.5);
+  }
+  60% {
+    transform: translateX(520px) scaleX(0.5);
+  }
+  70% {
+    transform: translateX(600px) scaleX(0.5);
+  }
+  80% {
+    transform: translateX(680px) scaleX(0.5);
+  }
+  90% {
+    transform: translateX(750px) scaleX(0.6);
+  }
+  100% {
+    transform: translateX(800px) scaleX(0.6);
+  }
+}
+
+/* Custom Scrollbar Styling */
+/* Webkit browsers (Chrome, Safari, Edge) */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #fff6f2;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #ff4c00;
+  border-radius: 10px;
+  border: 2px solid #fff6f2;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #e64400;
+}
+
+/* Firefox */
+* {
+  scrollbar-width: extrathin;
+  scrollbar-color: #ff4c00 #fff6f2;
+}
+
+/* Hide scrollbar but keep functionality */
+.hide-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+/* Button hover effects for hex colors - O(1) performance */
+.button-hex-hover:hover {
+  background-color: var(--button-hover-bg) !important;
+}
