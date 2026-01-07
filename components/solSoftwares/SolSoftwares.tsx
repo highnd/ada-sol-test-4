@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import Container from "../ui/container";
-import { FaArrowLeft } from "react-icons/fa6";
+import { BsArrowDownLeft } from "react-icons/bs";
 type SolSoftwareFeature = {
   id: number;
   label: string;
@@ -53,10 +53,10 @@ const SolSoftwares = () => {
                   className="flex flex-col rounded-[2px] group cursor-pointer"
                 >
                   <div className="flex flex-row-reverse items-center justify-between gap-3 px-1 sm:px-1.5">
-                    <span className="flex h-6 w-6 -rotate-40 items-center justify-center text-[#FF4C00] group-hover:text-[#0A2745]  text-lg leading-none">
-                      <FaArrowLeft />
+                    <span className="flex h-6 w-6  items-center justify-center text-[#FF4C00] group-hover:text-[#0A2745]  text-lg leading-none">
+                      <BsArrowDownLeft />
                     </span>
-                    <p className="bold-fanum-font text-xs sm:text-sm 2xl:text-lg text-[#0A2745] group-hover:text-[#FF4C00] transition-colors duration-100 leading-relaxed text-right text-justify">
+                    <p className="bold-fanum-font text-xs sm:text-sm 2xl:text-lg text-[#0A2745] group-hover:text-[#FF4C00] transition-colors duration-100 leading-relaxed text-right ">
                       {feature.label}
                     </p>
                   </div>

@@ -1,22 +1,5 @@
 @import "tailwindcss";
 
-/* YEKANBAKH Font Family - @font-face declarations */
-@font-face {
-  font-family: "YEKANBAKH";
-  src: url("/fonts/YEKANBAKH-THIN.TTF") format("truetype");
-  font-weight: 100;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "YEKANBAKH";
-  src: url("/fonts/YEKANBAKH-LIGHT.TTF") format("truetype");
-  font-weight: 300;
-  font-style: normal;
-  font-display: swap;
-}
-
 /* YEKANBAKHFANUM Font Family - @font-face declarations */
 @font-face {
   font-family: "YEKANBAKHFANUM";
@@ -571,4 +554,13 @@ body {
 /* Button hover effects for hex colors - O(1) performance */
 .button-hex-hover:hover {
   background-color: var(--button-hover-bg) !important;
+}
+
+/* Safe area support for mobile bottom navigation (iOS notch support) */
+.pb-safe {
+  padding-bottom: env(safe-area-inset-bottom, 0.75rem);
+}
+
+.mb-safe {
+  margin-bottom: env(safe-area-inset-bottom, 0);
 }

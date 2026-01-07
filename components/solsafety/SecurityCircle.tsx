@@ -51,13 +51,13 @@ const SecurityCircle: React.FC<SecurityCircleProps> = ({
 
       {/* Title in center */}
       <div className="flex-1 flex items-center justify-center pt-0 sm:pt-4 md:pt-5 lg:pt-6 xl:pt-8 2xl:pt-10">
-        <p className={`${TITLE_BASE_CLASSES} text-justify`} style={{ color: textColor }}>
+        <p className={`${TITLE_BASE_CLASSES} `} style={{ color: textColor }}>
           {title}
         </p>
       </div>
 
       {/* Learn more text at bottom */}
-      <p className={`${LEARN_MORE_BASE_CLASSES} text-justify`} style={{ color: textColor }}>
+      <p className={`${LEARN_MORE_BASE_CLASSES} `} style={{ color: textColor }}>
         {learnMoreText}
       </p>
     </div>

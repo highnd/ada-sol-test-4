@@ -16,7 +16,7 @@ import {
   TOPBAR_ITEMS,
 } from "@/data";
 import { IoChevronDownOutline, IoMenu } from "react-icons/io5";
-import { CiSearch } from "react-icons/ci";
+import { BsSearch } from "react-icons/bs";
 import {
   FaLaptop,
   FaDesktop,
@@ -223,6 +223,12 @@ const Navbar = () => {
     []
   );
 
+  const handleDesktopSubmenuClick = useCallback(() => {
+    setActiveItemId(null);
+    setActiveSubmenuId(null);
+    setActiveNestedSubmenuId(null);
+  }, []);
+
   // Close drawer when window resizes to large screen (lg+)
   useEffect(() => {
     const handleResize = () => {
@@ -235,9 +241,10 @@ const Navbar = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, [isDrawerOpen]);
 
-  // Close desktop mega menu when clicking outside navbar
+  // Close desktop mega menu when clicking outside navbar (only on desktop, not when drawer is open)
   useEffect(() => {
     if (!activeItemId) return;
+    if (isDrawerOpen) return; // Don't add listener when drawer is open (mobile)
 
     const handleClickOutside = (event: MouseEvent) => {
       if (!navRef.current) return;
@@ -249,7 +256,7 @@ const Navbar = () => {
 
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, [activeItemId]);
+  }, [activeItemId, isDrawerOpen]);
 
   return (
     <>
@@ -348,6 +355,7 @@ const Navbar = () => {
                                           sub.label
                                         )
                                       }
+                                      onClick={handleDesktopSubmenuClick}
                                     >
                                       {IconComponent && (
                                         <IconComponent className="text-base shrink-0 text-[#FF4C00]" />
@@ -380,6 +388,9 @@ const Navbar = () => {
                                                 <Link
                                                   href={nested.href}
                                                   className="flex items-center gap-2 px-4 py-2 text-sm text-[#0A2745] hover:bg-[#FFF6F2] hover:text-[#FF4C00] transition-colors"
+                                                  onClick={
+                                                    handleDesktopSubmenuClick
+                                                  }
                                                 >
                                                   {NestedIconComponent && (
                                                     <NestedIconComponent className="text-sm shrink-0 text-[#FF4C00]" />
@@ -405,6 +416,7 @@ const Navbar = () => {
                             <Link
                               href={item.href}
                               className="bg-[#FF4C00] md:w-1/3 text-white px-4 py-2 rounded-md text-sm font-medium hover:underline text-center"
+                              onClick={handleDesktopSubmenuClick}
                             >
                               مشاهده بیشتر
                             </Link>
@@ -455,7 +467,7 @@ const Navbar = () => {
                   aria-label="جستجو"
                   aria-expanded={isSearchExpanded}
                 >
-                  <CiSearch className="text-xl" />
+                  <BsSearch className="text-xl" />
                 </button>
                 <div className="flex items-center gap-1">
                   <Link
@@ -492,7 +504,7 @@ const Navbar = () => {
                 aria-label="جستجو"
                 aria-expanded={isSearchExpanded}
               >
-                <CiSearch className="text-xl" />
+                <BsSearch className="text-xl" />
               </button>
             </div>
           </div>

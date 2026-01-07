@@ -17,10 +17,10 @@ const TEXT_CONTAINER_CLASSES =
   "flex-1 flex flex-col pt-12 min-h-0 overflow-hidden";
 
 const TEXT_CLASSES =
-  "text-lg text-[#0A2745] leading-relaxed regular-fanum-font overflow-y-auto pr-2";
+  "2xl:text-lg text-[#0A2745] leading-relaxed regular-fanum-font overflow-y-auto pr-2";
 
 const TEXT_TRUNCATED_CLASSES =
-  "text-lg text-[#0A2745] leading-relaxed regular-fanum-font line-clamp-3";
+  "2xl:text-lg text-[#0A2745] leading-relaxed regular-fanum-font line-clamp-3";
 
 const READ_MORE_CLASSES =
   "text-lg text-[#FF4C00] cursor-pointer hover:underline transition-all duration-200 text-center mt-2";
@@ -69,7 +69,11 @@ export default function TestimonialCard({ data }: Props) {
 
       {/* Text Container */}
       <div className={TEXT_CONTAINER_CLASSES}>
-        <p className={`${isExpanded ? TEXT_CLASSES : TEXT_TRUNCATED_CLASSES} text-justify`}>
+        <p
+          className={`${
+            isExpanded ? TEXT_CLASSES : TEXT_TRUNCATED_CLASSES
+          } text-justify`}
+        >
           {displayText}
         </p>
 

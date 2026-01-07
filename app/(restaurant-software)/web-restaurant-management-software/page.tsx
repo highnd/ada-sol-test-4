@@ -3,7 +3,7 @@ import React from "react";
 import { FaRegPlayCircle } from "react-icons/fa";
 import { HiOutlineMagnifyingGlassPlus } from "react-icons/hi2";
 
-const Softwares = () => {
+const WebRestaurantManagementSoftware = () => {
   const BUTTON_SOLID_HERO_CLASSES =
     "inline-flex items-center justify-center px-6 py-2 sm:px-8 text-sm sm:text-base lg:text-lg bold-fanum-font rounded-[50px] bg-[#FF4C00] text-white hover:bg-[#E64500] transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF4C00] focus-visible:ring-offset-2 w-full sm:w-44 cursor-pointer";
 
@@ -60,20 +60,18 @@ const Softwares = () => {
           <div className="w-full xl:h-[528px] 2xl:h-[580px] bg-[#F0F5F7] rounded-[32px] flex items-center justify-center translate-y-[-50%] border-2 border-black">
             <FaRegPlayCircle className="text-black text-xl sm:text-3xl md:text-4xl lg:text-6xl cursor-pointer hover:opacity-80 transition-opacity" />
           </div>
-
-          <div className="w-full bg-[#FFF6F2] p-[16px] flex flex-row-reverse flex-wrap items-center justify-around  rounded-[50px] -mt-44 ">
-            {navigationItems.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="text-[#0A2745] bold-fanum-font text-sm sm:text-base md:text-lg hover:text-[#FF4C00] transition-colors duration-200"
-              >
-                {item.label}
-              </Link>
-            ))}
-          </div>
         </div>
-
+        <div className="w-full bg-[#FFF6F2] p-[16px] flex flex-row-reverse flex-wrap items-center justify-around  rounded-[50px] lg:-mt-44 ">
+          {navigationItems.map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              className="text-[#0A2745] bold-fanum-font text-sm sm:text-base md:text-lg hover:text-[#FF4C00] transition-colors duration-200"
+            >
+              {item.label}
+            </Link>
+          ))}
+        </div>
         <div className="w-full h-full flex flex-col items-center justify-center mt-52 mb-8">
           <h2 className="extrabold-fanum-font text-center text-[48px] leading-[70px] tracking-[0] max-w-4xl  text-[#0A2745]">
             نمایی از محیط کاربری نرم‌افزار رستورانی سول (نسخه تحت وب)
@@ -93,4 +91,4 @@ const Softwares = () => {
   );
 };
 
-export default Softwares;
+export default WebRestaurantManagementSoftware;

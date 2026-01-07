@@ -48,9 +48,9 @@ const SolBrands: React.FC = () => {
         <div className={BRANDS_WRAPPER_CLASSES}>
           <div className={BRANDS_INNER_WRAPPER_CLASSES}>
             {/* Left fade gradient */}
-            <div className="absolute left-0 top-0 bottom-0 w-24 sm:w-32 md:w-40 lg:w-48 bg-gradient-to-r from-white to-transparent z-20 pointer-events-none" />
+            <div className="absolute left-0 top-0 bottom-0 w-24 sm:w-32 md:w-40 lg:w-48 bg-linear-to-r from-white to-transparent z-20 pointer-events-none" />
             {/* Right fade gradient */}
-            <div className="absolute right-0 top-0 bottom-0 w-24 sm:w-32 md:w-40 lg:w-48 bg-gradient-to-l from-white to-transparent z-20 pointer-events-none" />
+            <div className="absolute right-0 top-0 bottom-0 w-24 sm:w-32 md:w-40 lg:w-48 bg-linear-to-l from-white to-transparent z-20 pointer-events-none" />
             <div className={BRANDS_CONTAINER_CLASSES} dir="ltr">
               {/* First set of brands */}
               {BRAND_LOGOS.map((brand, index) => (

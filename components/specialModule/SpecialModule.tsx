@@ -2,17 +2,21 @@
 
 import React from "react";
 import Image from "next/image";
-import { FaCreditCard, FaMapMarkerAlt } from "react-icons/fa";
+
 import { AngleLineToBottom, AngleLineToTop } from "../ui/AngleLines";
 import { BsQrCode } from "react-icons/bs";
-import { FiGitBranch } from "react-icons/fi";
-import { TbBuildingWarehouse } from "react-icons/tb";
-import { BiMoneyWithdraw } from "react-icons/bi";
-import { AiOutlineMessage } from "react-icons/ai";
-import { PiUsersThree } from "react-icons/pi";
-import { SlCalender } from "react-icons/sl";
-import { LiaSmsSolid } from "react-icons/lia";
-import { LiaCoinsSolid } from "react-icons/lia";
+import { BsBicycle } from "react-icons/bs";
+import { BsPeople } from "react-icons/bs";
+import {
+  BsCoin,
+  BsCalendar4Week,
+  BsCreditCard,
+  BsDiagram3,
+} from "react-icons/bs";
+import { BsChatDots } from "react-icons/bs";
+import { BsFillEnvelopeFill } from "react-icons/bs";
+import { BsEnvelope } from "react-icons/bs";
+import { BsHouses } from "react-icons/bs";
 
 /* =======================
    FEATURE CIRCLE
@@ -82,7 +86,7 @@ const SpecialModule = () => {
             {/* first right circle  */}
             <div className="w-full relative  2xl:pr-42 ">
               <FeatureCircle
-                icon={FiGitBranch}
+                icon={BsDiagram3}
                 text="نرم افزار مدیریت شعب"
                 textPosition="right"
               />
@@ -118,7 +122,7 @@ const SpecialModule = () => {
             {/* middle right circle */}
             <div className="w-full relative   ">
               <FeatureCircle
-                icon={TbBuildingWarehouse}
+                icon={BsHouses}
                 text="انبارداری و کنترل موجودی"
                 textPosition="right"
               />
@@ -135,7 +139,7 @@ const SpecialModule = () => {
             {/* forth right circle */}
             <div className="w-full relative  2xl:pr-42 ">
               <FeatureCircle
-                icon={BiMoneyWithdraw}
+                icon={BsCoin}
                 text="مالی و حسابداری"
                 textPosition="right"
               />
@@ -153,7 +157,7 @@ const SpecialModule = () => {
             {/* fifth right circle */}
             <div className="w-full relative  2xl:pr-42 ">
               <FeatureCircle
-                icon={AiOutlineMessage}
+                icon={BsChatDots}
                 text="نظرسنجی هوشمند"
                 textPosition="right"
               />
@@ -191,7 +195,7 @@ const SpecialModule = () => {
             {/* first circle left */}
             <div className="w-full relative  2xl:pl-42 ">
               <FeatureCircle
-                icon={PiUsersThree}
+                icon={BsPeople}
                 text="باشگاه مشتریان هوشمند"
                 textPosition="left"
               />
@@ -210,7 +214,7 @@ const SpecialModule = () => {
             {/* second circle left */}
             <div className="w-full relative  2xl:pl-42">
               <FeatureCircle
-                icon={SlCalender}
+                icon={BsCalendar4Week}
                 text="رزرو و نوبت دهی هوشمند"
                 textPosition="left"
               />
@@ -228,7 +232,7 @@ const SpecialModule = () => {
             {/* middle circle left */}
             <div className="w-full relative  ">
               <FeatureCircle
-                icon={LiaSmsSolid}
+                icon={BsEnvelope}
                 text="پیام کوتاه رستوران"
                 textPosition="left"
               />
@@ -245,7 +249,7 @@ const SpecialModule = () => {
             {/* forth circle left */}
             <div className="w-full relative  2xl:pl-42">
               <FeatureCircle
-                icon={FaCreditCard}
+                icon={BsCreditCard}
                 text="درگاه پرداخت"
                 textPosition="left"
               />
@@ -263,7 +267,7 @@ const SpecialModule = () => {
             {/* fifth circle left */}
             <div className="w-full relative  2xl:pl-42">
               <FeatureCircle
-                icon={LiaCoinsSolid}
+                icon={BsBicycle}
                 text="مدیریت پیک و سفارش‌های بیرون‌بر با GPS"
                 textPosition="left"
               />

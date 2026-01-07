@@ -38,7 +38,7 @@ const ScrollToTop = () => {
     <button
       type="button"
       onClick={scrollToTop}
-      className="fixed left-4 bottom-6 sm:left-6 sm:bottom-8 z-40 flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-[#FF4C00] text-white shadow-[0_4px_12px_rgba(255,76,0,0.3)] hover:bg-[#E64500] hover:shadow-[0_4px_16px_rgba(255,76,0,0.4)] transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF4C00] focus-visible:ring-offset-2 cursor-pointer"
+      className="fixed left-4 bottom-28 sm:left-6 sm:bottom-8 z-40 flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-[#FF4C00] text-white shadow-[0_4px_12px_rgba(255,76,0,0.3)] hover:bg-[#E64500] hover:shadow-[0_4px_16px_rgba(255,76,0,0.4)] transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF4C00] focus-visible:ring-offset-2 cursor-pointer"
       aria-label="بازگشت به بالا"
     >
       <FaArrowUp className="text-2xl " />

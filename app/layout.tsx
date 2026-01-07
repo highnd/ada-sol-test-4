@@ -23,7 +23,9 @@ export default function RootLayout({
     <html lang="fa" dir="rtl">
       <body className="antialiased w-full">
         <Header />
-        <main className="pt-[122px] sm:pt-[132px] lg:pt-[142px]">{children}</main>
+        <main className="pt-[72px] lg:pt-[132px] xl:pt-[142px]">
+          {children}
+        </main>
         <CompanyGoogleMap />
         <Footer />
         {/*   fast icons for demo or call fixed on right */}

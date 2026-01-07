@@ -1,10 +1,10 @@
 import React from "react";
 import Image from "next/image";
-import { IoCall } from "react-icons/io5";
+import { BsTelephoneFill } from "react-icons/bs";
 
 const FastCall = () => {
   return (
-    <div className="fixed right-4 bottom-6 sm:right-6 sm:bottom-1/3 z-40 flex flex-col items-center">
+    <div className="fixed right-1 bottom-6 sm:right-3 sm:bottom-1/3 z-40 flex flex-col items-center md:flex hidden">
       {/* Background SVG */}
       <div className="absolute inset-0 -z-10">
         <Image
@@ -32,7 +32,7 @@ const FastCall = () => {
          text-white shadow-[0_4px_12px_rgba(0,0,0,0.15)] hover:bg-[#e44500] transition-colors duration-150 cursor-pointer"
         aria-label="تماس تلفنی سریع"
       >
-        <IoCall className="text-xl sm:text-4xl" />
+        <BsTelephoneFill className="text-xl sm:text-3xl" />
       </button>
     </div>
   );

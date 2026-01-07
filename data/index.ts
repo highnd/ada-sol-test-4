@@ -58,7 +58,7 @@ export const PRODUCTS_MENU_ITEMS: readonly MenuItem[] = [
     submenu: [
       {
         label: "نرم افزار مدیریت رستوران تحت وب",
-        href: "/restaurant-software/web-restaurant",
+        href: "/web-restaurant-management-software",
         previewSrc: "/hero/Rectangle.svg",
         icon: "FaLaptop",
       },

@@ -5,6 +5,7 @@ import Container from "../ui/container";
 import Dropdown from "../ui/dropdown";
 import { IoIosSend, IoMdMail, IoMdCall, IoMdChatbubbles } from "react-icons/io";
 import type { DropdownOption } from "../ui/dropdown";
+import { BsHeadset, BsFillEnvelopeFill, BsTelephoneFill } from "react-icons/bs";
 
 // Pre-computed className constants
 const SECTION_CLASSES =
@@ -21,7 +22,7 @@ const FORM_FIELD_CONTAINER_CLASSES =
   "flex lg:flex-row flex-col items-center  w-full";
 
 const FORM_LABEL_CLASSES =
-  "text-white regular-fanum-font text-xs sm:text-sm md:text-base whitespace-nowrap flex-shrink-0 min-w-full sm:min-w-[120px] py-2 md:py-0 md:min-w-[130px] md:ml-6 lg:ml-8 xl:ml-10 text-right";
+  "text-white regular-fanum-font text-xs sm:text-sm md:text-base whitespace-nowrap flex-shrink-0 min-w-full sm:min-w-[120px] py-2 md:py-0 md:min-w-[130px] md:ml-4 lg:ml-8 xl:ml-10 text-right";
 
 const FORM_INPUT_CLASSES =
   "md:flex-1 w-full bg-[#FF7033] text-[#0A2745] rounded-full px-3 sm:px-4 md:px-5 py-3 sm:py-3.5 md:py-4 text-xs sm:text-sm md:text-base regular-fanum-font placeholder:text-white text-right border-1 border-white focus:outline-none focus:bg-[#FF4C00] text-white";
@@ -42,13 +43,13 @@ const HEADING_SECOND_LINE_CLASSES =
   "fanum-font text-[#0A2745] text-xl sm:text-2xl md:text-3xl 2xl:text-5xl leading-relaxed";
 
 const DESCRIPTION_CLASSES =
-  "regular-fanum-font text-[#0A2745] text-base sm:text-lg md:text-2xl leading-relaxed ";
+  "regular-fanum-font text-[#0A2745] text-base md:text-lg   2xl:text-2xl leading-relaxed ";
 
 const CONTACT_ITEMS_CONTAINER_CLASSES =
   "flex flex-row-reverse gap-4 sm:gap-6 md:gap-24 items-start sm:items-center justify-end ";
 
 const CONTACT_ITEM_CLASSES =
-  "flex items-center gap-2 sm:gap-3 text-[#0A2745] regular-fanum-font text-sm sm:text-base 2xl:text-lg cursor-pointer";
+  "flex items-center gap-2 sm:gap-3 text-[#0A2745] regular-fanum-font text-xs sm:text-base 2xl:text-lg cursor-pointer";
 
 const CONTACT_ICON_CLASSES =
   "w-8 h-8 sm:w-9 sm:h-9 2xl:w-12 2xl:h-10 rounded-full bg-[#FF4C00] flex items-center justify-center flex-shrink-0 transition-colors duration-200 group";
@@ -100,7 +101,7 @@ const ConsultingAndDemo: React.FC = () => {
                 قبل خرید، نرم‌افزار را کامل تست کنید!
               </span>
             </h2>
-            <p className={`${DESCRIPTION_CLASSES} text-justify`}>
+            <p className={`${DESCRIPTION_CLASSES} md:text-justify`}>
               برای انتخاب بهترین راهکار متناسب با کسب‌وکارتان، همین حالا درخواست
               مشاوره رایگان ثبت کنید. مشاوران ما در کوتاه‌ترین زمان با شما تماس
               می‌گیرند و راهنمایی تخصصی ارائه می‌دهند.
@@ -108,20 +109,20 @@ const ConsultingAndDemo: React.FC = () => {
             <div className={CONTACT_ITEMS_CONTAINER_CLASSES}>
               <div className={CONTACT_ITEM_CLASSES}>
                 <div className={CONTACT_ICON_CLASSES}>
-                  <IoMdChatbubbles className={CONTACT_ICON_ICON_CLASSES} />
+                  <BsHeadset className={CONTACT_ICON_ICON_CLASSES} />
                 </div>
                 <span>مشاوره</span>
               </div>
 
               <div className={CONTACT_ITEM_CLASSES}>
                 <div className={CONTACT_ICON_CLASSES}>
-                  <IoMdMail className={CONTACT_ICON_ICON_CLASSES} />
+                  <BsFillEnvelopeFill className={CONTACT_ICON_ICON_CLASSES} />
                 </div>
                 <span>info@sol.ir</span>
               </div>
               <div className={CONTACT_ITEM_CLASSES}>
                 <div className={CONTACT_ICON_CLASSES}>
-                  <IoMdCall className={CONTACT_ICON_ICON_CLASSES} />
+                  <BsTelephoneFill className={CONTACT_ICON_ICON_CLASSES} />
                 </div>
                 <span dir="ltr">۰۲۱ ۹۱۰۰ ۲۰۳۷</span>
               </div>

@@ -16,6 +16,8 @@ import {
 import { SiAparat } from "react-icons/si";
 import { AiOutlineYoutube } from "react-icons/ai";
 import { TbBrandLinkedin, TbBrandTelegram } from "react-icons/tb";
+import { BsTelephoneFill } from "react-icons/bs";
+import { BsGeoAltFill } from "react-icons/bs";
 
 import {
   SOCIAL_MEDIA,
@@ -27,7 +29,8 @@ import {
 } from "@/data/footerData";
 import { toPersianDigits } from "@/utils/numberUtils";
 
-const FOOTER_CLASSES = "w-full bg-[#FFF6F2] py-8 sm:py-12  ";
+const FOOTER_CLASSES =
+  "w-full bg-[#FFF6F2] py-8 sm:py-12 pb-28 lg:pb-8 sm:pb-12";
 
 // Outer grid: right brand/social column (۱/۳) + left wrapper (۲/۳)
 const GRID_CLASSES =
@@ -67,10 +70,10 @@ const CONTACT_ITEM_WRAPPER_ADDRESS_CLASSES =
   "flex items-start gap-2 md:gap-3 group mt-2 md:mt-3";
 
 const CONTACT_ICON_CLASSES =
-  "text-[#FF4C00] text-lg md:text-xl lg:text-2xl shrink-0 group-hover:scale-110 transition-transform duration-200";
+  "text-[#FF4C00] text-lg lg:text-xl shrink-0 group-hover:scale-110 transition-transform duration-200";
 
 const CONTACT_ICON_ADDRESS_CLASSES =
-  "text-[#FF4C00] text-lg md:text-xl lg:text-2xl shrink-0 group-hover:scale-110 transition-transform duration-200 mt-0.5";
+  "text-[#FF4C00] text-lg  lg:text-xl shrink-0 group-hover:scale-110 transition-transform duration-200 mt-0.5";
 
 const CONTACT_INNER_FLEX_CLASSES =
   "flex flex-col sm:flex-row sm:items-center items-start gap-1 sm:gap-2 flex-1";
@@ -240,7 +243,7 @@ const Footer: React.FC = () => {
                 {/* Phone Number */}
                 <div className="-mt-4">
                   <div className={CONTACT_ITEM_WRAPPER_CLASSES}>
-                    <FaPhone className={CONTACT_ICON_CLASSES} />
+                    <BsTelephoneFill className={CONTACT_ICON_CLASSES} />
                     <div className={CONTACT_INNER_FLEX_CLASSES}>
                       <span className={CONTACT_LABEL_CLASSES}>شماره تماس:</span>
                       <a
@@ -286,7 +289,7 @@ const Footer: React.FC = () => {
 
                 {/* Address */}
                 <div className={CONTACT_ITEM_WRAPPER_ADDRESS_CLASSES}>
-                  <FaMapMarkerAlt className={CONTACT_ICON_ADDRESS_CLASSES} />
+                  <BsGeoAltFill className={CONTACT_ICON_ADDRESS_CLASSES} />
                   <div className={CONTACT_INNER_FLEX_ADDRESS_CLASSES}>
                     <span className={CONTACT_LABEL_ADDRESS_CLASSES}>آدرس:</span>
                     <a
