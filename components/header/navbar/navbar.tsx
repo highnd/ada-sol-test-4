@@ -81,8 +81,12 @@ const BUTTON_SOLID_DESKTOP_CLASSES =
 const BUTTON_OUTLINE_DESKTOP_CLASSES =
   "inline-flex bold-fanum-font items-center justify-center px-3 py-2 sm:px-6  text-xs sm:text-sm lg:text-base rounded-[50px] border-2 border-[#FF4C00] text-[#FF4C00] bg-transparent hover:bg-[#FF4C00]/10 transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF4C00] focus-visible:ring-offset-2  cursor-pointer";
 
-// const BUTTON_SOLID_MOBILE_CLASSES =
-//   "w-full inline-flex regular-fanum-font items-center justify-center  py-3 text-base f rounded-[50px] bg-[#FF4C00] text-white hover:bg-[#E64500] transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF4C00] focus-visible:ring-offset-2 cursor-pointer";
+// Mobile login/register button classes
+const BUTTON_LOGIN_MOBILE_CLASSES =
+  "inline-flex items-center justify-center px-4 py-2.5 text-sm bold-fanum-font rounded-xl border-2 border-[#FF4C00] text-[#FF4C00] bg-transparent hover:bg-[#FF4C00]/10 active:bg-[#FF4C00]/20 transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF4C00] focus-visible:ring-offset-2 cursor-pointer min-h-[44px]";
+
+const BUTTON_REGISTER_MOBILE_CLASSES =
+  "inline-flex items-center justify-center px-4 py-2.5 text-sm bold-fanum-font rounded-xl bg-[#FF4C00] text-white hover:bg-[#E64500] active:bg-[#CC3D00] shadow-sm hover:shadow-md transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF4C00] focus-visible:ring-offset-2 cursor-pointer min-h-[44px]";
 
 // const BUTTON_OUTLINE_MOBILE_CLASSES =
 //   "w-full inline-flex items-center justify-center  py-3 text-base extrabold-fanum-font rounded-[50px] border-2 border-[#FF4C00] text-[#FF4C00] bg-transparent hover:bg-[#FF4C00]/10 transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF4C00] focus-visible:ring-offset-2 cursor-pointer";
@@ -312,14 +316,14 @@ const Navbar = () => {
                       <div className="relative w-full h-full">
                         <div className="flex flex-row w-full gap-4   overflow-y-auto ">
                           {/* Left: preview image */}
-                          <div className="w-1/2 flex items-center justify-center bg-gray-50 rounded-xl overflow-hidden">
+                          <div className="w-1/2 flex items-top justify-start  rounded-xl overflow-hidden">
                             {activePreviewSrc ? (
                               <Image
                                 src={activePreviewSrc}
                                 alt={activeSubmenu?.label || item.label}
                                 width={360}
                                 height={220}
-                                className="w-[50%] h-auto max-h-[60%] object-contain"
+                                className="w-72 h-auto max-h-72 object-contain  p-4 bg-red-500"
                               />
                             ) : (
                               <div className="w-full h-full flex items-center justify-center text-gray-400 text-sm">
@@ -431,34 +435,32 @@ const Navbar = () => {
           </ul>
 
           {/* left: auth buttons + search / hamburger */}
-          <div className="flex items-center gap-2 sm:gap-3 md:gap-4 py-2 w-full lg:w-auto justify-between lg:justify-end">
-            {/* Mobile: hamburger (right) + logo (middle) + auth texts + search (left) */}
-            <div className="flex items-center gap-2 w-full lg:hidden justify-between">
-              {/* hamburger on the far right */}
-              <button
-                onClick={handleDrawerOpen}
-                className="p-2 rounded-full bg-white shadow-sm hover:bg-gray-100 focus:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-[#FF4C00] focus:ring-offset-2 text-[#0A2745] cursor-pointer shrink-0"
-                aria-label="باز کردن منو"
-                aria-expanded={isDrawerOpen}
-                aria-controls="mobile-drawer"
-              >
-                <IoMenu className="text-2xl" />
-              </button>
-              {/* Logo in the middle */}
-              <Link
-                href="/"
-                className="flex items-center shrink-0 absolute right-1/2 translate-x-1/2"
-              >
-                <Image
-                  src="/icons-brands/logo-sol.svg"
-                  alt="سول - نرم‌افزار رستورانی"
-                  width={70}
-                  height={20}
-                  className="h-8 w-auto object-contain"
-                />
-              </Link>
-              {/* Search icon + Auth texts on the left */}
-              <div className="flex items-center gap-3 shrink-0">
+          <div className="flex  items-center gap-2 sm:gap-3 md:gap-4 py-2 w-full lg:w-auto justify-between lg:justify-end">
+            {/* Mobile: hamburger + logo (right) + search + auth (left) */}
+            <div className="flex items-center w-full lg:hidden justify-between">
+              {/* Hamburger + Logo on the right (first in RTL) */}
+              <div className="flex items-center gap-2 sm:gap-3">
+                <button
+                  onClick={handleDrawerOpen}
+                  className="p-2 rounded-full bg-white shadow-sm hover:bg-gray-100 focus:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-[#FF4C00] focus:ring-offset-2 text-[#0A2745] cursor-pointer shrink-0"
+                  aria-label="باز کردن منو"
+                  aria-expanded={isDrawerOpen}
+                  aria-controls="mobile-drawer"
+                >
+                  <IoMenu className="text-2xl" />
+                </button>
+                <Link href="/" className="flex items-center shrink-0">
+                  <Image
+                    src="/icons-brands/logo-sol.svg"
+                    alt="سول - نرم‌افزار رستورانی"
+                    width={70}
+                    height={20}
+                    className="h-8 w-auto object-contain"
+                  />
+                </Link>
+              </div>
+              {/* Search + Auth on the left (last in RTL) */}
+              <div className="flex items-center gap-2 sm:gap-3">
                 {/* search icon button */}
                 <button
                   type="button"
@@ -469,18 +471,12 @@ const Navbar = () => {
                 >
                   <BsSearch className="text-xl" />
                 </button>
-                <div className="flex items-center gap-1">
-                  <Link
-                    href="/auth"
-                    className="text-[#0A2745] text-sm bold-fanum-font hover:text-[#FF4C00] transition-colors cursor-pointer"
-                  >
+                {/* Auth buttons */}
+                <div className="flex items-center gap-2">
+                  <Link href="/auth" className={BUTTON_LOGIN_MOBILE_CLASSES}>
                     ورود
                   </Link>
-                  <span className="text-[#0A2745] text-sm">/</span>
-                  <Link
-                    href="/auth"
-                    className="text-[#0A2745] text-sm bold-fanum-font hover:text-[#FF4C00] transition-colors cursor-pointer"
-                  >
+                  <Link href="/auth" className={BUTTON_REGISTER_MOBILE_CLASSES}>
                     ثبت نام
                   </Link>
                 </div>

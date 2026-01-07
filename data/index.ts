@@ -32,6 +32,7 @@ export const TOPBAR_ITEMS: readonly TopbarItem[] = [
   { label: "اخبار و رویدادها", href: "/news" },
   { label: "نمایشگاه‌ها", href: "/exhibitions" },
   { label: "بلاگ", href: "/blog" },
+  { label: "خانه", href: "/" },
 ];
 
 // -----------------------------

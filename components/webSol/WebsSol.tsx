@@ -67,15 +67,15 @@ const WebsSol = () => {
                     انتخاب بهترین رستوران‌های حرفه‌ای.
                   </p>
 
-                  <p className="regular-fanum-font text-base xl:text-xl 2xl:text-2xl  text-[#FF4C00] pt-3 md:pt-0  2xl:pt-5 text-justify">
+                  <p className="regular-fanum-font text-base xl:text-xl 2xl:text-2xl   text-[#0A2745] pt-3 md:pt-0  2xl:pt-5 text-justify">
                     ارزش پیشنهادی:
                   </p>
 
                   <span className="text-base xl:text-xl 2xl:text-2xl  text-[#FF4C00] ">
                     مقیاس‌ پذیر
-                    <span className="mx-2">|</span>
+                    <span className="mx-2 text-[#0A2745]">|</span>
                     بدون محدودیت
-                    <span className="mx-2">|</span>
+                    <span className="mx-2 text-[#0A2745]">|</span>
                     امکانات کامل
                   </span>
                   <Button
@@ -149,15 +149,15 @@ const WebsSol = () => {
                     مناسب رستوران‌های کوچک و کسب‌وکارهای تازه‌کار.
                   </p>
 
-                  <p className="regular-fanum-font text-base xl:text-xl 2xl:text-2xl  text-[#FF4C00] pt-3 md:pt-0  2xl:pt-5 text-justify">
+                  <p className="regular-fanum-font text-base xl:text-xl 2xl:text-2xl  text-[#0A2745] pt-3 md:pt-0  2xl:pt-5 text-justify">
                     ارزش پیشنهادی:
                   </p>
 
                   <span className=" text-base xl:text-xl 2xl:text-2xl text-[#FF4C00] ">
                     اقتصادی
-                    <span className="mx-2">|</span>
+                    <span className="mx-2 text-[#0A2745]">|</span>
                     ساده و کاربردی
-                    <span className="mx-2">|</span>
+                    <span className="mx-2 text-[#0A2745]">|</span>
                     بدون نیاز به اینترنت
                   </span>
                   <div className="flex lg:flex-row flex-col items-start gap-3 mt-6 w-full pl-12 ">

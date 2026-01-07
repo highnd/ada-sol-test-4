@@ -164,7 +164,7 @@ const Search: React.FC<SearchProps> = ({
   return (
     <>
       {isExpanded && (
-        <div className="fixed left-4 right-4 lg:left-8 lg:right-auto top-[122px] sm:top-[132px] lg:top-[142px] w-auto lg:w-[480px] max-w-[90vw] bg-white shadow-2xl rounded-2xl border border-gray-100 z-40">
+        <div className="fixed left-4 right-4 lg:left-8 lg:right-auto top-[72px] lg:top-[132px] xl:top-[142px] w-auto lg:w-[480px] max-w-[90vw] bg-white shadow-2xl rounded-2xl border border-gray-100 z-40">
           <div className="p-3 sm:p-4 flex items-center gap-3 border-b border-gray-100">
             <div className="flex items-center justify-center w-9 h-9 rounded-full bg-[#FFF6F2]">
               <CiSearch className="text-[#FF4C00] text-lg" />

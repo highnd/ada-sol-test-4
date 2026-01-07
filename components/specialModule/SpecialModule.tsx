@@ -34,7 +34,7 @@ const FeatureCircle: React.FC<FeatureCircleProps> = ({
   textPosition,
 }) => (
   <div
-    className={`flex relative z-30 items-center gap-3 sm:gap-4 ${
+    className={`flex relative z-30 items-center cursor-pointer gap-3 sm:gap-4 ${
       textPosition === "right" ? "flex-row" : "flex-row-reverse"
     }`}
   >

@@ -51,7 +51,7 @@ export default function Home() {
       <WhySolManagement />
       <ConsultingAndDemo />
       <Solsafety />
-      <SolBrands />
+      <SolBrands />      
       <SolUserExperience
         title="تجربه مشتریان ما از نرم‌افزار رستورانی سول"
         testimonials={TESTIMONIALS}
