@@ -35,23 +35,23 @@ const FeatureCircle: React.FC<FeatureCircleProps> = ({
 }) => (
   <div
     className={`flex relative z-30 items-center cursor-pointer gap-3 sm:gap-4 ${
-      textPosition === "right" ? "flex-row" : "flex-row-reverse"
+      textPosition === "right" ? "flex-row" : "flex-row md:flex-row-reverse"
     }`}
   >
     <div
       className={
-        "w-14 h-14 sm:w-16 sm:h-16 md:w-14 md:h-14 lg:w-16 lg:h-16 xl:w-22 xl:h-22 rounded-full border group transition-all duration-300 ease-out hover:bg-[#FF4C00] border-[#FF4C00] flex items-center justify-center shrink-0 bg-[#FFF6F2]"
+        "w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 xl:w-22 xl:h-22 rounded-full border group transition-all duration-300 ease-out hover:bg-[#FF4C00] border-[#FF4C00] flex items-center justify-center shrink-0 bg-[#FFF6F2]"
       }
     >
       <Icon
         className={
-          "text-[#FF4C00] text-lg sm:text-xl md:text-lg lg:text-xl xl:text-3xl group-hover:text-[#0A2745]"
+          "text-[#FF4C00] text-sm sm:text-base md:text-lg lg:text-xl xl:text-3xl group-hover:text-[#0A2745]"
         }
       />
     </div>
     <p
       className={
-        "text-[#0A2745] text-xs sm:text-sm md:text-xs lg:text-sm bold-fanum-font max-w-[200px] md:max-w-[140px] lg:max-w-[180px] xl:hidden text-justify"
+        "text-[#0A2745] text-xs sm:text-sm md:text-xs lg:text-sm bold-fanum-font max-w-[200px] md:max-w-[140px] lg:max-w-[180px] xl:hidden "
       }
     >
       {text}
@@ -81,8 +81,8 @@ const SpecialModule = () => {
 
         {/* Layout */}
         <div className="w-full flex flex-col md:grid md:grid-cols-2 xl:flex xl:flex-row items-center justify-center gap-8 md:gap-8 lg:gap-12">
-          {/* RIGHT COLUMN */}
-          <div className="w-full flex flex-col justify-center gap-4 sm:gap-5 md:gap-4 lg:gap-6 xl:gap-8 order-2 md:order-1 xl:order-1">
+          {/* RIGHT COLUMN - grid on mobile, flex-col on md+ */}
+          <div className="w-full grid grid-cols-2 md:flex md:flex-col justify-center gap-4 sm:gap-5 md:gap-4 lg:gap-6 xl:gap-8 order-1 md:order-1 xl:order-1">
             {/* first right circle  */}
             <div className="w-full relative  2xl:pr-42 ">
               <FeatureCircle
@@ -175,8 +175,8 @@ const SpecialModule = () => {
           </div>
 
           {/* CENTER IMAGE */}
-          {/* CENTER IMAGE - on top for mobile/md/lg, center for xl */}
-          <div className="w-full xl:w-auto flex items-center justify-center shrink-0 order-1 md:order-first md:col-span-2 xl:order-2 xl:col-span-1">
+          {/* CENTER IMAGE - bottom for mobile, top for md/lg, center for xl */}
+          <div className="w-full xl:w-auto flex items-center justify-center shrink-0 order-3 md:order-first md:col-span-2 xl:order-2 xl:col-span-1">
             <div className="relative xl:absolute z-60 xl:left-1/2 xl:-translate-x-1/2 w-[240px] sm:w-[280px] md:w-[320px] p-2 bg-[#FF4C00] rounded-[56.27px]">
               <Image
                 src="/specialModule/iPhone16Pro.svg"
@@ -190,8 +190,8 @@ const SpecialModule = () => {
             </div>
           </div>
 
-          {/* LEFT COLUMN */}
-          <div className="w-full flex flex-col justify-center gap-4 sm:gap-5 md:gap-4 lg:gap-6 xl:gap-8 order-3 md:order-2 xl:order-3">
+          {/* LEFT COLUMN - grid on mobile, flex-col on md+ */}
+          <div className="w-full grid grid-cols-2 md:flex md:flex-col justify-center gap-4 sm:gap-5 md:gap-4 lg:gap-6 xl:gap-8 order-2 md:order-2 xl:order-3">
             {/* first circle left */}
             <div className="w-full relative  2xl:pl-42 ">
               <FeatureCircle
