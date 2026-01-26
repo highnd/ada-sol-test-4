@@ -117,7 +117,7 @@ const WebRestaurantManagementSoftware = () => {
             پکیج های نرم افزار رستورانی تحت وب سول
           </h2>
 
-          <div className="w-full  h-auto  flex lg:flex-row flex-col items-center justify-center gap-14 mt-20 bg-accent py-12 ">
+          <div className="w-full  h-auto  flex lg:flex-row flex-col items-center justify-center gap-14 mt-20 bg-accent py-12 px-8 ">
             <PlanCard
               planName="پلن پایه"
               description="راهکار ساده و مقرون‌به‌صرفه برای کسب‌وکارهای کوچک و نوپا"
