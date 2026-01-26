@@ -12,16 +12,16 @@ interface SecurityCircleProps {
 
 // Pre-computed className constants
 const CIRCLE_CONTAINER_CLASSES =
-  "w-[200px] h-[200px] sm:w-[260px] sm:h-[260px] md:w-[280px] md:h-[280px] lg:w-[300px] lg:h-[300px] xl:w-[320px] xl:h-[320px] 2xl:w-[330px] 2xl:h-[330px] rounded-full flex flex-col items-center justify-between p-3 sm:p-4 md:p-5 lg:p-6 xl:p-7 2xl:p-8 flex-shrink-0 relative transition-transform duration-300 ease-out hover:scale-110 cursor-pointer";
+  "w-[200px] h-[200px] sm:w-[260px] group  sm:h-[260px] md:w-[280px] md:h-[280px] lg:w-[300px] lg:h-[300px] xl:w-[320px] xl:h-[320px] 2xl:w-[330px] 2xl:h-[330px] rounded-full flex flex-col items-center justify-between p-3 sm:p-4 md:p-5 lg:p-6 xl:p-7 2xl:p-8  relative transition-transform duration-300 ease-out hover:scale-110 cursor-pointer";
 
 const IMAGE_WRAPPER_CLASSES =
   "absolute top-0 left-1/2 -translate-x-1/2 -translate-y-[30%] w-16 h-16 sm:w-[72px] sm:h-[72px] md:w-20 md:h-20 lg:w-24 lg:h-24 xl:w-[104px] xl:h-[104px] 2xl:w-28 2xl:h-28 flex-shrink-0 z-10";
 
 const TITLE_BASE_CLASSES =
-  "extrabold-fanum-font text-center text-sm md:text-base lg:text-lg xl:text-[25px] leading-relaxed px-2";
+  "extrabold-fanum-font text-center text-sm md:text-base lg:text-lg xl:text-[28px] leading-relaxed px-2 ";
 
 const LEARN_MORE_BASE_CLASSES =
-  "bold-fanum-font  sm:text-xs md:text-sm text-[14px] text-center";
+  "bold-fanum-font  sm:text-xs md:text-sm text-[14px] text-center group-hover:scale-120 transition-all duration-300";
 
 /**
  * Reusable security circle component
@@ -57,7 +57,10 @@ const SecurityCircle: React.FC<SecurityCircleProps> = ({
       </div>
 
       {/* Learn more text at bottom */}
-      <p className={`${LEARN_MORE_BASE_CLASSES} `} style={{ color: textColor }}>
+      <p
+        className={`${LEARN_MORE_BASE_CLASSES}  `}
+        style={{ color: textColor }}
+      >
         {learnMoreText}
       </p>
     </div>

@@ -63,11 +63,11 @@ const WebsSol = () => {
                   loading="lazy"
                 />
                 <div className="lg:space-y-2 flex-col flex">
-                  <p className="text-base xl:text-xl 2xl:text-2xl   text-[#FF4C00] regular-fanum-font leading-relaxed text-justify">
+                  <p className="text-base xl:text-xl 2xl:text-2xl   text-[#FF4C00] regular-fanum-font leading-relaxed ">
                     انتخاب بهترین رستوران‌های حرفه‌ای.
                   </p>
 
-                  <p className="regular-fanum-font text-base xl:text-xl 2xl:text-2xl   text-[#0A2745] pt-3 md:pt-0  2xl:pt-5 text-justify">
+                  <p className="regular-fanum-font text-base xl:text-xl 2xl:text-2xl   text-[#0A2745] pt-3 md:pt-0  2xl:pt-5 ">
                     ارزش پیشنهادی:
                   </p>
 
@@ -144,12 +144,12 @@ const WebsSol = () => {
                   className="mt-1 ml-2"
                 />
 
-                <div className="space-y-2 flex-col flex w-full ">
+                <div className="space-y-2 flex-col flex w-full">
                   <p className="text-base xl:text-xl 2xl:text-2xl  text-[#FF4C00] regular-fanum-font leading-relaxed">
                     مناسب رستوران‌های کوچک و کسب‌وکارهای تازه‌کار.
                   </p>
 
-                  <p className="regular-fanum-font text-base xl:text-xl 2xl:text-2xl  text-[#0A2745] pt-3 md:pt-0  2xl:pt-5 text-justify">
+                  <p className="regular-fanum-font text-base xl:text-xl 2xl:text-2xl  text-[#0A2745] pt-3 md:pt-0  2xl:pt-5">
                     ارزش پیشنهادی:
                   </p>
 
@@ -164,14 +164,14 @@ const WebsSol = () => {
                     <Button
                       variant="solid"
                       color="#FF4C00"
-                      className=" lg:w-1/3 w-full text-sm sm:text-base lg:text-sm xl:text-lg 2xl:text-2xl  regular-fanum-font py-2"
+                      className=" lg:w-1/3 w-full text-sm sm:text-base lg:text-[11px] xl:text-[17px] 2xl:text-2xl  regular-fanum-font py-2"
                     >
                       نسخه ویندوزی
                     </Button>
                     <Button
                       variant="outline"
                       color="#FF4C00"
-                      className="lg:w-[60%]  w-full text-sm sm:text-base lg:text-sm xl:text-xl 2xl:text-2xl regular-fanum-font "
+                      className="lg:w-[60%]  w-full text-sm sm:text-base lg:text-xs xl:text-lg 2xl:text-2xl regular-fanum-font "
                     >
                       اپلیکیشین رستوران اندرویدی
                     </Button>

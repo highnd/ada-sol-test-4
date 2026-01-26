@@ -28,7 +28,7 @@ const FEATURE_CHIPS_ROW_2: readonly FeatureChip[] = [
 
 // Pre-computed className constants (outside component - zero runtime cost)
 const SECTION_CLASSES =
-  "relative w-full min-h-[70vh] flex items-center justify-center overflow-hidden";
+  "relative w-full md:min-h-[70vh] flex items-center justify-center overflow-hidden";
 
 const BACKGROUND_CONTAINER_CLASSES = "absolute inset-0";
 
@@ -42,7 +42,7 @@ const HEADING_CLASSES =
   "extrabold-fanum-font text-white text-2l sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl leading-tight sm:leading-snug md:leading-normal";
 
 const SUBTITLE_CLASSES =
-  "regular-fanum-font text-white/90 text-sm sm:text-base md:text-lg lg:text-xl max-w-2xl sm:max-w-3xl leading-relaxed px-4";
+  "regular-fanum-font text-white/90 text-sm sm:text-base md:text-lg lg:text-xl max-w-2xl sm:max-w-4xl leading-relaxed px-4";
 
 const CHIPS_CONTAINER_CLASSES =
   "flex flex-wrap justify-center gap-3 sm:gap-4 md:gap-5 px-4";
@@ -77,7 +77,7 @@ const HardwareBanner: React.FC = () => {
       <div className={OVERLAY_CLASSES} />
 
       {/* Content Container */}
-      <Container className="relative z-10 py-8 sm:py-10 md:py-12 lg:py-16">
+      <div className="relative z-10 py-8 sm:py-10 md:py-12 lg:py-16">
         <div className={CONTENT_WRAPPER_CLASSES}>
           {/* Main Heading */}
           <h1 className={HEADING_CLASSES}>
@@ -136,7 +136,7 @@ const HardwareBanner: React.FC = () => {
             </button>
           </div>
         </div>
-      </Container>
+      </div>
     </section>
   );
 };

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import dynamic from "next/dynamic";
 import "./globals.css";
 import Header from "@/components/header/Header";
@@ -21,9 +22,38 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fa" dir="rtl">
-      <body className="antialiased w-full">
+      <body className="antialiased w-full overflow-x-hidden">
+        {/* High-performance font preloading - runs before page becomes interactive */}
+        <Script
+          id="font-preloader"
+          strategy="beforeInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                var fonts = [
+                  '/fonts/YEKANBAKHFANUM-REGULAR.TTF',
+                  '/fonts/YEKANBAKHFANUM-SEMIBOLD.TTF',
+                  '/fonts/YEKANBAKHFANUM-BOLD.TTF',
+                  '/fonts/YEKANBAKHFANUM-EXTRABOLD.TTF'
+                ];
+                fonts.forEach(function(font) {
+                  var existing = document.querySelector('link[rel="preload"][href="' + font + '"]');
+                  if (!existing) {
+                    var link = document.createElement('link');
+                    link.rel = 'preload';
+                    link.as = 'font';
+                    link.type = 'font/ttf';
+                    link.href = font;
+                    link.crossOrigin = 'anonymous';
+                    document.head.insertBefore(link, document.head.firstChild);
+                  }
+                });
+              })();
+            `,
+          }}
+        />
         <Header />
-        <main className="pt-[72px] lg:pt-[132px] xl:pt-[142px]">
+        <main className="pt-[72px] lg:pt-[132px] xl:pt-[142px] bg-white">
           {children}
         </main>
         <CompanyGoogleMap />

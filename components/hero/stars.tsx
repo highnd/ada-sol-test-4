@@ -87,7 +87,7 @@ const Stars = () => {
       {/* Thank you + user's score message - stays forever after rating */}
       {hasRated && (
         <div className="mt-3 space-y-1 text-right">
-          <p className="text-xs sm:text-sm text-green-600 font-medium">
+          <p className="text-xs sm:text-sm text-[#FF4C00] font-medium">
             ممنونم از نظر شما 🙏
           </p>
           <p className="text-xs sm:text-sm text-[#0A2745] font-medium">

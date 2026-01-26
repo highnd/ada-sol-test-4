@@ -32,7 +32,6 @@ export const TOPBAR_ITEMS: readonly TopbarItem[] = [
   { label: "اخبار و رویدادها", href: "/news" },
   { label: "نمایشگاه‌ها", href: "/exhibitions" },
   { label: "بلاگ", href: "/blog" },
-  { label: "خانه", href: "/" },
 ];
 
 // -----------------------------
@@ -187,6 +186,12 @@ export const PRODUCTS_MENU_ITEMS: readonly MenuItem[] = [
     defaultPreviewSrc: "/hero/Rectangle.svg",
     showMoreButton: false,
     submenu: [
+      {
+        label: "نرم افزار اتوماسیون تغذیه ",
+        href: "/food-automation-software",
+        previewSrc: "/hero/Rectangle.svg",
+        icon: "FaTruck",
+      },
       {
         label: "نرم افزار اتوماسیون تغذیه سلف و غذاخوری",
         href: "/food-automation-software/cafeteria",
@@ -597,4 +602,37 @@ export const MOCK_SEARCH_SUGGESTIONS = [
   },
   { id: "9", title: "پشتیبانی", category: "سایر", href: "/support" },
   { id: "10", title: "درخواست دمو", category: "سایر", href: "/demo" },
+];
+
+
+
+
+
+
+
+type DropdownOption = {
+  id: number;
+  title: string;
+  layout?: "image-top" | "text-top";
+};
+
+export const DropdownOptions: readonly DropdownOption[] = [
+  // ردیف بالا - از چپ به راست
+  { id: 1, title: "کافه رستوران" }, // image-top (default)
+  { id: 2, title: "کافی‌شاپ", layout: "text-top" },
+  { id: 3, title: "کترینگ" }, // image-top
+  { id: 4, title: "فودکورت", layout: "text-top" },
+  { id: 5, title: "فست فود" }, // image-top (default)
+  { id: 6, title: "کافه سنتی", layout: "text-top" },
+
+  // ردیف پایین - از چپ به راست
+  { id: 7, title: "ساندویچی" }, // image-top
+  { id: 8, title: "آش و حلیم فروشی", layout: "text-top" },
+  { id: 9, title: "غذای خانگی / قنادی" }, // image-top
+  { id: 10, title: "طباخی و کله پزی", layout: "text-top" },
+  { id: 11, title: "آبمیوه و بستنی فروشی" }, // image-top
+  { id: 12, title: "کبابی و چلوکبابی", layout: "text-top" },
+
+  // اضافه کردن گزینه جدید
+  { id: 13, title: "اتوماسیون تغذیه", layout: "text-top" },
 ];

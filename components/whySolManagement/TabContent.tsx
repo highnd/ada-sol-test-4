@@ -23,7 +23,7 @@ const TEXT_BOXES_CONTAINER_CLASSES =
   "flex flex-col regular-fanum-font flex-1 md:min-h-0 md:self-stretch gap-4 sm:gap-6";
 
 const TEXT_BOX_WHITE_CLASSES =
-  "bg-white regular-fanum-font rounded-t-[24px] px-2 md:px-3 py-2 md:py-4 text-[#0A2745]  flex items-center";
+  "bg-white regular-fanum-font rounded-t-[24px] px-2 md:px-6 py-2 md:py-4 text-[#0A2745]  flex items-center";
 
 const TEXT_BOX_DARK_CLASSES =
   "bg-[#0A2745] regular-fanum-font rounded-b-[24px] px-2 md:px-6 py-4  text-white flex-1 flex items-start  ";

@@ -11,6 +11,7 @@ export interface DropdownOption {
 export interface DropdownProps {
   options: DropdownOption[];
   placeholder?: string;
+  placeholderColor?: string; // 👈 NEW
   value?: string;
   onChange?: (value: string) => void;
   className?: string;
@@ -30,6 +31,7 @@ export interface DropdownProps {
 const Dropdown: React.FC<DropdownProps> = ({
   options,
   placeholder = "انتخاب کنید",
+  placeholderColor = "text-white", // 👈 default placeholder color
   value,
   onChange,
   className = "",
@@ -43,13 +45,14 @@ const Dropdown: React.FC<DropdownProps> = ({
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [focusedIndex, setFocusedIndex] = useState<number>(-1);
+
   const containerRef = useRef<HTMLDivElement>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
   const menuRef = useRef<HTMLUListElement>(null);
 
   const selectedOption = options.find((opt) => opt.value === value);
 
-  // Close dropdown when clicking outside
+  // Close on outside click
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (
@@ -115,7 +118,7 @@ const Dropdown: React.FC<DropdownProps> = ({
     [disabled, isOpen, options.length]
   );
 
-  // Handle option selection
+  // Select option
   const handleSelect = useCallback(
     (optionValue: string) => {
       onChange?.(optionValue);
@@ -126,42 +129,33 @@ const Dropdown: React.FC<DropdownProps> = ({
     [onChange]
   );
 
-  // Handle option key down
-  const handleOptionKeyDown = (
-    e: React.KeyboardEvent<HTMLLIElement>,
-    optionValue: string
-  ) => {
-    if (e.key === "Enter" || e.key === " ") {
-      e.preventDefault();
-      handleSelect(optionValue);
-    }
-  };
-
   // Scroll focused option into view
   useEffect(() => {
     if (isOpen && focusedIndex >= 0 && menuRef.current) {
-      const focusedOption = menuRef.current.children[
-        focusedIndex
-      ] as HTMLElement;
-      if (focusedOption) {
-        focusedOption.scrollIntoView({
-          block: "nearest",
-          behavior: "smooth",
-        });
-      }
+      const el = menuRef.current.children[focusedIndex] as HTMLElement;
+      el?.scrollIntoView({ block: "nearest" });
     }
   }, [isOpen, focusedIndex]);
 
-  const containerClasses = `relative ${className || ""}`;
-  const buttonBaseClasses = "w-full flex items-center justify-between text-right focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF4C00] focus-visible:ring-offset-2 dir-rtl";
-  const buttonDisabledClasses = disabled ? "opacity-50 cursor-not-allowed" : "cursor-pointer";
-  const buttonClasses = `${buttonBaseClasses} ${buttonDisabledClasses} ${buttonClassName || ""}`;
-  
-  const spanClasses = !selectedOption ? "text-white" : "";
-  const iconClasses = `text-base transition-transform duration-200 ${isOpen ? "rotate-180" : ""}`;
-  
-  const menuBaseClasses = "absolute z-50 w-full mt-2 bg-white rounded-2xl shadow-lg border border-gray-200 max-h-60 overflow-auto focus-visible:outline-none py-1";
-  const menuClasses = `${menuBaseClasses} ${menuClassName || ""}`;
+  const containerClasses = `relative ${className}`;
+  const buttonClasses = `
+    w-full flex items-center justify-between text-right dir-rtl
+    focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF4C00]
+    focus-visible:ring-offset-2
+    ${disabled ? "opacity-50 cursor-not-allowed" : "cursor-pointer"}
+    ${buttonClassName}
+  `;
+
+   
+  const iconClasses = `transition-transform duration-200 ${
+    isOpen ? "rotate-180" : ""
+  }`;
+
+  const menuClasses = `
+    absolute z-50 w-full mt-2 bg-white rounded-2xl shadow-lg
+    border border-gray-200 max-h-60 overflow-auto py-1
+    ${menuClassName}
+  `;
 
   return (
     <div ref={containerRef} className={containerClasses}>
@@ -175,11 +169,11 @@ const Dropdown: React.FC<DropdownProps> = ({
         aria-expanded={isOpen}
         aria-haspopup="listbox"
         aria-controls={`${id || "dropdown"}-menu`}
-        onClick={() => !disabled && setIsOpen(!isOpen)}
+        onClick={() => !disabled && setIsOpen((p) => !p)}
         onKeyDown={handleKeyDown}
         className={buttonClasses}
       >
-        <span className={spanClasses}>
+        <span className={placeholderColor}>
           {selectedOption ? selectedOption.label : placeholder}
         </span>
         <IoChevronDownOutline className={iconClasses} />
@@ -196,12 +190,16 @@ const Dropdown: React.FC<DropdownProps> = ({
           {options.map((option, index) => {
             const isSelected = option.value === value;
             const isFocused = index === focusedIndex;
-            const optionBaseClasses = "px-4 py-2 cursor-pointer text-right mx-1 transition-colors duration-150 focus-visible:outline-none rounded-full";
-            const optionSelectedClasses = isSelected ? "bg-[#FF4C00] text-white" : "text-[#0A2745] hover:bg-[#FFF6F2]";
-            const optionFocusedClasses = isFocused && !isSelected ? "bg-[#FFF6F2]" : "";
-            const optionFocusedSelectedClasses = isSelected && isFocused ? "bg-[#E64500]" : "";
-            const optionClasses = `${optionBaseClasses} ${optionSelectedClasses} ${optionFocusedClasses} ${optionFocusedSelectedClasses} ${optionClassName || ""}`;
-            
+
+            const optionClasses = `
+              px-4 py-2 mx-1 text-right rounded-full cursor-pointer
+              transition-colors duration-150
+              ${isSelected ? "bg-[#FF4C00] text-white" : "text-[#0A2745] hover:bg-[#FFF6F2]"}
+              ${isFocused && !isSelected ? "bg-[#FFF6F2]" : ""}
+              ${isFocused && isSelected ? "bg-[#E64500]" : ""}
+              ${optionClassName}
+            `;
+
             return (
               <li
                 key={option.value}
@@ -209,7 +207,10 @@ const Dropdown: React.FC<DropdownProps> = ({
                 aria-selected={isSelected}
                 tabIndex={isFocused ? 0 : -1}
                 onClick={() => handleSelect(option.value)}
-                onKeyDown={(e) => handleOptionKeyDown(e, option.value)}
+                onKeyDown={(e) =>
+                  (e.key === "Enter" || e.key === " ") &&
+                  handleSelect(option.value)
+                }
                 className={optionClasses}
               >
                 {option.label}
@@ -223,4 +224,3 @@ const Dropdown: React.FC<DropdownProps> = ({
 };
 
 export default Dropdown;
-

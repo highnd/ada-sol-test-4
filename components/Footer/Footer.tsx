@@ -1,5 +1,3 @@
-"use client";
-
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -8,7 +6,6 @@ import {
   FaWhatsapp,
   FaInstagram,
   FaPlayCircle,
-  FaPhone,
   FaEnvelope,
   FaMapPin,
   FaMapMarkerAlt,
@@ -30,7 +27,7 @@ import {
 import { toPersianDigits } from "@/utils/numberUtils";
 
 const FOOTER_CLASSES =
-  "w-full bg-[#FFF6F2] py-8 sm:py-12 pb-28 lg:pb-8 sm:pb-12";
+  "w-full bg-[#FFF6F2] py-8 sm:py-12 pb-28 lg:pb-8 sm:pb-24 overflow-hidden";
 
 // Outer grid: right brand/social column (۱/۳) + left wrapper (۲/۳)
 const GRID_CLASSES =
@@ -38,9 +35,10 @@ const GRID_CLASSES =
 
 const COLUMN_CLASSES = "flex flex-col gap-3";
 
-const LOGO_CLASSES = "w-24 h-auto mb-4 sm:mb-6";
+const LOGO_CLASSES = "w-24 h-auto mb-2 sm:mb-6";
 
-const SOCIAL_ICONS_CONTAINER_CLASSES = "flex items-center gap-3 sm:gap-4 my-6 ";
+const SOCIAL_ICONS_CONTAINER_CLASSES =
+  "flex items-center gap-3 sm:gap-4 lg:my-6 my-2 ";
 
 const SOCIAL_ICON_CLASSES =
   "w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-[#FF4C00] text-white flex items-center justify-center hover:bg-[#FF4C00]/80 transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF4C00] focus-visible:ring-offset-2";
@@ -100,9 +98,9 @@ const CONTACT_LABEL_ADDRESS_CLASSES =
   "text-[#595B5C] bold-fanum-font text-xs md:text-sm lg:text-base shrink-0";
 
 const COPYRIGHT_BAR_CLASSES =
-  "text-right text-[#0A2745] regular-fanum-font text-xs sm:text-sm mt-8 sm:mt-10 md:mt-12 pt-6 sm:pt-8 border-t border-[#FF4C00]/20";
+  "md:text-right text-center text-[#0A2745] regular-fanum-font text-xs sm:text-sm  border-t border-[#FF4C00]/20 py-4 md:mt-6";
 
-const getSocialIcon = (iconName: string) => {
+export const getSocialIcon = (iconName: string) => {
   switch (iconName) {
     case "FaWhatsapp":
       return FaWhatsapp;
@@ -128,7 +126,7 @@ const Footer: React.FC = () => {
         <div className={GRID_CLASSES}>
           {/* Right Column: Brand & Social (۱/۳ عرض) */}
           <div className={COLUMN_CLASSES}>
-            <Link href="/" className="inline-block">
+            <Link href="/" className="md:inline-block hidden">
               <Image
                 src="/icons-brands/logo-sol.svg"
                 alt="سول - نرم‌افزار رستورانی"
@@ -139,15 +137,15 @@ const Footer: React.FC = () => {
               />
             </Link>
             <>
-              <p className="regular-fanum-font text-sm sm:text-base md:text-xl text-[#0A2745] leading-relaxed">
+              <p className="regular-fanum-font text-sm sm:text-base md:text-xl text-[#0A2745] leading-relaxed md:flex hidden">
                 برای اطلاع از تخفیف‌ها و جدیدترین خبرها
               </p>
-              <p className="extrabold-fanum-font text-sm sm:text-base md:text-3xl text-[#0A2745] leading-relaxed">
+              <p className="extrabold-fanum-font text-sm sm:text-base md:text-3xl text-[#0A2745] leading-relaxed md:flex hidden">
                 سول را در شبکه‌های اجتماعی دنبال کنید...
               </p>
             </>
 
-            <div className={SOCIAL_ICONS_CONTAINER_CLASSES}>
+            <div className={`${SOCIAL_ICONS_CONTAINER_CLASSES} md:flex hidden`}>
               {SOCIAL_MEDIA.map((social) => {
                 const IconComponent = getSocialIcon(social.icon);
                 return (
@@ -225,85 +223,113 @@ const Footer: React.FC = () => {
             </nav>
 
             {/* Contact Column */}
-            <div className={`${COLUMN_CLASSES} order-1 lg:order-3`}>
+            <div className={`${COLUMN_CLASSES} order-3`}>
               <h3 className={COLUMN_TITLE_CLASSES}>پل‌های ارتباطی</h3>
-              <nav aria-label="لینک‌های ارتباطی">
-                <ul className={LINK_LIST_CLASSES}>
-                  {CONTACT_LINKS.map((link) => (
-                    <li key={link.label}>
-                      <Link href={link.href} className={LINK_ITEM_CLASSES}>
-                        {link.label}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </nav>
+              <div
+                className={`${SOCIAL_ICONS_CONTAINER_CLASSES} md:hidden flex sm:w-76 w-72`}
+              >
+                {SOCIAL_MEDIA.map((social) => {
+                  const IconComponent = getSocialIcon(social.icon);
+                  return (
+                    <a
+                      key={social.name}
+                      href={social.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={SOCIAL_ICON_CLASSES}
+                      aria-label={social.ariaLabel}
+                    >
+                      <IconComponent className="text-lg sm:text-3xl" />
+                    </a>
+                  );
+                })}
+              </div>
+              <div className="flex md:flex-col md:gap-0 sm:gap-24  ">
+                <nav aria-label="لینک‌های ارتباطی">
+                  <ul className={LINK_LIST_CLASSES}>
+                    {CONTACT_LINKS.map((link) => (
+                      <li key={link.label} className="md:w-72 w-30 ">
+                        <Link
+                          href={link.href}
+                          className={`${LINK_ITEM_CLASSES} `}
+                        >
+                          {link.label}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </nav>
 
-              <address className={CONTACT_INFO_CLASSES} dir="rtl">
-                {/* Phone Number */}
-                <div className="-mt-4">
+                <address className={CONTACT_INFO_CLASSES} dir="rtl">
+                  {/* Phone Number */}
+                  <div className="-mt-4">
+                    <div className={CONTACT_ITEM_WRAPPER_CLASSES}>
+                      <BsTelephoneFill className={CONTACT_ICON_CLASSES} />
+                      <div className={CONTACT_INNER_FLEX_CLASSES}>
+                        <span className={CONTACT_LABEL_CLASSES}>
+                          شماره تماس:
+                        </span>
+                        <a
+                          href={`tel:${CONTACT_INFO.phone.replace(/\s/g, "")}`}
+                          className={CONTACT_PHONE_LINK_CLASSES}
+                          dir="ltr"
+                          aria-label={`تماس با شماره ${toPersianDigits(
+                            CONTACT_INFO.phone
+                          )}`}
+                        >
+                          {toPersianDigits(CONTACT_INFO.phone)}
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Email */}
                   <div className={CONTACT_ITEM_WRAPPER_CLASSES}>
-                    <BsTelephoneFill className={CONTACT_ICON_CLASSES} />
+                    <FaEnvelope className={CONTACT_ICON_CLASSES} />
                     <div className={CONTACT_INNER_FLEX_CLASSES}>
-                      <span className={CONTACT_LABEL_CLASSES}>شماره تماس:</span>
+                      <span className={CONTACT_LABEL_CLASSES}>ایمیل:</span>
                       <a
-                        href={`tel:${CONTACT_INFO.phone.replace(/\s/g, "")}`}
-                        className={CONTACT_PHONE_LINK_CLASSES}
+                        href={`mailto:${CONTACT_INFO.email}`}
+                        className={CONTACT_EMAIL_LINK_CLASSES}
                         dir="ltr"
-                        aria-label={`تماس با شماره ${toPersianDigits(
-                          CONTACT_INFO.phone
-                        )}`}
+                        aria-label={`ارسال ایمیل به ${CONTACT_INFO.email}`}
                       >
-                        {toPersianDigits(CONTACT_INFO.phone)}
+                        {CONTACT_INFO.email}
                       </a>
                     </div>
                   </div>
-                </div>
 
-                {/* Email */}
-                <div className={CONTACT_ITEM_WRAPPER_CLASSES}>
-                  <FaEnvelope className={CONTACT_ICON_CLASSES} />
-                  <div className={CONTACT_INNER_FLEX_CLASSES}>
-                    <span className={CONTACT_LABEL_CLASSES}>ایمیل:</span>
-                    <a
-                      href={`mailto:${CONTACT_INFO.email}`}
-                      className={CONTACT_EMAIL_LINK_CLASSES}
-                      dir="ltr"
-                      aria-label={`ارسال ایمیل به ${CONTACT_INFO.email}`}
-                    >
-                      {CONTACT_INFO.email}
-                    </a>
+                  {/* Postal Code */}
+                  <div className={CONTACT_ITEM_WRAPPER_CLASSES}>
+                    <FaMapPin className={CONTACT_ICON_CLASSES} />
+                    <div className={CONTACT_INNER_FLEX_CLASSES}>
+                      <span className={CONTACT_LABEL_CLASSES}>کدپستی:</span>
+                      <span className={CONTACT_POSTAL_CODE_CLASSES}>
+                        {toPersianDigits(CONTACT_INFO.postalCode)}
+                      </span>
+                    </div>
                   </div>
-                </div>
 
-                {/* Postal Code */}
-                <div className={CONTACT_ITEM_WRAPPER_CLASSES}>
-                  <FaMapPin className={CONTACT_ICON_CLASSES} />
-                  <div className={CONTACT_INNER_FLEX_CLASSES}>
-                    <span className={CONTACT_LABEL_CLASSES}>کدپستی:</span>
-                    <span className={CONTACT_POSTAL_CODE_CLASSES}>
-                      {toPersianDigits(CONTACT_INFO.postalCode)}
-                    </span>
+                  {/* Address */}
+                  <div className={CONTACT_ITEM_WRAPPER_ADDRESS_CLASSES}>
+                    <BsGeoAltFill className={CONTACT_ICON_ADDRESS_CLASSES} />
+                    <div className={CONTACT_INNER_FLEX_ADDRESS_CLASSES}>
+                      <span className={CONTACT_LABEL_ADDRESS_CLASSES}>
+                        آدرس:
+                      </span>
+                      <a
+                        href="https://maps.app.goo.gl/gzNUGj7oUXB5ewUe8"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={`${CONTACT_ADDRESS_TEXT_CLASSES} hover:text-[#FF4C00] transition-colors duration-200 cursor-pointer lg:w-fit w-44`}
+                        aria-label="مشاهده موقعیت روی نقشه گوگل"
+                      >
+                        {CONTACT_INFO.address}
+                      </a>
+                    </div>
                   </div>
-                </div>
-
-                {/* Address */}
-                <div className={CONTACT_ITEM_WRAPPER_ADDRESS_CLASSES}>
-                  <BsGeoAltFill className={CONTACT_ICON_ADDRESS_CLASSES} />
-                  <div className={CONTACT_INNER_FLEX_ADDRESS_CLASSES}>
-                    <span className={CONTACT_LABEL_ADDRESS_CLASSES}>آدرس:</span>
-                    <a
-                      href="https://maps.app.goo.gl/gzNUGj7oUXB5ewUe8"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className={`${CONTACT_ADDRESS_TEXT_CLASSES} hover:text-[#FF4C00] transition-colors duration-200 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF4C00] focus-visible:ring-offset-2`}
-                      aria-label="مشاهده موقعیت روی نقشه گوگل"
-                    >
-                      {CONTACT_INFO.address}
-                    </a>
-                  </div>
-                </div>
-              </address>
+                </address>
+              </div>
             </div>
           </div>
         </div>
@@ -331,6 +357,19 @@ const Footer: React.FC = () => {
               />
             </a>
           ))}
+        </div>
+
+        <div className=" w-full py-4 md:hidden flex items-center justify-center ">
+          <Link href="/" className="inline-block  ">
+            <Image
+              src="/icons-brands/logo-sol.svg"
+              alt="سول - نرم‌افزار رستورانی"
+              width={120}
+              height={40}
+              className={LOGO_CLASSES}
+              priority
+            />
+          </Link>
         </div>
 
         {/* Copyright Bar */}

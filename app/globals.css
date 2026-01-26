@@ -1,12 +1,13 @@
 @import "tailwindcss";
 
 /* YEKANBAKHFANUM Font Family - @font-face declarations */
+/* Non-critical font weights - optional display for better performance */
 @font-face {
   font-family: "YEKANBAKHFANUM";
   src: url("/fonts/YEKANBAKHFANUM-THIN.TTF") format("truetype");
   font-weight: 100;
   font-style: normal;
-  font-display: swap;
+  font-display: optional; /* Non-critical - uses fallback if not loaded quickly */
 }
 
 @font-face {
@@ -14,15 +15,16 @@
   src: url("/fonts/YEKANBAKHFANUM-LIGHT.TTF") format("truetype");
   font-weight: 300;
   font-style: normal;
-  font-display: swap;
+  font-display: optional; /* Non-critical - uses fallback if not loaded quickly */
 }
 
+/* Critical font weights - preloaded for optimal performance */
 @font-face {
   font-family: "YEKANBAKHFANUM";
   src: url("/fonts/YEKANBAKHFANUM-REGULAR.TTF") format("truetype");
   font-weight: 400;
   font-style: normal;
-  font-display: swap;
+  font-display: swap; /* Critical weight - swap for immediate text display */
 }
 
 @font-face {
@@ -30,7 +32,7 @@
   src: url("/fonts/YEKANBAKHFANUM-SEMIBOLD.TTF") format("truetype");
   font-weight: 600;
   font-style: normal;
-  font-display: swap;
+  font-display: swap; /* Critical weight - swap for immediate text display */
 }
 
 @font-face {
@@ -38,7 +40,7 @@
   src: url("/fonts/YEKANBAKHFANUM-BOLD.TTF") format("truetype");
   font-weight: 700;
   font-style: normal;
-  font-display: swap;
+  font-display: swap; /* Critical weight - swap for immediate text display */
 }
 
 @font-face {
@@ -46,15 +48,16 @@
   src: url("/fonts/YEKANBAKHFANUM-EXTRABOLD.TTF") format("truetype");
   font-weight: 800;
   font-style: normal;
-  font-display: swap;
+  font-display: swap; /* Critical weight - swap for immediate text display */
 }
 
+/* Non-critical font weights - optional display for better performance */
 @font-face {
   font-family: "YEKANBAKHFANUM";
   src: url("/fonts/YEKANBAKHFANUM-BLACK.TTF") format("truetype");
   font-weight: 900;
   font-style: normal;
-  font-display: swap;
+  font-display: optional; /* Non-critical - uses fallback if not loaded quickly */
 }
 
 @font-face {
@@ -62,19 +65,20 @@
   src: url("/fonts/YEKANBAKHFANUM-EXTRABLACK.TTF") format("truetype");
   font-weight: 950;
   font-style: normal;
-  font-display: swap;
+  font-display: optional; /* Non-critical - uses fallback if not loaded quickly */
 }
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
   --font-yekanbakh: "YEKANBAKH", Arial, Helvetica, sans-serif;
   --font-yekanbakh-fanum: "YEKANBAKHFANUM", Arial, Helvetica, sans-serif;
+  --color-primary: #ff4c00;
+  --color-secondary: #0a2745;
 }
 
 /* Smooth scrolling */
 html {
-  scroll-behavior: smooth;
+  data-scroll-behavior: smooth;
+  /* data-scroll-behavior="smooth"` */
 }
 
 /* Respect user preferences for reduced motion */
@@ -84,26 +88,16 @@ html {
   }
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-yekanbakh);
-  --font-mono: var(--font-yekanbakh-fanum);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-yekanbakh-fanum), Arial, Helvetica, sans-serif;
 }
 
+::selection {
+  background-color: #ff4c00; /* رنگ قرمز */
+  color: #ffffff; /* رنگ سفید */
+}
 /* Font utility classes - Use these classes to apply fonts */
 /* .regular-font {
   font-family: var(--font-yekanbakh);
@@ -119,6 +113,22 @@ body {
   font-family: var(--font-yekanbakh);
   font-weight: 900;
 } */
+.text-primary {
+  color: #ff4c00;
+}
+
+.text-secondary {
+  color: #0a2745;
+}
+.bg-primary {
+  background-color: #ff4c00;
+}
+.bg-secondary {
+  background-color: #0a2745;
+}
+.bg-accent {
+  background-color: #fff6f2;
+}
 
 .fanum-font {
   font-family: var(--font-yekanbakh-fanum);
@@ -203,6 +213,19 @@ body {
   100% {
     transform: translateX(-50%);
   }
+}
+
+@keyframes pulse-glow {
+  0%,
+  100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
 }
 
 .brand-scroll-animation {

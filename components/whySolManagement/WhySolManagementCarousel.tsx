@@ -8,7 +8,6 @@ import React, {
   useRef,
 } from "react";
 import useEmblaCarousel from "embla-carousel-react";
-import type { EmblaCarouselType } from "embla-carousel";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import { TabContent } from "./TabContent";
 import { FEATURE_PILLS } from "@/data/featurePills";
@@ -19,20 +18,20 @@ const PILLS_CONTAINER_CLASSES =
 
 // Mobile-specific pill styles - modern design with better spacing
 const MOBILE_PILL_BASE_CLASSES =
-  "bold-fanum-font rounded-full px-3.5 sm:px-4 py-2 sm:py-2.5 text-xs sm:text-sm transition-all duration-300 flex items-center justify-center text-center shrink-0 snap-start min-w-[120px] sm:min-w-[140px]";
+  "bold-fanum-font rounded-full px-3.5 sm:px-4 py-2 sm:py-2.5 text-xs sm:text-sm  flex items-center justify-center text-center  min-w-[120px] sm:min-w-[140px]  cursor-pointer ";
 
 const MOBILE_PILL_UNSELECTED_CLASSES =
   "bg-white text-[#0A2745] border border-[#E5E7EB] hover:border-[#FF4C00]/30 hover:bg-[#FFF6F2] shadow-sm";
 
 const MOBILE_PILL_SELECTED_CLASSES =
-  "bg-gradient-to-r from-[#FF4C00] to-[#FF6B35] text-white border-2 border-[#FF4C00] shadow-md shadow-[#FF4C00]/25 scale-[1.05] font-semibold";
+  "bg-gradient-to-r from-[#FF4C00] to-[#FF6B35] text-white shadow-md  font-semibold";
 
 const CAROUSEL_WRAPPER_CLASSES = "relative w-full";
 
-const SLIDE_CLASSES = "flex-[0_0_100%] min-w-0 relative";
+const SLIDE_CLASSES = "flex-[0_0_100%] min-w-0 relative p-2";
 
 const ARROW_BUTTON_CLASSES =
-  "absolute z-30 w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-full bg-white/95 backdrop-blur-sm hover:bg-white shadow-lg hover:shadow-xl active:scale-95 text-[#FF4C00] transition-all duration-300 flex items-center justify-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF4C00] focus-visible:ring-offset-2 disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:bg-white/95 disabled:hover:shadow-lg cursor-pointer";
+  "absolute z-30 w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-full bg-white/95 backdrop-blur-sm hover:bg-white shadow-lg hover:shadow-xl active:scale-95 text-[#FF4C00] transition-all duration-300 flex items-center justify-center  disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:bg-white/95 disabled:hover:shadow-lg cursor-pointer";
 
 // Position arrows at image center (image is at top on mobile, roughly at 30% from top of slide)
 const ARROW_LEFT_CLASSES = `${ARROW_BUTTON_CLASSES} top-[30%] sm:top-[32%] md:top-[35%] left-3 sm:left-4 md:left-6 -translate-y-1/2`;
@@ -159,7 +158,7 @@ const WhySolManagementCarousel: React.FC = () => {
                   isSelected
                     ? MOBILE_PILL_SELECTED_CLASSES
                     : MOBILE_PILL_UNSELECTED_CLASSES
-                } cursor-pointer focus-visible:outline-2 focus-visible:outline-[#FF4C00] focus-visible:outline-offset-2`}
+                }`}
               >
                 {pill.label}
               </button>

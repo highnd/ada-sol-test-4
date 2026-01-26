@@ -103,7 +103,7 @@ const Search: React.FC<SearchProps> = ({
     const dropdownContent =
       shouldShowDropdown && dropdownStyle.width ? (
         <div
-          className="fixed bg-white shadow-2xl rounded-2xl border border-gray-100 z-[60] max-h-[400px] overflow-y-auto"
+          className="fixed bg-white shadow-2xl rounded-2xl border border-gray-100 z-60 max-h-[400px] overflow-y-auto"
           style={dropdownStyle}
         >
           {filteredSuggestions.length > 0 ? (
@@ -175,7 +175,7 @@ const Search: React.FC<SearchProps> = ({
               placeholder={placeholder || defaultPlaceholder}
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="flex-1 px-3 py-2 rounded-full border border-gray-200 text-sm text-[#0A2745] placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-[#FF4C00] focus:border-[#FF4C00]"
+              className="flex-1 px-3 py-3 rounded-3xl border border-gray-200 text-sm text-[#0A2745] placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-[#FF4C00] focus:border-[#FF4C00]"
             />
             <button
               type="button"

@@ -115,7 +115,7 @@ export const NewsBlogSection: React.FC<NewsBlogSectionProps> = ({
   return (
     <section dir="rtl" className={SECTION_CLASSES}>
       <Container>
-        <div className="flex flex-col xl:flex-row gap-8 2xl:gap-32 items-stretch">
+        <div className="flex flex-col xl:flex-row gap-8 2xl:gap-32 items-stretch ">
           {/* Right Side: Carousel */}
           <div className={RIGHT_SIDE_CLASSES}>
             <div className={CAROUSEL_HEADER_CLASSES}>

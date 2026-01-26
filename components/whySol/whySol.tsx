@@ -24,7 +24,7 @@ const WhySol = () => {
     <Container>
       <div className="w-full  pt-24 md:pt-36 pb-12 sm:pb-16 md:pb-20">
         {/* Title */}
-        <h2 className="extrabold-fanum-font text-2xl md:text-2xl lg:text-4xl  2xl:text-5xl text-[#0A2745] text-center mb-6 sm:mb-8 md:mb-12 px-4">
+        <h2 className="extrabold-fanum-font text-xl md:text-2xl lg:text-4xl  2xl:text-5xl text-[#0A2745] text-center mb-6 sm:mb-8 md:mb-12 px-4">
           سول چیه و چطوری رستوران شما را متحول می‌کنه؟
         </h2>
 

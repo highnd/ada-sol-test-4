@@ -4,7 +4,7 @@ import { BsTelephoneFill } from "react-icons/bs";
 
 const FastCall = () => {
   return (
-    <div className="fixed right-1 bottom-6 sm:right-3 sm:bottom-1/3 z-40 flex flex-col items-center md:flex hidden">
+    <div className="fixed right-1 bottom-6 sm:right-3 sm:bottom-1/3 z-40  flex-col items-center md:flex hidden">
       {/* Background SVG */}
       <div className="absolute inset-0 -z-10">
         <Image

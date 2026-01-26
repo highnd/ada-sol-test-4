@@ -4,19 +4,21 @@ import React from "react";
 import Image from "next/image";
 
 import { AngleLineToBottom, AngleLineToTop } from "../ui/AngleLines";
-import { BsQrCode } from "react-icons/bs";
-import { BsBicycle } from "react-icons/bs";
-import { BsPeople } from "react-icons/bs";
+
 import {
   BsCoin,
   BsCalendar4Week,
   BsCreditCard,
   BsDiagram3,
+  BsHouses,
+  BsChatDots,
+  BsEnvelope,
+  BsPeople,
+  BsBicycle,
+  BsQrCode,
 } from "react-icons/bs";
-import { BsChatDots } from "react-icons/bs";
-import { BsFillEnvelopeFill } from "react-icons/bs";
-import { BsEnvelope } from "react-icons/bs";
-import { BsHouses } from "react-icons/bs";
+
+// import { BsFillEnvelopeFill } from "react-icons/bs";
 
 /* =======================
    FEATURE CIRCLE
@@ -73,7 +75,7 @@ const SpecialModule = () => {
         {/* Title */}
         <h2
           className={
-            "extrabold-fanum-font text-[#0A2745] text-2xl md:text-2xl lg:text-4xl  2xl:text-5xl text-center mb-10 sm:mb-12 md:mb-16 lg:mb-36 cursor-pointer"
+            "extrabold-fanum-font text-[#0A2745] text-xl md:text-2xl lg:text-4xl  2xl:text-5xl text-center mb-10 sm:mb-12 md:mb-16 lg:mb-36 xl:mt-40 "
           }
         >
           ماژول‌های تخصصی نرم‌افزار مدیریت رستوران سول
@@ -176,8 +178,8 @@ const SpecialModule = () => {
 
           {/* CENTER IMAGE */}
           {/* CENTER IMAGE - bottom for mobile, top for md/lg, center for xl */}
-          <div className="w-full xl:w-auto flex items-center justify-center shrink-0 order-3 md:order-first md:col-span-2 xl:order-2 xl:col-span-1">
-            <div className="relative xl:absolute z-60 xl:left-1/2 xl:-translate-x-1/2 w-[240px] sm:w-[280px] md:w-[320px] p-2 bg-[#FF4C00] rounded-[56.27px]">
+          <div className="w-full xl:w-auto md:pt-0 pt-18 flex items-center justify-center shrink-0 order-3 md:order-first md:col-span-2 xl:order-2 xl:col-span-1">
+            <div className="relative xl:absolute z-60 xl:left-1/2 xl:-translate-x-1/2 w-[240px] sm:w-[280px] lg:w-[320px]  p-2 bg-[#FF4C00] rounded-[56.27px]">
               <Image
                 src="/specialModule/iPhone16Pro.svg"
                 alt="آیفون ۱۶ پرو - ماژول‌های تخصصی سول"
@@ -286,7 +288,7 @@ const SpecialModule = () => {
         </div>
 
         {/* Button */}
-        <div className="flex justify-center mt-12 sm:mt-16 md:mt-20 lg:mt-24">
+        <div className="flex justify-center mt-12 sm:mt-16 md:mt-20 lg:mt-24 xl:mt-36">
           <button
             type="button"
             className="inline-flex items-center justify-center px-6 sm:px-8 md:px-10 py-2 text-sm sm:text-base md:text-lg bold-fanum-font rounded-[50px] bg-[#FF4C00] hover:bg-[#E64500] text-white transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF4C00] focus-visible:ring-offset-2 cursor-pointer"

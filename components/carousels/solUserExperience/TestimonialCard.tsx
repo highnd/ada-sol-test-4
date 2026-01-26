@@ -30,7 +30,8 @@ const FOOTER_CLASSES =
 
 const NAME_CLASSES = "font-bold text-[#0A2745] extrabold-font text-right";
 
-const ROLE_CLASSES = "text-lg text-[#0A2745] bold-fanum-font text-right";
+const ROLE_CLASSES =
+  "md:text-lg text-sm text-[#0A2745] bold-fanum-font text-right";
 
 const STARS_CONTAINER_CLASSES = "w-full flex pl-3 justify-between";
 

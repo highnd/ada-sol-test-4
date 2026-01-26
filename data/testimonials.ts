@@ -1,4 +1,4 @@
-import type { Testimonial } from "@/components/solUserExperience/types";
+import type { Testimonial } from "@/components/carousels/solUserExperience/types";
 
 export const TESTIMONIALS: readonly Testimonial[] = [
   {

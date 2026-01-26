@@ -7,7 +7,7 @@ const SECTION_CLASSES =
   "w-full bg-[#FFF6F2] py-12 sm:py-10 md:py-12 lg:py-16 mt-20";
 
 const TITLE_CLASSES =
-  "extrabold-fanum-font text-[#0A2745] text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-center mb-8 sm:mb-10 md:mb-12 lg:mb-24";
+  "extrabold-fanum-font text-[#0A2745] text-xl sm:text-3xl md:text-4xl lg:text-5xl text-center mb-8 sm:mb-10 md:mb-12 lg:mb-24";
 
 const CIRCLES_CONTAINER_CLASSES =
   "flex flex-col sm:flex-row items-center justify-center sm:justify-between gap-10 flex-wrap";

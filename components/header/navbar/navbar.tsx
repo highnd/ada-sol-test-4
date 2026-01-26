@@ -9,6 +9,7 @@ import React, {
 } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import {
   PRODUCTS_MENU_ITEMS,
   MenuItem,
@@ -69,6 +70,7 @@ import {
 } from "react-icons/fa";
 import dynamic from "next/dynamic";
 import Search from "@/components/ui/search";
+import LastUpdate from "@/components/ui/lastUpdate";
 
 const Drawer = dynamic(() => import("@/components/ui/drawer"), {
   ssr: false,
@@ -156,6 +158,7 @@ const getSubmenuIcon = (iconName?: string) => {
 };
 
 const Navbar = () => {
+  const pathname = usePathname();
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [activeItemId, setActiveItemId] = useState<string | null>(null);
   const [activeSubmenuId, setActiveSubmenuId] = useState<string | null>(null);
@@ -163,7 +166,50 @@ const Navbar = () => {
     string | null
   >(null);
   const [isSearchExpanded, setIsSearchExpanded] = useState(false);
+
   const navRef = useRef<HTMLElement | null>(null);
+  const hasAutoExpandedRef = useRef(false);
+
+  // Auto-expand menu items that have active submenu items on mobile (only once when drawer opens)
+  useEffect(() => {
+    if (!pathname || !isDrawerOpen) {
+      // Reset flag when drawer closes
+      if (!isDrawerOpen) {
+        hasAutoExpandedRef.current = false;
+      }
+      return;
+    }
+
+    // Only auto-expand once when drawer first opens
+    if (hasAutoExpandedRef.current) return;
+
+    // Find menu item with active submenu in PRODUCTS_MENU_ITEMS
+    const productItemWithActiveSubmenu = PRODUCTS_MENU_ITEMS.find((item) => {
+      if (!item.submenu) return false;
+      return item.submenu.some((sub) => {
+        if (pathname === sub.href) return true;
+        if (sub.submenu) {
+          return sub.submenu.some((nested) => pathname === nested.href);
+        }
+        return false;
+      });
+    });
+
+    // Find topbar item with active submenu
+    const topbarItemWithActiveSubmenu = TOPBAR_ITEMS.find((item) => {
+      if (!item.submenu) return false;
+      return item.submenu.some((sub) => pathname === sub.href);
+    });
+
+    // Auto-expand if found (only on initial drawer open)
+    if (productItemWithActiveSubmenu) {
+      setActiveItemId(productItemWithActiveSubmenu.label);
+      hasAutoExpandedRef.current = true;
+    } else if (topbarItemWithActiveSubmenu) {
+      setActiveItemId(topbarItemWithActiveSubmenu.label);
+      hasAutoExpandedRef.current = true;
+    }
+  }, [pathname, isDrawerOpen]);
 
   const activeItem: MenuItem | null = useMemo(() => {
     if (!activeItemId) return null;
@@ -187,10 +233,16 @@ const Navbar = () => {
 
   const handleDrawerOpen = useCallback(() => {
     setIsDrawerOpen(true);
+    // Reset auto-expand flag when drawer opens so it can auto-expand active items
+    hasAutoExpandedRef.current = false;
   }, []);
 
   const handleDrawerClose = useCallback(() => {
     setIsDrawerOpen(false);
+    // Reset states when drawer closes
+    setActiveItemId(null);
+    setActiveSubmenuId(null);
+    hasAutoExpandedRef.current = false;
   }, []);
 
   const handleDesktopSubmenuEnter = useCallback(
@@ -217,6 +269,8 @@ const Navbar = () => {
   const handleMobileToggleItem = useCallback((itemLabel: string) => {
     setActiveItemId((prev) => (prev === itemLabel ? null : itemLabel));
     setActiveSubmenuId(null);
+    // Mark that user has manually interacted, so auto-expand won't interfere
+    hasAutoExpandedRef.current = true;
   }, []);
 
   const handleMobileSubmenuClick = useCallback(
@@ -264,10 +318,10 @@ const Navbar = () => {
 
   return (
     <>
-      <div className="bg-white h-[72px] relative shadow-[0_2px_8px_0_rgba(0,0,0,0.15)]">
+      <div className="bg-white h-[72px] relative shadow-[0_2px_8px_0_rgba(0,0,0,0.15)]  z-40">
         <nav
           ref={navRef}
-          className=" h-full flex flex-col lg:flex-row items-center justify-between gap-3 lg:gap-0 py-2  px-2  xl:px-24  "
+          className=" h-full flex flex-col lg:flex-row items-center justify-between gap-3 lg:gap-0 py-2  px-2  xl:px-24   "
           dir="rtl"
         >
           {/* right: logo - hidden on mobile (shown in drawer), visible on desktop */}
@@ -290,13 +344,33 @@ const Navbar = () => {
               const isActive = activeItemId === item.label;
               const hasSubmenu = item.submenu && item.submenu.length > 0;
 
+              // Check if current pathname matches the menu item href or any of its submenu items
+              const isCurrentPage = pathname === item.href;
+              const hasActiveSubmenuItem = hasSubmenu
+                ? item.submenu!.some((sub) => {
+                  // Check direct submenu items
+                  if (pathname === sub.href) return true;
+                  // Check nested submenu items if they exist
+                  if (sub.submenu) {
+                    return sub.submenu.some((nested) => pathname === nested.href);
+                  }
+                  return false;
+                })
+                : false;
+
+              // Apply active styling if current page or has active submenu item
+              const isPageActive = isCurrentPage || hasActiveSubmenuItem;
+
               return (
                 <li key={item.label} className="relative">
                   <button
                     type="button"
-                    className="relative cursor-pointer text-[#0A2745] transition-colors text-xs lg:text-xs xl:text-[14px] 2xl:text-[16px] leading-[25px] flex items-center hover:text-[#FF4C00] after:absolute after:bottom-[-4px] after:right-0 after:left-0 after:h-[2px] 
-                    after:bg-[#FF4C00] after:scale-x-0 after:origin-right after:transition-transform after:duration-300 after:ease-out 
-                    hover:after:scale-x-100 aria-expanded:after:scale-x-100"
+                    className={`relative cursor-pointer transition-colors text-xs lg:text-xs xl:text-[14px] 2xl:text-[16px] leading-[25px] flex items-center after:absolute after:bottom-[-4px] after:right-0 after:left-0 after:h-[2px] 
+                    after:bg-[#FF4C00] after:origin-right after:transition-transform after:duration-300 after:ease-out 
+                    hover:text-[#FF4C00] hover:after:scale-x-100 ${isPageActive
+                        ? "text-[#FF4C00] after:scale-x-100"
+                        : "text-[#0A2745] after:scale-x-0"
+                      } ${isActive ? "aria-expanded:after:scale-x-100" : ""}`}
                     onClick={() =>
                       handleDesktopItemClick(item.label, hasSubmenu)
                     }
@@ -304,7 +378,12 @@ const Navbar = () => {
                   >
                     {item.label}
                     {hasSubmenu && (
-                      <IoChevronDownOutline className="text-[10px] lg:text-[10px] xl:text-[14px] mx-1" />
+                      <IoChevronDownOutline
+                        className={`text-[10px] lg:text-[10px] xl:text-[14px] mx-1 transition-transform ${isActive || isPageActive
+                          ? " rotate-180  text-[#FF4C00]"
+                          : "rotate-0"
+                          }  `}
+                      />
                     )}
                   </button>
 
@@ -340,6 +419,7 @@ const Navbar = () => {
                                 const hasNestedSubmenu =
                                   sub.submenu && sub.submenu.length > 0;
                                 const IconComponent = getSubmenuIcon(sub.icon);
+                                const isSubmenuItemActive = pathname === sub.href;
                                 return (
                                   <li
                                     key={sub.href}
@@ -348,11 +428,10 @@ const Navbar = () => {
                                   >
                                     <Link
                                       href={sub.href}
-                                      className={`flex items-center gap-2 px-3 py-2 rounded-md text-sm leading-[22px] transition-colors ${
-                                        isSubActive
-                                          ? "bg-[#FFF6F2] text-[#FF4C00]"
-                                          : "text-[#0A2745] hover:bg-gray-50 hover:text-[#FF4C00]"
-                                      } ${hasNestedSubmenu ? "pr-6" : ""}`}
+                                      className={`flex items-center gap-2 px-3 py-2 rounded-md text-sm leading-[22px] transition-colors ${isSubActive || isSubmenuItemActive
+                                        ? "bg-[#FFF6F2] text-[#FF4C00]"
+                                        : "text-[#0A2745] hover:bg-gray-50 hover:text-[#FF4C00]"
+                                        } ${hasNestedSubmenu ? "pr-6" : ""}`}
                                       onMouseEnter={() =>
                                         handleDesktopSubmenuEnter(
                                           item.label,
@@ -368,13 +447,18 @@ const Navbar = () => {
                                         {sub.label}
                                       </span>
                                       {hasNestedSubmenu && (
-                                        <IoChevronDownOutline className="text-xs text-[#FF4C00] shrink-0 rotate-90" />
+                                        <IoChevronDownOutline
+                                          className={`text-xs text-[#FF4C00] shrink-0 transition-transform rotate-90 ${isSubActive
+                                            ? " -translate-x-2"
+                                            : "translate-x-0"
+                                            }`}
+                                        />
                                       )}
                                     </Link>
                                     {/* Nested submenu */}
                                     {hasNestedSubmenu && sub.submenu && (
                                       <div
-                                        className="absolute right-full top-0 mr-2 w-64 bg-white shadow-xl rounded-lg border border-gray-100 z-50 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200"
+                                        className="absolute right-full top-0 mr-2  w-64 bg-white shadow-xl rounded-lg border border-gray-100 z-50 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200"
                                         dir="rtl"
                                         onMouseEnter={() =>
                                           handleNestedSubmenuEnter(sub.label)
@@ -387,11 +471,15 @@ const Navbar = () => {
                                           {sub.submenu.map((nested) => {
                                             const NestedIconComponent =
                                               getSubmenuIcon(nested.icon);
+                                            const isNestedItemActive = pathname === nested.href;
                                             return (
                                               <li key={nested.href}>
                                                 <Link
                                                   href={nested.href}
-                                                  className="flex items-center gap-2 px-4 py-2 text-sm text-[#0A2745] hover:bg-[#FFF6F2] hover:text-[#FF4C00] transition-colors"
+                                                  className={`flex items-center gap-2 px-4 py-2 text-sm transition-colors ${isNestedItemActive
+                                                    ? "bg-[#FFF6F2] text-[#FF4C00]"
+                                                    : "text-[#0A2745] hover:bg-[#FFF6F2] hover:text-[#FF4C00]"
+                                                    }`}
                                                   onClick={
                                                     handleDesktopSubmenuClick
                                                   }
@@ -442,7 +530,7 @@ const Navbar = () => {
               <div className="flex items-center gap-2 sm:gap-3">
                 <button
                   onClick={handleDrawerOpen}
-                  className="p-2 rounded-full bg-white shadow-sm hover:bg-gray-100 focus:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-[#FF4C00] focus:ring-offset-2 text-[#0A2745] cursor-pointer shrink-0"
+                  className="p-2 rounded-full bg-white shadow-sm hover:bg-gray-100 focus:bg-gray-100 focus:outline-none  text-[#0A2745] cursor-pointer shrink-0"
                   aria-label="باز کردن منو"
                   aria-expanded={isDrawerOpen}
                   aria-controls="mobile-drawer"
@@ -465,7 +553,7 @@ const Navbar = () => {
                 <button
                   type="button"
                   onClick={() => setIsSearchExpanded((v) => !v)}
-                  className="p-2 rounded-full hover:bg-gray-100 focus:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-[#FF4C00] focus:ring-offset-2 text-[#0A2745] cursor-pointer shrink-0"
+                  className="p-2 rounded-full hover:bg-gray-100 focus:bg-gray-100 focus:outline-none  text-[#0A2745] cursor-pointer shrink-0"
                   aria-label="جستجو"
                   aria-expanded={isSearchExpanded}
                 >
@@ -496,7 +584,7 @@ const Navbar = () => {
               <button
                 type="button"
                 onClick={() => setIsSearchExpanded((v) => !v)}
-                className="p-2 rounded-full hover:bg-gray-100 focus:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-[#FF4C00] focus:ring-offset-2 text-[#0A2745] cursor-pointer"
+                className="p-2 rounded-full hover:bg-gray-100 focus:bg-gray-100 focus:outline-none  text-[#0A2745] cursor-pointer"
                 aria-label="جستجو"
                 aria-expanded={isSearchExpanded}
               >
@@ -507,6 +595,11 @@ const Navbar = () => {
         </nav>
       </div>
 
+      {/* اخرین وضعیت سول  sticky small nav in center*/}
+      {/* <>
+        <LastUpdate />
+      </> */}
+
       {/* Search panel - desktop and mobile */}
       <Search
         variant="desktop"
@@ -516,7 +609,7 @@ const Navbar = () => {
 
       {/* Mobile Drawer - always rendered for smooth animation */}
       <Drawer isOpen={isDrawerOpen} onClose={handleDrawerClose} title="">
-        <div className="flex flex-col h-full" dir="rtl" id="mobile-drawer">
+        <div className="flex flex-col h-full " dir="rtl" id="mobile-drawer">
           {/* Logo Section */}
           <div className="px-6 py-4 border-b border-gray-200">
             <Link
@@ -543,6 +636,23 @@ const Navbar = () => {
                 const hasSubmenu = item.submenu && item.submenu.length > 0;
                 const panelId = `mobile-submenu-${item.label}`;
 
+                // Check if current pathname matches the menu item href or any of its submenu items
+                const isCurrentPage = pathname === item.href;
+                const hasActiveSubmenuItem = hasSubmenu
+                  ? item.submenu!.some((sub) => {
+                    // Check direct submenu items
+                    if (pathname === sub.href) return true;
+                    // Check nested submenu items if they exist
+                    if (sub.submenu) {
+                      return sub.submenu.some((nested) => pathname === nested.href);
+                    }
+                    return false;
+                  })
+                  : false;
+
+                // Apply active styling if current page or has active submenu item
+                const isPageActive = isCurrentPage || hasActiveSubmenuItem;
+
                 return (
                   <li key={item.label} role="listitem">
                     {hasSubmenu ? (
@@ -550,15 +660,17 @@ const Navbar = () => {
                         <button
                           type="button"
                           onClick={() => handleMobileToggleItem(item.label)}
-                          className="w-full flex items-center justify-between px-4 py-3 text-[#0A2745] hover:bg-gray-50 hover:text-[#FF4C00] focus:bg-gray-50 focus:text-[#FF4C00] focus:outline-none focus:ring-2 focus:ring-[#FF4C00] focus:ring-offset-2 transition-colors rounded-md text-base font-medium regular-fanum-font min-h-[48px] cursor-pointer"
+                          className={`w-full flex items-center justify-between px-4 py-3 hover:bg-gray-50 focus:bg-gray-50 focus:outline-none transition-colors rounded-md text-base font-medium regular-fanum-font min-h-[48px] cursor-pointer ${isPageActive
+                            ? "text-[#FF4C00] bg-gray-50"
+                            : "text-[#0A2745] hover:text-[#FF4C00]"
+                            }`}
                           aria-expanded={isOpen}
                           aria-controls={panelId}
                         >
                           <span>{item.label}</span>
                           <IoChevronDownOutline
-                            className={`text-sm transition-transform ${
-                              isOpen ? "rotate-180" : ""
-                            }`}
+                            className={`text-sm transition-transform ${isOpen ? "rotate-180" : ""
+                              }`}
                           />
                         </button>
                         {isOpen && (
@@ -579,23 +691,29 @@ const Navbar = () => {
                               </div>
                             )}
                             <ul className="space-y-1" role="list">
-                              {item.submenu.map((sub) => (
-                                <li key={sub.href} role="listitem">
-                                  <Link
-                                    href={sub.href}
-                                    onClick={() => {
-                                      handleMobileSubmenuClick(
-                                        item.label,
-                                        sub.label
-                                      );
-                                      handleDrawerClose();
-                                    }}
-                                    className="block px-4 py-2 text-gray-600 hover:bg-gray-50 hover:text-gray-900 focus:bg-gray-50 focus:text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#FF4C00] focus:ring-offset-2 transition-colors rounded-md text-sm"
-                                  >
-                                    {sub.label}
-                                  </Link>
-                                </li>
-                              ))}
+                              {item.submenu.map((sub) => {
+                                const isSubmenuItemActive = pathname === sub.href;
+                                return (
+                                  <li key={sub.href} role="listitem">
+                                    <Link
+                                      href={sub.href}
+                                      onClick={() => {
+                                        handleMobileSubmenuClick(
+                                          item.label,
+                                          sub.label
+                                        );
+                                        handleDrawerClose();
+                                      }}
+                                      className={`block px-4 py-2 hover:bg-gray-50 focus:bg-gray-50 focus:outline-none transition-colors rounded-md text-sm ${isSubmenuItemActive
+                                        ? "text-[#FF4C00] bg-gray-50 font-medium"
+                                        : "text-gray-600 hover:text-gray-900"
+                                        }`}
+                                    >
+                                      {sub.label}
+                                    </Link>
+                                  </li>
+                                );
+                              })}
                             </ul>
                           </div>
                         )}
@@ -604,7 +722,10 @@ const Navbar = () => {
                       <Link
                         href={item.href}
                         onClick={handleDrawerClose}
-                        className="flex px-4 py-3 text-[#0A2745] hover:bg-gray-50 hover:text-[#FF4C00] focus:bg-gray-50 focus:text-[#FF4C00] focus:outline-none focus:ring-2 focus:ring-[#FF4C00] focus:ring-offset-2 transition-colors rounded-md text-base font-medium regular-fanum-font min-h-[48px]  items-center"
+                        className={`flex px-4 py-3 hover:bg-gray-50 focus:bg-gray-50 focus:outline-none transition-colors rounded-md text-base font-medium regular-fanum-font min-h-[48px] items-center ${isCurrentPage
+                          ? "text-[#FF4C00] bg-gray-50"
+                          : "text-[#0A2745] hover:text-[#FF4C00]"
+                          }`}
                       >
                         {item.label}
                       </Link>
@@ -626,6 +747,15 @@ const Navbar = () => {
                 const isOpen = activeItemId === item.label;
                 const panelId = `mobile-topbar-${item.label}`;
 
+                // Check if current pathname matches the topbar item href or any of its submenu items
+                const isCurrentPage = pathname === item.href;
+                const hasActiveSubmenuItem = hasSubmenu
+                  ? item.submenu!.some((sub) => pathname === sub.href)
+                  : false;
+
+                // Apply active styling if current page or has active submenu item
+                const isPageActive = isCurrentPage || hasActiveSubmenuItem;
+
                 return (
                   <li key={item.label} role="listitem">
                     {hasSubmenu ? (
@@ -633,15 +763,17 @@ const Navbar = () => {
                         <button
                           type="button"
                           onClick={() => handleMobileToggleItem(item.label)}
-                          className="w-full flex items-center justify-between px-4 py-3 text-[#0A2745] hover:bg-gray-50 hover:text-[#FF4C00] focus:bg-gray-50 focus:text-[#FF4C00] focus:outline-none focus:ring-2 focus:ring-[#FF4C00] focus:ring-offset-2 transition-colors rounded-md text-base font-medium regular-fanum-font min-h-[48px] cursor-pointer"
+                          className={`w-full flex items-center justify-between px-4 py-3 hover:bg-gray-50 focus:bg-gray-50 focus:outline-none transition-colors rounded-md text-base font-medium regular-fanum-font min-h-[48px] cursor-pointer ${isPageActive
+                            ? "text-[#FF4C00] bg-gray-50"
+                            : "text-[#0A2745] hover:text-[#FF4C00]"
+                            }`}
                           aria-expanded={isOpen}
                           aria-controls={panelId}
                         >
                           <span>{item.label}</span>
                           <IoChevronDownOutline
-                            className={`text-sm transition-transform ${
-                              isOpen ? "rotate-180" : ""
-                            }`}
+                            className={`text-sm transition-transform ${isOpen ? "rotate-180" : ""
+                              }`}
                           />
                         </button>
                         {isOpen && (
@@ -651,17 +783,23 @@ const Navbar = () => {
                             aria-hidden={!isOpen}
                           >
                             <ul className="space-y-1" role="list">
-                              {item.submenu!.map((sub) => (
-                                <li key={sub.href} role="listitem">
-                                  <Link
-                                    href={sub.href}
-                                    onClick={handleDrawerClose}
-                                    className="block px-4 py-2 text-gray-600 hover:bg-gray-50 hover:text-gray-900 focus:bg-gray-50 focus:text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#FF4C00] focus:ring-offset-2 transition-colors rounded-md text-sm"
-                                  >
-                                    {sub.label}
-                                  </Link>
-                                </li>
-                              ))}
+                              {item.submenu!.map((sub) => {
+                                const isSubmenuItemActive = pathname === sub.href;
+                                return (
+                                  <li key={sub.href} role="listitem">
+                                    <Link
+                                      href={sub.href}
+                                      onClick={handleDrawerClose}
+                                      className={`block px-4 py-2 hover:bg-gray-50 focus:bg-gray-50 focus:outline-none transition-colors rounded-md text-sm ${isSubmenuItemActive
+                                        ? "text-[#FF4C00] bg-gray-50 font-medium"
+                                        : "text-gray-600 hover:text-gray-900"
+                                        }`}
+                                    >
+                                      {sub.label}
+                                    </Link>
+                                  </li>
+                                );
+                              })}
                             </ul>
                           </div>
                         )}
@@ -670,7 +808,10 @@ const Navbar = () => {
                       <Link
                         href={item.href}
                         onClick={handleDrawerClose}
-                        className="flex px-4 py-3 text-[#0A2745] hover:bg-gray-50 hover:text-[#FF4C00] focus:bg-gray-50 focus:text-[#FF4C00] focus:outline-none focus:ring-2 focus:ring-[#FF4C00] focus:ring-offset-2 transition-colors rounded-md text-base font-medium regular-fanum-font min-h-[48px] items-center"
+                        className={`flex px-4 py-3 hover:bg-gray-50 focus:bg-gray-50 focus:outline-none transition-colors rounded-md text-base font-medium regular-fanum-font min-h-[48px] items-center ${isCurrentPage
+                          ? "text-[#FF4C00] bg-gray-50"
+                          : "text-[#0A2745] hover:text-[#FF4C00]"
+                          }`}
                       >
                         {item.label}
                       </Link>

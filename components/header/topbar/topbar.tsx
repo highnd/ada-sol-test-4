@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { IoCallOutline, IoChevronDownOutline } from "react-icons/io5";
 import { TOPBAR_ITEMS } from "@/data";
 import { toPersianDigits } from "@/utils/numberUtils";
+import { AnimatedtextHoverButton } from "@/components/ui/button";
 
 // Pre-computed button classes for mobile bottom navigation (zero runtime cost)
 const MOBILE_BOTTOM_BAR_CLASSES =
@@ -15,10 +16,10 @@ const MOBILE_BOTTOM_CONTAINER_CLASSES =
   "flex items-center justify-center gap-4 px-5 pt-4 pb-5 mb-safe";
 
 const MOBILE_BUTTON_ORANGE_CLASSES =
-  "flex-1 inline-flex items-center justify-center  py-3.5 text-base bold-fanum-font rounded-xl bg-[#FF4C00] text-white hover:bg-[#E64500] active:bg-[#CC3D00] shadow-sm hover:shadow-md transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF4C00] focus-visible:ring-offset-2 cursor-pointer";
+  "flex-1 inline-flex items-center justify-center text-sm py-3.5 text-base bold-fanum-font rounded-xl bg-[#FF4C00] text-white hover:bg-[#E64500] active:bg-[#CC3D00] shadow-sm hover:shadow-md  cursor-pointer";
 
 const MOBILE_BUTTON_BLUE_CLASSES =
-  "flex-1 inline-flex items-center justify-center  py-3.5 text-base bold-fanum-font rounded-xl bg-[#0A2745] text-white hover:bg-[#081a2e] active:bg-[#06141f] shadow-sm hover:shadow-md transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0A2745] focus-visible:ring-offset-2 cursor-pointer";
+  "flex-1 inline-flex items-center justify-center text-sm py-3.5 text-base bold-fanum-font rounded-xl bg-[#0A2745] text-white hover:bg-[#081a2e] active:bg-[#06141f] shadow-sm hover:shadow-md cursor-pointer";
 
 export default function Topbar() {
   const pathname = usePathname();
@@ -65,7 +66,7 @@ export default function Topbar() {
           dir="ltr"
         >
           {/* left part  */}
-          <div className="flex  items-center gap-2 sm:gap-4 font-normal tracking-[0] justify-center sm:justify-start">
+          <div className="flex  items-center gap-2 xl:gap-4 font-normal tracking-[0] justify-center sm:justify-start">
             <div className="text-[#0A2745] flex items-center gap-1 sm:gap-2">
               <IoCallOutline className="text-xl sm:text-xl lg:text-lg xl:text-2xl 2xl:text-[27px] font-bold text-[#0A2745] phone-ring-animation rounded-full " />
               <a
@@ -74,17 +75,15 @@ export default function Topbar() {
               >
                 {toPersianDigits("021 9100 2037")}
               </a>
-              <span className="text-[#0A2745] text-sm sm:text-sm lg:text-xs xl:text-base hidden sm:inline">
+              <span className="text-[#0A2745] text-sm sm:text-sm lg:text-xs xl:text-base hidden sm:inline cursor-pointer hover:text-[#ff4c00]">
                 پشتیبانی
               </span>
             </div>
 
             <Link
               href="/demo"
-              className={`relative font-extrabold text-[#0A2745] text-sm lg:text-xs xl:text-sm 2xl:text-base whitespace-nowrap after:absolute after:bottom-[-4px] after:left-0 after:right-0 after:h-[2px] after:bg-[#FF4C00] after:origin-left after:transition-transform after:duration-300 after:ease-out hover:after:scale-x-100 ${
-                pathname === "/demo"
-                  ? "after:scale-x-100"
-                  : "after:scale-x-0"
+              className={`relative font-extrabold text-[#0A2745] text-sm md:text-xs xl:text-sm 2xl:text-base whitespace-nowrap after:absolute after:bottom-[-4px] after:left-0 after:right-0 after:h-[2px] after:bg-[#FF4C00] after:origin-left after:transition-transform after:duration-300 after:ease-out hover:after:scale-x-100 ${
+                pathname === "/demo" ? "after:scale-x-100" : "after:scale-x-0"
               }`}
             >
               درخواست دمو رایگان
@@ -92,8 +91,10 @@ export default function Topbar() {
           </div>
 
           {/*  right list menu  - hidden on mobile, visible on desktop */}
-          <div className="hidden lg:flex items-center gap-2  lg:gap-3 xl:gap-4 2xl:gap-[25px] justify-center sm:justify-end text-xs sm:text-sm md:text-[10px] lg:text-[11px] xl:text-[13px] 2xl:text-[16px]">
+          <div className="hidden lg:flex items-center gap-2  lg:gap-2 xl:gap-4 2xl:gap-[25px] justify-center sm:justify-end text-xs sm:text-sm md:text-[10px]  xl:text-[11px] 2xl:text-[clamp(13px,0.8vw,18px)]">
             {/* Visible items - show all on desktop */}
+            <AnimatedtextHoverButton />
+
             {TOPBAR_ITEMS.map((item) => {
               const hasSubmenu = item.submenu && item.submenu.length > 0;
               const isSubmenuOpen = activeSubmenuItem === item.label;
@@ -147,10 +148,11 @@ export default function Topbar() {
                       <span className="whitespace-nowrap">{item.label}</span>
                     </Link>
                   )}
+
                   {/* Submenu */}
                   {hasSubmenu && isSubmenuOpen && (
-                    <div className="absolute right-0 top-full mt-2 z-20 rounded-md border border-gray-200 bg-white shadow-lg min-w-[180px]">
-                      <ul className="py-2">
+                    <div className="absolute right-0 top-full mt-2 z-60 rounded-md border border-gray-200 bg-white shadow-lg min-w-[180px]">
+                      <ul className="">
                         {item.submenu!.map((sub) => {
                           const isActive = pathname === sub.href;
                           return (
@@ -158,10 +160,11 @@ export default function Topbar() {
                               <Link
                                 href={sub.href}
                                 onClick={() => setActiveSubmenuItem(null)}
+                                dir="rtl"
                                 className={`px-4 py-2 transition text-sm min-h-[44px] flex items-center cursor-pointer ${
                                   isActive
                                     ? "bg-gray-50 text-[#FF4C00] font-medium"
-                                    : "text-gray-600 hover:bg-gray-50 hover:text-gray-900"
+                                    : "text-gray-600 hover:bg-[#FFF6F2]   hover:text-gray-900"
                                 }`}
                               >
                                 {sub.label}

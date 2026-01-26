@@ -24,4 +24,3 @@ export const useImagePreload = (imageSrc: string) => {
     };
   }, [imageSrc]);
 };
-

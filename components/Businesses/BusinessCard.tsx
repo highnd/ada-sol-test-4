@@ -36,15 +36,17 @@ const BusinessCard: React.FC<BusinessCardProps> = ({ category }) => {
   }`;
 
   return (
-    <section className="flex justify-center">
+    <section className="flex justify-center ">
       <Link href={category.href} className={linkClassName} prefetch={false}>
         {/* Label - بالا یا پایین بر اساس layout */}
         {isTextTop && (
-          <p className={`${TEXT_CLASSES} mb-8 sm:mb-9 text-justify`}>{category.title}</p>
+          <p className={`${TEXT_CLASSES} mb-8 sm:mb-9 text-justify`}>
+            {category.title}
+          </p>
         )}
 
         {/* Circular image container - چسبیده به کپسول */}
-        <div className="relative flex h-36 w-36 sm:h-44 sm:w-44 items-center justify-center rounded-full bg-white overflow-hidden">
+        <div className="relative flex h-36 w-36 sm:h-44 sm:w-44 items-center justify-center rounded-full bg-white overflow-hidden ">
           <Image
             src={category.imageSrc}
             alt={category.title}
@@ -57,7 +59,9 @@ const BusinessCard: React.FC<BusinessCardProps> = ({ category }) => {
 
         {/* Label - بالا یا پایین بر اساس layout */}
         {!isTextTop && (
-          <p className={`${TEXT_CLASSES} mt-8 sm:mt-9 text-justify`}>{category.title}</p>
+          <p className={`${TEXT_CLASSES} mt-8 sm:mt-9 text-justify`}>
+            {category.title}
+          </p>
         )}
 
         {/* Floating Action Button (FAB) - decorative, inside Link so no separate button needed */}

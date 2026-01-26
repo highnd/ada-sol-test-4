@@ -1,6 +1,7 @@
 import React from "react";
+import Newslatter from "../newslatter/newslatter";
 
-const SECTION_CLASSES = "w-full bg-white pt-8 sm:pt-12 md:pt-16 lg:pt-20";
+const SECTION_CLASSES = "w-full bg-white";
 
 const MAP_WRAPPER_CLASSES =
   "w-full h-[200px] sm:h-[100px] md:h-[250px] lg:h-[300px] overflow-hidden";
@@ -35,19 +36,21 @@ const CompanyGoogleMap: React.FC<CompanyGoogleMapProps> = ({
   };
 
   return (
-    <section id="company-map" dir="rtl" className={SECTION_CLASSES}>
-      <div className={MAP_WRAPPER_CLASSES}>
-        <iframe
-          src={getMapUrl()}
-          className={MAP_IFRAME_CLASSES}
-          allowFullScreen
-          loading="lazy"
-          referrerPolicy="no-referrer-when-downgrade"
-          title="نقشه موقعیت شرکت"
-          aria-label="نقشه موقعیت شرکت"
-        />
-      </div>
-    </section>
+    <>
+      <section id="company-map" dir="rtl" className={SECTION_CLASSES}>
+        <div className={MAP_WRAPPER_CLASSES}>
+          <iframe
+            src={getMapUrl()}
+            className={MAP_IFRAME_CLASSES}
+            allowFullScreen
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            title="نقشه موقعیت شرکت"
+            aria-label="نقشه موقعیت شرکت"
+          />
+        </div>
+      </section>
+    </>
   );
 };
 

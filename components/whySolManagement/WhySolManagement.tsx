@@ -12,13 +12,13 @@ import WhySolManagementCarousel from "./WhySolManagementCarousel";
 const SECTION_CLASSES = "w-full bg-white mt-20";
 
 const TITLE_CLASSES =
-  "extrabold-fanum-font text-[#0A2745] text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-center mb-8 sm:mb-10 md:mb-12 lg:mb-16";
+  "extrabold-fanum-font text-[#0A2745] text-xl sm:text-3xl md:text-4xl lg:text-5xl text-center mb-8 sm:mb-10 md:mb-12 lg:mb-16";
 
 const CONTENT_GRID_CLASSES =
   "flex flex-col-reverse xl:flex-row items-start gap-6 sm:gap-8 md:gap-10 lg:gap-12 xl:gap-16";
 
 const PILLS_CONTAINER_CLASSES =
-  "flex flex-row xl:grid xl:grid-cols-3 gap-3 sm:gap-4 md:gap-4 overflow-x-auto overflow-y-hidden xl:overflow-visible snap-x snap-mandatory scroll-smooth [-webkit-overflow-scrolling:touch] xl:w-1/2 w-full";
+  "flex flex-row xl:grid xl:grid-cols-3 gap-3 sm:gap-4 md:gap-4 2xl:gap-7 overflow-x-auto overflow-y-hidden xl:overflow-visible snap-x snap-mandatory scroll-smooth [-webkit-overflow-scrolling:touch] xl:w-1/2 w-full";
 
 // Static calculation: Split pills into 3 columns for grid layout (calculated once)
 // Column order matches the original design

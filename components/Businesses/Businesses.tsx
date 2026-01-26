@@ -134,10 +134,10 @@ const Businesses: React.FC = () => {
       <Container className="pt-16 pb-20 sm:pt-20 sm:pb-24 lg:pt-24 lg:pb-28">
         {/* Header */}
         <header className="mx-auto mb-12 sm:mb-16 lg:mb-28 max-w-2xl text-center xl:min-w-4xl ">
-          <h2 className="extrabold-fanum-font text-2xl md:text-2xl lg:text-4xl 2xl:text-5xl text-[#0A2745] mb-6">
+          <h2 className="extrabold-fanum-font text-xl md:text-2xl lg:text-4xl 2xl:text-5xl text-[#0A2745] mb-6">
             سول؛ سازگار با انواع کسب و کار
           </h2>
-          <p className="bold-fanum-font text-xs sm:text-sm md:text-lg leading-relaxed text-[#1F3B57CC] text-justify">
+          <p className="bold-fanum-font text-xs sm:text-sm md:text-lg leading-relaxed text-[#1F3B57CC] ">
             نرم‌افزار مدیریت رستوران سول برای انواع رستوران‌ها، فودکورت‌ها،
             کافی‌شاپ‌ها و فست‌فودها طراحی شده است. با قابلیت مدیریت یکپارچه شعب،
             امکان کنترل لحظه‌ای همه امور مهم کسب‌وکار را بدون محدودیت فراهم

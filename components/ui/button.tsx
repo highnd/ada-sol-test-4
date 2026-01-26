@@ -2,6 +2,7 @@
 
 import { ReactNode, useMemo } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 interface ButtonProps {
   children: ReactNode;
@@ -35,11 +36,10 @@ export const Button = ({
   // Base Tailwind classes (static → safe)
   const baseClasses = [
     "inline-flex items-center justify-center",
-    "px-6 py-2",
+    "px-4 py-2",
     "text-base font-medium",
     "rounded-[50px]",
     "transition-colors duration-200",
-    "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2",
     disabled
       ? "opacity-50 pointer-events-none cursor-not-allowed"
       : "cursor-pointer",
@@ -251,17 +251,88 @@ export function AnimatedBorderButton({
 
 export const AnimatedtextHoverButton = () => {
   return (
-    <div>
-      <button className="group px-8 py-2.5 bg-[#ff4c00] rounded-lg text-white cursor-pointer active:scale-95 transition duration-300 ">
-        <p className="relative h-6 overflow-hidden">
-          <span className="block transition-transform duration-300 group-hover:-translate-y-full">
-            Hover Me
+    <div className="group">
+      <button className="  group-hover:border-b-2  py-2  border-green-500  text-black cursor-pointer  transition duration-300 ">
+        <p className="relative h-6 flex items-center justify-center overflow-hidden">
+          <span className="block transition-transform duration-300 group-hover:-translate-y-full ">
+            آخرین وضعیت سول
           </span>
-          <span className="absolute w-full top-full left-1/2 -translate-x-1/2 block transition-transform duration-300 group-hover:translate-y-[-100%]">
-            hello
+          <span className="absolute w-full  top-full left-1/2 gap-2 -translate-x-1/2 flex items-center justify-center transition-transform duration-300  text-green-700 group-hover:-translate-y-full ">
+            <span className="flex items-end justify-center ">
+              <Image
+                src="/icons-brands/websol-tik.webp"
+                alt="نسخه تحت وب سول"
+                width={20}
+                height={20}
+                loading="lazy"
+                unoptimized
+                className=" mb-1"
+              />
+            </span>
+            پایدار
           </span>
         </p>
       </button>
     </div>
   );
 };
+
+// pro features   reusable code reactore c ode reaady for implementation
+
+// import {
+//   FaTabletAlt,
+//   FaPhone,
+//   FaChartLine,
+//   FaImage,
+//   FaUsers,
+//   FaUserFriends,
+//   FaCreditCard,
+//   FaClipboardList,
+//   FaPrint,
+// } from "react-icons/fa";
+
+// <TextImageArticle
+//   title="ثبت سریع سفارشات و صدور فاکتور – پراستفاده ترین بخش نرم افزار رستوران"
+//   imageSrc="/software-sol-images/pos-banner-EN.webp"
+//   imageAlt="ثبت سریع سفارش"
+//   imageWrapperClass="relative w-full lg:w-1/2 h-64 md:h-auto"
+//   textWrapperClass="w-full lg:w-1/2 h-full p-6 md:p-8 lg:p-10 flex flex-col justify-center text-right"
+//   items={[
+//     {
+//       icon: <FaTabletAlt className="w-4 h-4 text-[#FF4C00] flex-shrink-0 mt-1" />,
+//       text: "امکان ثبت سفارش به روش های مختلف (چند صندوق، تبلت، استند، QR Code و پنل مشتری)",
+//     },
+//     {
+//       icon: <FaPhone className="w-4 h-4 text-[#FF4C00] flex-shrink-0 mt-1" />,
+//       text: "قابلیت ثبت اتوماتیک سفارش هنگام داشتن مشتری تلفنی...",
+//     },
+//     {
+//       icon: <FaChartLine className="w-4 h-4 text-[#FF4C00] flex-shrink-0 mt-1" />,
+//       text: "ثبت سفارشات پیشرفته",
+//     },
+//     {
+//       icon: <FaImage className="w-4 h-4 text-[#FF4C00] flex-shrink-0 mt-1" />,
+//       text: "ثبت سفارشات به همراه تصویر اقلام سفارش",
+//     },
+//     {
+//       icon: <FaUsers className="w-4 h-4 text-[#FF4C00] flex-shrink-0 mt-1" />,
+//       text: "قابلیت ثبت سفارشات انبوه",
+//     },
+//     {
+//       icon: <FaUserFriends className="w-4 h-4 text-[#FF4C00] flex-shrink-0 mt-1" />,
+//       text: "قابلیت ثبت سفارش برای مهمان‌ها و پرسنل",
+//     },
+//     {
+//       icon: <FaCreditCard className="w-4 h-4 text-[#FF4C00] flex-shrink-0 mt-1" />,
+//       text: "قابلیت ثبت سفارش به صورت اعتباری (نسیه)",
+//     },
+//     {
+//       icon: <FaClipboardList className="w-4 h-4 text-[#FF4C00] flex-shrink-0 mt-1" />,
+//       text: "مدیریت جامع فاکتورهای خرید",
+//     },
+//     {
+//       icon: <FaPrint className="w-4 h-4 text-[#FF4C00] flex-shrink-0 mt-1" />,
+//       text: "پرداخت نسیه‌ها همراه با پرینت",
+//     },
+//   ]}
+// />
