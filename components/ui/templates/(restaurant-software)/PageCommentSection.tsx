@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import Container from "@/components/ui/container";
 import { CommentItem } from "@/data/comments";
 import Image from "next/image";
+import { FaUser } from "react-icons/fa";
 
 type PageCommentSectionProps = {
     title?: string; // Default: "نظرات کاربران"
@@ -78,7 +79,7 @@ const PageCommentSection: React.FC<PageCommentSectionProps> = ({
             <Container className={containerClassName}>
                 {/* Upper Section - Form with White Background */}
                 <div className="w-full bg-white rounded-2xl sm:rounded-3xl  mb-8 lg:mb-12 ">
-                    <h2 className="extrabold-fanum-font text-xl sm:text-2xl lg:text-3xl xl:text-4xl text-[#0A2745] mb-6 lg:mb-8 text-right">
+                    <h2 className="extrabold-fanum-font text-xl sm:text-2xl lg:text-3xl xl:text-4xl text-[#0A2745] mb-6 lg:mb-16 text-right">
                         {title}
                     </h2>
 
@@ -89,12 +90,14 @@ const PageCommentSection: React.FC<PageCommentSectionProps> = ({
                         {/* Name and Email in 2 columns */}
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5 lg:gap-6">
                             {/* Name Input */}
-                            <div className="flex  flex-col gap-2">
+                            <div className="flex  flex-col gap-4">
                                 <label
                                     htmlFor="comment-name"
-                                    className="fanum-font text-sm sm:text-base text-[#0A2745] text-right"
+                                    className="fanum-font text-sm sm:text-base text-[#0A2745] text-right flex items-center gap-2 justify-start"
                                 >
+                                    <FaUser className="text-primary text-xl" />
                                     {nameLabel}
+
                                 </label>
                                 <input
                                     type="text"
@@ -103,13 +106,13 @@ const PageCommentSection: React.FC<PageCommentSectionProps> = ({
                                     value={formData.name}
                                     onChange={handleInputChange}
                                     placeholder={namePlaceholder}
-                                    className="w-full bg-white  text-[#0A2745] rounded-full px-4 sm:px-5 lg:px-6 py-3 sm:py-3.5 lg:py-4 text-sm sm:text-base fanum-font placeholder:text-gray-500 text-right ring-2 ring-gray-300 focus:outline-none focus:ring-2 focus:ring-[#FF4C00] focus:ring-offset-2 focus:ring-offset-white"
+                                    className="w-full bg-white  text-[#0A2745] rounded-full px-4 sm:px-5 lg:px-6 py-3 sm:py-3.5 lg:py-4 text-sm sm:text-base fanum-font placeholder:text-gray-500 text-right ring-2 ring-gray-400 hover:ring-gray-500 focus:outline-none focus:ring-2 focus:ring-[#FF4C00] focus:ring-offset-2 focus:ring-offset-white"
                                     required
                                 />
                             </div>
 
                             {/* Email Input */}
-                            <div className="flex flex-col gap-2">
+                            <div className="flex flex-col gap-4">
                                 <label
                                     htmlFor="comment-email"
                                     className="fanum-font text-sm sm:text-base text-[#0A2745] text-right"
@@ -123,14 +126,14 @@ const PageCommentSection: React.FC<PageCommentSectionProps> = ({
                                     value={formData.email}
                                     onChange={handleInputChange}
                                     placeholder={emailPlaceholder}
-                                    className="w-full bg-white  text-[#0A2745] rounded-full px-4 sm:px-5 lg:px-6 py-3 sm:py-3.5 lg:py-4 text-sm sm:text-base fanum-font placeholder:text-gray-500 text-right ring-2 ring-gray-300 focus:outline-none focus:ring-2 focus:ring-[#FF4C00] focus:ring-offset-2 focus:ring-offset-white"
+                                    className="w-full bg-white  text-[#0A2745] rounded-full px-4 sm:px-5 lg:px-6 py-3 sm:py-3.5 lg:py-4 text-sm sm:text-base fanum-font placeholder:text-gray-500 text-right ring-2 ring-gray-400 hover:ring-gray-500 focus:outline-none focus:ring-2 focus:ring-[#FF4C00] focus:ring-offset-2 focus:ring-offset-white"
                                     required
                                 />
                             </div>
                         </div>
 
                         {/* Comment Textarea - Full width */}
-                        <div className="flex  flex-col gap-2">
+                        <div className="flex  flex-col gap-4">
                             <label
                                 htmlFor="comment-text"
                                 className="fanum-font text-sm sm:text-base text-[#0A2745] text-right"
@@ -143,7 +146,7 @@ const PageCommentSection: React.FC<PageCommentSectionProps> = ({
                                 value={formData.comment}
                                 onChange={handleInputChange}
                                 placeholder={commentPlaceholder}
-                                className="w-full bg-white  text-[#0A2745] rounded-full px-4 sm:px-5 lg:px-6 py-3 sm:py-3.5 lg:py-4 text-sm sm:text-base fanum-font placeholder:text-gray-500 text-right ring-2 ring-gray-300 focus:outline-none focus:ring-2 focus:ring-[#FF4C00] focus:ring-offset-2 focus:ring-offset-white"
+                                className="w-full bg-white  text-[#0A2745] rounded-full px-4 sm:px-5 lg:px-6 py-3 sm:py-3.5 lg:py-4 text-sm sm:text-base fanum-font placeholder:text-gray-500 text-right ring-2 ring-gray-400 hover:ring-gray-500 focus:outline-none focus:ring-2 focus:ring-[#FF4C00] focus:ring-offset-2 focus:ring-offset-white"
                                 required
                             />
                         </div>
@@ -166,19 +169,19 @@ const PageCommentSection: React.FC<PageCommentSectionProps> = ({
                         {comments.map((comment) => (
                             <div
                                 key={comment.id}
-                                className="w-full bg-accent rounded-2xl sm:rounded-3xl p-4 sm:p-5 lg:p-6 shadow-sm hover:shadow-md transition-shadow duration-200"
+                                className="w-full bg-accent rounded-2xl sm:rounded-3xl p-4 sm:p-5 lg:p-6 shadow-sm transition-shadow duration-200"
                             >
-                                <div className="flex items-start gap-3 sm:gap-4">
+                                <div className="flex items-center gap-3 sm:gap-4">
                                     {/* Avatar */}
-                                    <div className="shrink-0 ">
+                                    <div className="shrink-0">
                                         {comment.avatarSrc ? (
                                             <Image
                                                 src={comment.avatarSrc}
                                                 alt={comment.name}
-                                                className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 rounded-full object-cover"
+                                                className="w-10 h-10 sm:w-12 sm:h-12 lg:w-14 lg:h-14 rounded-full object-cover"
                                             />
                                         ) : (
-                                            <div className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 rounded-full bg-gray-300 flex items-center justify-center">
+                                            <div className="w-10 h-10 sm:w-12 sm:h-12 lg:w-14 lg:h-14 rounded-full bg-gray-300 flex items-center justify-center">
                                                 <span className="text-gray-600 text-xs sm:text-sm font-bold">
                                                     {comment.name.charAt(0)}
                                                 </span>
