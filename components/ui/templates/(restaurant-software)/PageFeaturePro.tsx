@@ -31,41 +31,40 @@ const PageFeaturePro: React.FC<PageFeatureProProps> = ({
     const featureCards = cards || PRO_FEATURES;
 
     return (
-        <section id="pro-features">
-            <Container className={containerClassName}>
-                <h2 className="mx-auto lg:mt-52 mt-24 mb-8 extrabold-fanum-font text-center text-2xl xl:text-[48px] lg:leading-17.5 tracking-[0] max-w-4xl text-[#0A2745]">
-                    {title}
-                </h2>
-                <div className="w-full h-full bg-gray-100 gap-12">
-                    {featureCards.map((card, index) => {
-                        // Convert ProFeatureCard to FeatureCard format
-                        const bullets = card.bullets.map((bullet) => {
-                            const IconComponent = getIcon(bullet.iconName);
-                            return {
-                                icon: IconComponent ? (
-                                    <IconComponent className="w-4 h-4 text-[#FF4C00] shrink-0 mt-1" />
-                                ) : null,
-                                text: bullet.text,
-                            };
-                        });
+        <div>
+            {/* <Container className={containerClassName}> */}
+            <h2 className="mx-auto lg:mt-52 mt-24 mb-8 extrabold-fanum-font text-center text-2xl xl:text-[48px] lg:leading-17.5 tracking-[0] max-w-4xl text-[#0A2745]">
+                {title}
+            </h2>
+            <div className="w-full h-full bg-white gap-12">
+                {featureCards.map((card, index) => {
+                    // Convert ProFeatureCard to FeatureCard format
+                    const bullets = card.bullets.map((bullet) => {
+                        const IconComponent = getIcon(bullet.iconName);
+                        return {
+                            icon: IconComponent ? (
+                                <IconComponent className="w-4 h-4 text-[#FF4C00] shrink-0 mt-1" />
+                            ) : null,
+                            text: bullet.text,
+                        };
+                    });
 
-                        return (
-                            <FeatureCard
-                                key={index}
-                                title={card.title}
-                                bullets={bullets}
-                                imageSrc={card.imageSrc}
-                                imageAlt={card.imageAlt}
-                                reverse={card.reverse}
-                                customHeight={card.customHeight}
-                            />
-                        );
-                    })}
-                </div>
-            </Container>
-        </section>
+                    return (
+                        <FeatureCard
+                            key={index}
+                            title={card.title}
+                            bullets={bullets}
+                            imageSrc={card.imageSrc}
+                            imageAlt={card.imageAlt}
+                            reverse={card.reverse}
+                            customHeight={card.customHeight}
+                        />
+                    );
+                })}
+            </div>
+            {/* </Container> */}
+        </div>
     );
 };
 
 export default PageFeaturePro;
-

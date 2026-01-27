@@ -25,13 +25,13 @@ const FORM_LABEL_CLASSES =
   "text-white regular-fanum-font text-xs sm:text-sm md:text-base whitespace-nowrap flex-shrink-0 min-w-full sm:min-w-[120px] py-2 md:py-0 md:min-w-[130px] md:ml-4 lg:ml-8 xl:ml-10 text-right";
 
 const FORM_INPUT_CLASSES =
-  "md:flex-1 w-full bg-accent text-secondary rounded-full px-3 sm:px-4 md:px-5 py-3 sm:py-3.5 md:py-4 text-xs sm:text-sm md:text-base regular-fanum-font placeholder:text-secondary text-right border-1 border-white focus:outline-none focus:bg-[#FF4C00] text-white";
+  "md:flex-1 w-full bg-white/40 text-white rounded-full px-3 sm:px-4 md:px-5 py-3 sm:py-3.5 md:py-4 text-xs sm:text-sm md:text-base regular-fanum-font placeholder:text-white text-right border-1 border-white focus:outline-none focus:bg-white/60 text-white";
 
 const SUBMIT_BUTTON_CLASSES =
-  "inline-flex cursor-pointer items-center justify-center gap-2 bg-white text-[#0A2745] rounded-full p-1 pl-6 text-sm sm:text-base md:text-lg font-bold transition-colors duration-200 hover:bg-gray-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#FF4C00] self-end mt-2";
+  "inline-flex cursor-pointer items-center hover:scale-105 justify-center gap-2 bg-white text-[#0A2745] rounded-full p-1 pr-6 text-sm sm:text-base md:text-lg font-bold transition-colors duration-200 hover:bg-gray-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#FF4C00]";
 
 const SUBMIT_BUTTON_ICON_CLASSES =
-  "w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 rounded-full bg-[#0A2745] flex items-center justify-center";
+  "w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 rounded-full bg-primary flex items-center justify-center";
 
 // Text Content Styles
 const TEXT_CONTENT_CLASSES = "w-full xl:w-1/2 flex flex-col gap-8";
@@ -43,7 +43,7 @@ const HEADING_SECOND_LINE_CLASSES =
   "fanum-font text-[#0A2745] text-xl sm:text-2xl md:text-3xl 2xl:text-5xl ";
 
 const DESCRIPTION_CLASSES =
-  "regular-fanum-font text-[#0A2745] text-base md:text-lg 2xl:text-2xl";
+  "regular-fanum-font text-[#0A2745] leading-loose text-base md:text-lg 2xl:text-2xl";
 
 const CONTACT_ITEMS_CONTAINER_CLASSES =
   "flex flex-row-reverse gap-4 sm:gap-6 md:gap-24 items-start sm:items-center justify-end ";
@@ -59,18 +59,18 @@ const CONTACT_ICON_ICON_CLASSES =
 
 // Mock service options - can be moved to data file later
 export const SERVICE_OPTIONS: DropdownOption[] = [
-  { value: "restaurant", label: "  نرم افزار رستوران ",  },
+  { value: "restaurant", label: "  نرم افزار رستوران ", },
   { value: "nutrition-automation", label: " نرم افزار اتوماسیون تغذیه ", },
   { value: "cafe-shop", label: " نرم افزار کافی‌شاپ ", },
   { value: "food-court", label: "نرم افزار فودکورت ", },
-  { value: "fast-food", label: "نرم افزار فست فود",  },
-  { value: "catering", label: "نرم افزار کترینگ",  },
-  { value: "cafe-restaurant", label: "نرم افزار کافه رستوران",  },
-  { value: "juice-ice-cream", label: "نرم افزار آبمیوه و بستنی فروشی",  },
+  { value: "fast-food", label: "نرم افزار فست فود", },
+  { value: "catering", label: "نرم افزار کترینگ", },
+  { value: "cafe-restaurant", label: "نرم افزار کافه رستوران", },
+  { value: "juice-ice-cream", label: "نرم افزار آبمیوه و بستنی فروشی", },
   { value: "traditional-cafe", label: "نرم افزار کافه سنتی", },
-  { value: "sandwich-shop", label: "نرم افزار ساندویچی",  },
+  { value: "sandwich-shop", label: "نرم افزار ساندویچی", },
   { value: "soup-and-halim", label: "نرم افزار آش و حلیم فروشی", },
-  { value: "home-food-bakery", label: "نرم افزار غذای خانگی / قنادی",  },
+  { value: "home-food-bakery", label: "نرم افزار غذای خانگی / قنادی", },
   { value: "taba-khi-kalle-pazi", label: "نرم افزار طباخی و کله پزی", },
   { value: "kebab-shop", label: "نرم افزار کبابی و چلوکبابی", },
 ];
@@ -174,7 +174,7 @@ const ConsultingAndDemo: React.FC = () => {
                 name="phone"
                 value={formData.phone}
                 onChange={handleInputChange}
-                placeholder="( 09123456789 ) مانند"
+                placeholder="09123456789 "
                 className={FORM_INPUT_CLASSES}
                 required
                 aria-required="true"
@@ -192,7 +192,6 @@ const ConsultingAndDemo: React.FC = () => {
                   name="service"
                   options={SERVICE_OPTIONS}
                   placeholder=" نوع کسبو کار خود را انتخاب کنید"
-                  placeholderColor="text-secondary"
                   value={formData.service}
                   onChange={handleServiceChange}
                   buttonClassName={`${FORM_INPUT_CLASSES} cursor-pointer`}
@@ -201,32 +200,34 @@ const ConsultingAndDemo: React.FC = () => {
               </div>
             </div>
 
-            {/* Free Consultation Checkbox */}
-            <div className="flex items-center justify-start gap-3 mt-2 mb-2">
-              <input
-                type="checkbox"
-                id="freeConsultation"
-                name="freeConsultation"
-                checked={formData.freeConsultation}
-                onChange={handleInputChange}
-                className="w-5 h-5 sm:w-6 sm:h-6 cursor-pointer accent-white border-2 border-white rounded-md bg-transparent"
-                aria-label="مشاوره رایگان قبل خرید"
-              />
-              <label
-                htmlFor="freeConsultation"
-                className="text-white regular-fanum-font text-sm sm:text-base md:text-lg cursor-pointer select-none"
-              >
-                مشاوره رایگان قبل خرید
-              </label>
-            </div>
-
-            {/* Submit Button */}
-            <button type="submit" className={SUBMIT_BUTTON_CLASSES}>
-              <div className={SUBMIT_BUTTON_ICON_CLASSES}>
-                <IoIosSend className="text-white text-base sm:text-lg md:text-xl" />
+            {/* Free Consultation Checkbox and Submit Button */}
+            <div className="flex items-center justify-between gap-4 mt-2">
+              <div className="flex items-center gap-3">
+                <input
+                  type="checkbox"
+                  id="freeConsultation"
+                  name="freeConsultation"
+                  checked={formData.freeConsultation}
+                  onChange={handleInputChange}
+                  className="w-5 h-5 sm:w-6 sm:h-6 cursor-pointer accent-white border-2 border-white rounded-md bg-transparent"
+                  aria-label="مشاوره رایگان قبل خرید"
+                />
+                <label
+                  htmlFor="freeConsultation"
+                  className="text-white regular-fanum-font text-sm sm:text-base md:text-lg cursor-pointer select-none"
+                >
+                  مشاوره رایگان قبل خرید
+                </label>
               </div>
-              <span>ثبت درخواست</span>
-            </button>
+
+              {/* Submit Button */}
+              <button type="submit" className={SUBMIT_BUTTON_CLASSES}>
+                <span>ثبت درخواست</span>
+                <div className={SUBMIT_BUTTON_ICON_CLASSES}>
+                  <IoIosSend className="text-white text-base sm:text-lg md:text-xl" />
+                </div>
+              </button>
+            </div>
           </form>
         </div>
       </Container>

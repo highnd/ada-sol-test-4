@@ -31,14 +31,14 @@ const PageViewImages: React.FC<PageViewImagesProps> = ({ title, buttons }) => {
       </h2>
 
       <div className="w-full h-full flex lg:flex-row flex-col items-center justify-center xl:h-105.25 2xl:h-120 min-h-[400px] sm:min-h-[500px] lg:min-h-[600px]">
-        <div className="lg:w-1/2 w-full h-full grid place-items-center">
-          <div className="p-4 sm:p-6 lg:p-12 xl:p-16 2xl:p-20 gap-2 sm:gap-3 lg:gap-6 xl:gap-8 grid grid-cols-2 w-full">
+        <div className="xl:w-1/2 w-full h-full grid place-items-center">
+          <div className="p-4 sm:p-6 lg:p-12 xl:p-16 2xl:p-16 gap-2 sm:gap-3 lg:gap-6  grid grid-cols-2 w-full">
             {buttons.map((btn, idx) => {
               const isSelected = idx === selectedIndex;
               return (
                 <button
                   key={idx}
-                  className={`w-full h-10 sm:h-12 bold-fanum-font px-3 sm:px-4 lg:px-6 xl:px-8 rounded-[50px] border-2 transition-all duration-200 cursor-pointer py-1.5 sm:py-2 text-xs sm:text-sm lg:text-base ${isSelected
+                  className={`w-full  h-fit bold-fanum-font px-3 sm:px-4 lg:px-6 xl:px-4 rounded-[50px] border-2 transition-all duration-200 cursor-pointer py-1.5 sm:py-2 text-xs sm:text-sm 2xl:text-base ${isSelected
                     ? "border-[#FF4C00] text-white bg-[#FF4C00] hover:bg-[#E64500]"
                     : "border-[#FF4C00] text-[#FF4C00] bg-transparent hover:bg-[#FF4C00]/10"
                     }`}
@@ -51,7 +51,7 @@ const PageViewImages: React.FC<PageViewImagesProps> = ({ title, buttons }) => {
           </div>
         </div>
 
-        <div className="lg:w-1/2 w-full h-full p-2 sm:p-3 lg:p-4">
+        <div className="xl:w-1/2 w-full h-full p-2 sm:p-3 lg:p-4">
           <div className="w-full h-full bg-[#F0F5F7] rounded-2xl sm:rounded-3xl lg:rounded-[36px] relative overflow-hidden min-h-[300px] sm:min-h-[400px] lg:min-h-[500px]">
             {selectedButton?.imageSrc ? (
               <Image

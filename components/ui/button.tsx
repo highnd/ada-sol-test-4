@@ -252,7 +252,7 @@ export function AnimatedBorderButton({
 export const AnimatedtextHoverButton = () => {
   return (
     <div className="group">
-      <button className="  group-hover:border-b-2  py-2  border-green-500  text-black cursor-pointer  transition duration-300 ">
+      <button className="  group-hover:border-b-2  py-2  border-green-500  text-secondary cursor-pointer  transition duration-300 ">
         <p className="relative h-6 flex items-center justify-center overflow-hidden">
           <span className="block transition-transform duration-300 group-hover:-translate-y-full ">
             آخرین وضعیت سول

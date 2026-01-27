@@ -16,22 +16,31 @@ type TopbarItem = {
 };
 
 export const TOPBAR_ITEMS: readonly TopbarItem[] = [
+  { label: "هوش مصنوعی در سول", href: "/bussinessGuide" },
+  { label: "مشاوره کسبو کار", href: "/bussinessGuide" },
   {
-    label: "مرکز دانلودها",
-    href: "/downloads",
+    label: "ارتباط با ما",
+    href: "/contact",
     submenu: [
-      { label: "راهنماها", href: "/downloads/guides" },
-      { label: "فایل‌ها", href: "/downloads/files" },
+      { label: "تماس با ما", href: "/contact" },
+      { label: "درباره سول", href: "/about" },
     ],
   },
-  { label: "تماس با ما", href: "/contact" },
-  { label: "درباره سول", href: "/about" },
-  { label: "مرکز راهنما", href: "/help" },
+
+  { label: "راهنما", href: "/guide" },
+
   { label: "داستان موفقیت مشتریان", href: "/success-stories" },
-  { label: "پادکست رستوران", href: "/podcast" },
-  { label: "اخبار و رویدادها", href: "/news" },
-  { label: "نمایشگاه‌ها", href: "/exhibitions" },
-  { label: "بلاگ", href: "/blog" },
+  { label: "پادکست ", href: "/podcast" },
+
+  {
+    label: "تازه ها",
+    href: "/news",
+    submenu: [
+      { label: "بلاگ", href: "/blog" },
+      { label: "نمایشگاه‌ها", href: "/exhibitions" },
+      { label: "اخبار و رویدادها", href: "/news" },
+    ],
+  },
 ];
 
 // -----------------------------
@@ -516,8 +525,7 @@ export const PRODUCTS_MENU_ITEMS: readonly MenuItem[] = [
         icon: "FaCreditCard",
       },
       {
-        label:
-          "اتصال به سخت افزارها (ترازو دیجیتال، کالر آیدی، POS، استند، مانیتور آشپزخانه، فیش پرینتر و ...)",
+        label: "اتصال به سخت افزارها ",
         href: "/modules/hardware-connection",
         previewSrc: "/window.svg",
         icon: "FaPlug",
@@ -529,19 +537,19 @@ export const PRODUCTS_MENU_ITEMS: readonly MenuItem[] = [
         icon: "FaChartLine",
       },
       {
-        label: "مدیریت پیک و سفارش‌های بیرون‌بر با GPS",
+        label: "مدیریت پیک ها و ارسال سفارشات",
         href: "/modules/delivery-gps",
         previewSrc: "/hero/Rectangle.svg",
         icon: "FaMapMarkerAlt",
       },
       {
-        label: "سایت اختصاصی",
+        label: "سایت اختصاصی مدیریت سفارشات",
         href: "/modules/custom-website",
         previewSrc: "/window.svg",
         icon: "FaGlobe",
       },
       {
-        label: "نرم افزار آشپزخانه هوشمند / سیستم نمایشگر تولید (KDS)",
+        label: "نرم افزار آشپزخانه هوشمند /    (KDS)",
         href: "/modules/kds",
         previewSrc: "/hero/tablet.svg",
         icon: "FaUtensils",
@@ -603,12 +611,6 @@ export const MOCK_SEARCH_SUGGESTIONS = [
   { id: "9", title: "پشتیبانی", category: "سایر", href: "/support" },
   { id: "10", title: "درخواست دمو", category: "سایر", href: "/demo" },
 ];
-
-
-
-
-
-
 
 type DropdownOption = {
   id: number;

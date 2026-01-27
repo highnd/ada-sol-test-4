@@ -41,6 +41,12 @@ import {
   FaDollarSign,
   FaRegClock,
   FaSyncAlt,
+  FaSitemap,
+  FaShieldAlt,
+  FaPoll,
+  FaCalculator,
+  FaCheckCircle,
+  FaChartBar,
 } from "react-icons/fa";
 
 /**
@@ -89,6 +95,12 @@ const iconMap: Record<string, React.ComponentType<any>> = {
   FaDollarSign,
   FaRegClock,
   FaSyncAlt,
+  FaSitemap,
+  FaShieldAlt,
+  FaPoll,
+  FaCalculator,
+  FaCheckCircle,
+  FaChartBar,
 };
 
 /**

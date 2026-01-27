@@ -50,7 +50,7 @@ const PageOtherProduct: React.FC<PageOtherProductProps> = ({
                         </p>
                         <Link
                             href={ctaButtonHref}
-                            className="inline-flex w-fit items-center justify-center gap-2 px-4 py-2 sm:px-6 sm:py-3 text-xs sm:text-sm 2xl:text-base bold-fanum-font rounded-[50px] bg-accent text-secondary hover:bg-white/80 transition-colors duration-200  cursor-pointer"
+                            className="inline-flex w-fit items-center justify-center gap-2 px-4 py-2 sm:px-6 sm:py-3 text-xs sm:text-sm 2xl:text-base bold-fanum-font rounded-[50px] bg-[#FFF6F2] text-[#0A2745] hover:bg-white hover:text-[#FF4C00] transition-all duration-200 cursor-pointer"
                         >
                             {ctaButtonText}
                         </Link>

@@ -188,7 +188,7 @@ const PageCommentSection: React.FC<PageCommentSectionProps> = ({
 
                                     {/* Content */}
                                     <div className="flex-1 min-w-0">
-                                        <div className="flex lg:flex-row items-center gap-2 flex-col ">
+                                        <div className="flex lg:flex-row lg:items-center  gap-2 flex-col ">
                                             <h3 className="bold-fanum-font text-sm sm:text-base lg:text-lg text-[#0A2745] mb-1">
                                                 {comment.name}
                                             </h3>

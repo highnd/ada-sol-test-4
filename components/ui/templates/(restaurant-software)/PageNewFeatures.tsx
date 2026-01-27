@@ -37,9 +37,12 @@ const PageNewFeatures: React.FC<PageNewFeaturesProps> = ({
                     </h2>
                 )}
 
-                <div className="w-full h-full flex flex-col-reverse xl:flex-row justify-end gap-12 xl:gap-24">
+                <div className="w-full h-full flex flex-col-reverse xl:flex-row justify-end gap-6 xl:gap-12">
                     {/* Features List (2 columns) */}
-                    <div className="w-full xl:w-[70%] grid grid-cols-1 md:grid-cols-2 gap-6 xl:pt-16" dir="rtl">
+                    <div
+                        className="w-full xl:w-[70%] grid grid-cols-1 md:grid-cols-2 gap-12 xl:pt-16"
+                        dir="rtl"
+                    >
                         {features.map((feature) => {
                             const IconComponent = getIcon(feature.iconName);
 
@@ -51,7 +54,7 @@ const PageNewFeatures: React.FC<PageNewFeaturesProps> = ({
                                     {/* Icon */}
                                     {IconComponent && (
                                         <div className="shrink-0 flex items-center justify-center">
-                                            <IconComponent className="text-[#8B4513] w-10 h-10 sm:w-12 sm:h-12 lg:w-14 lg:h-14" />
+                                            <IconComponent className="text-[#FF4C00] w-10 h-10 sm:w-12 sm:h-12 lg:w-14 lg:h-14" />
                                         </div>
                                     )}
 
@@ -60,7 +63,7 @@ const PageNewFeatures: React.FC<PageNewFeaturesProps> = ({
                                         <h3 className="bold-fanum-font text-[#0A2745] text-base sm:text-lg lg:text-xl mb-2 leading-snug">
                                             {feature.title}
                                         </h3>
-                                        <p className="fanum-font text-gray-600 text-sm sm:text-base lg:text-lg leading-relaxed">
+                                        <p className="fanum-font text-[#0A2745] text-sm sm:text-base lg:text-lg leading-relaxed">
                                             {feature.description}
                                         </p>
                                     </div>

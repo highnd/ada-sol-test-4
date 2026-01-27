@@ -5,7 +5,7 @@ import { IoIosArrowBack } from "react-icons/io";
 import Link from "next/link";
 
 const BUTTON_SOLID_HERO_CLASSES =
-  "inline-flex items-center justify-center gap-2 px-4 py-3 sm:px-6 text-sm sm:text-base lg:text-lg bold-fanum-font rounded-[50px] bg-[#FF4C00] text-white hover:bg-[#E64500] transition-colors duration-200  w-full sm:w-44 cursor-pointer";
+  "inline-flex items-center justify-center  gap-2 px-4 py-3 sm:px-6 text-sm sm:text-base lg:text-lg bold-fanum-font rounded-[50px] bg-[#FF4C00] text-white hover:bg-[#E64500] transition-colors duration-200  w-full sm:w-44 cursor-pointer";
 
 type FAQAccordionProps = {
   items: readonly FaqItem[]; // Required - data must be passed through props for reusability
@@ -42,9 +42,8 @@ const FAQAccordion: React.FC<FAQAccordionProps> = ({
 
   return (
     <div
-      className={`w-full mx-auto bg-white overflow-hidden flex xl:flex-row flex-col-reverse items-center justify-center ${
-        containerClassName || ""
-      }`}
+      className={`w-full mx-auto bg-white overflow-hidden flex xl:flex-row flex-col-reverse items-center justify-center ${containerClassName || ""
+        }`}
     >
       <div className="w-full">
         {items.map((item) => (
@@ -56,12 +55,12 @@ const FAQAccordion: React.FC<FAQAccordionProps> = ({
           />
         ))}
       </div>
-      <div className="xl:w-1/3 w-full text-center space-y-4 text-[#0A2745] h-44">
+      <div className="xl:w-1/3 w-full 2xl:text-left text-center space-y-4 text-[#0A2745] h-full mb-4">
         <h2 className="mx-auto extrabold-fanum-font text-2xl xl:text-[48px] lg:leading-[70px] tracking-[0] max-w-4xl">
           {title}
         </h2>
 
-        <h3>آیا سوال بیشتری دارید؟</h3>
+        <h3 className="bold-fanum-font  ">آیا سوال بیشتری دارید؟</h3>
 
         <Link href={buttonHref} className={BUTTON_SOLID_HERO_CLASSES}>
           {buttonText}

@@ -22,7 +22,7 @@ const BUTTON_SOLID_HERO_CLASSES =
   "inline-flex items-center justify-center px-6 py-2 sm:px-8 text-sm sm:text-base lg:text-lg bold-fanum-font rounded-[50px] bg-[#FF4C00] text-white hover:bg-[#E64500] transition-colors duration-200  w-full sm:w-auto cursor-pointer";
 
 const BUTTON_OUTLINE_HERO_CLASSES =
-  "inline-flex items-center justify-center px-6 py-2 sm:px-8 text-sm sm:text-base lg:text-lg bold-fanum-font rounded-[50px] border-2 border-[#FF4C00] text-[#FF4C00] bg-transparent hover:bg-[#FF4C00]/10 transition-colors duration-200  w-full sm:w-auto cursor-pointer";
+  "inline-flex items-center justify-center px-6 py-2 sm:px-8 text-sm sm:text-base lg:text-lg bold-fanum-font rounded-[50px] border-2 border-white text-white bg-transparent hover:bg-[#FF4C00]/10 transition-colors duration-200  w-full sm:w-auto cursor-pointer";
 
 const PageHeader: React.FC<PageHeaderProps> = ({
   title,

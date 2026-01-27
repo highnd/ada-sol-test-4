@@ -1,4 +1,3 @@
-
 import React from "react";
 import AboutSol from "@/components/aboutSol/AboutSol";
 import ConsultingAndDemo from "@/components/ConsultingAndDemo/ConsultingAndDemo";
@@ -10,7 +9,6 @@ import { features } from "@/data/features";
 import { NEW_FEATURES } from "@/data/newFeatures";
 import { FAQ_ITEMS } from "@/data/faq";
 import { OTHER_PRODUCTS } from "@/data/otherProducts";
-import Image from "next/image";
 
 import { FaRegPlayCircle } from "react-icons/fa";
 import PageHeader from "@/components/ui/templates/(restaurant-software)/PageHeader";
@@ -21,8 +19,10 @@ import PageFeatures from "@/components/ui/templates/(restaurant-software)/PageFe
 import PageFeaturePro from "@/components/ui/templates/(restaurant-software)/PageFeaturePro";
 import PageNewFeatures from "@/components/ui/templates/(restaurant-software)/PageNewFeatures";
 import PageOtherProduct from "@/components/ui/templates/(restaurant-software)/PageOtherProduct";
+import PageHardware from "@/components/ui/templates/(restaurant-software)/PageHardware";
 import { EXAMPLE_COMMENTS } from "@/data/comments";
 import PageCommentSection from "@/components/ui/templates/(restaurant-software)/PageCommentSection";
+import { HARDWARE_ITEMS } from "@/data/hardware";
 
 const WebRestaurantManagementSoftware = () => {
   const INITIAL_TEXT = `نرم افزار مدیریت رستوران سول، یک راهکار جامع و هوشمند برای مدیریت رستوران‌ها، فودکورت‌ها و کسب‌وکارهای حوزه مواد غذایی و رستورانی است. این نرم‌افزار امکان پیاده‌سازی به‌دو شکل تحت وب و ویندوزی را دارد، سول با ارائه طیف گسترده‌ای از امکانات، به شما کمک می‌کند تا تمامی فرایندهای رستوران خود را به صورت یکپارچه و کارآمد مدیریت کنید. از مدیریت منو و موجودی انبار گرفته تا ثبت سفارش، پرداخت و گزارش‌گیری، سول تمامی نیازهای شما را برطرف می‌کند. با استفاده از این نرم‌افزار، می‌توانید بهره‌وری کسب‌وکار خود را افزایش داده، هزینه‌ها را کاهش داده و رضایت مشتریان را به حداکثر برسانید. نرم‌ افزار مدیریت رستوران سول با ارائه مجموعه‌ای کامل از قابلیت‌ها و ویژگی‌ها، به شما کمک می‌کند تا کسب‌وکار خود را به صورت حرفه‌ای مدیریت کنید. این نرم‌افزار با رابط کاربری ساده و امکانات متنوع، انتخابی مناسب برای رستوران‌داران و صاحبان فودکورت‌ها است.`;
@@ -75,14 +75,13 @@ const WebRestaurantManagementSoftware = () => {
       <article className="w-full h-full ">
         <Container>
           {/*  video container */}
-          <div className="w-full h-full flex flex-col items-center justify-center translate-y-[-48%]">
-            <div className="w-full h-50 md:h-100 xl:h-132 2xl:h-140 bg-[#F0F5F7] rounded-4xl flex items-center justify-center  border-2 border-black">
+          <div className="w-full h-full flex flex-col items-center justify-center translate-y-[-57%]">
+            <div className="w-full h-50 md:h-60 xl:h-122 2xl:h-130 bg-[#F0F5F7] rounded-4xl flex items-center justify-center  border-2 border-black">
               <FaRegPlayCircle className="text-black text-xl sm:text-3xl md:text-4xl lg:text-6xl cursor-pointer hover:opacity-80 transition-opacity" />
             </div>
           </div>
           {/* navigation list menu (fast reach) */}
           <PageMobileNav navigationItems={navigationItems} />
-
         </Container>
         {/* images section */}
         <section id="images">
@@ -107,17 +106,17 @@ const WebRestaurantManagementSoftware = () => {
         </section>
 
         {/* pro-features */}
-        <PageFeaturePro
-          title="توضیح بیشتر درباره امکانات و قابلیت های نرم افزار رستورانی تحت وب سول"
-        />
+        <section id="pro-features">
+          <PageFeaturePro title="با امکانات حرفه‌ای نرم‌افزار بیشتر آشنا شوید" />
+        </section>
 
         {/* packages */}
-        <section id="packages" className="w-full h-full   ">
-          <h2 className=" mx-auto lg:mt-52 mt-24 mb-8 extrabold-fanum-font text-center text-2xl xl:text-[48px] lg:leading-17.5 tracking-[0] max-w-4xl  text-[#0A2745] ">
-            پکیج های نرم افزار رستورانی تحت وب سول
+        <section id="packages" className="w-full h-full mt-24   bg-accent">
+          <h2 className=" mx-auto lg:mt-52 pt-20 mt-24 mb-8 extrabold-fanum-font text-center text-2xl xl:text-[48px] lg:leading-17.5 tracking-[0] max-w-4xl  text-[#0A2745] ">
+            پکیج‌های نرم افزار رستورانی تحت وب سُول
           </h2>
 
-          <div className="w-full  h-auto  flex lg:flex-row flex-col items-center justify-center gap-14 mt-20 bg-accent py-12 px-8 ">
+          <div className="w-full  h-auto  flex lg:flex-row flex-col items-center justify-center gap-14   py-12 px-8 ">
             <PlanCard
               planName="پلن پایه"
               description="راهکار ساده و مقرون‌به‌صرفه برای کسب‌وکارهای کوچک و نوپا"
@@ -133,7 +132,7 @@ const WebRestaurantManagementSoftware = () => {
             />
 
             <PlanCard
-              planName="پلن متوسط"
+              planName="پلن پیشرفته"
               description="مدیریت یکپارچه فروش و مالی برای کسب‌وکارهای در حال رشد"
               features="این پلن برای کسب‌وکارهای رو به رشد طراحی شده که نیازمند ابزارهای
                 مدیریت یکپارچه‌تر و کنترل دقیق‌تر فرایندهای فروش و مالی هستند.
@@ -163,91 +162,36 @@ const WebRestaurantManagementSoftware = () => {
           </div>
         </section>
 
-        {/* features */}
-
+        {/* new features */}
         <section>
           <PageNewFeatures
-            title="ویژگی های جدید نسخه نرم افزار مدیریت رستوران سول"
+            title="ویژگی‌های جدید آخرین نسخه نرم‌ افزار مدیریت رستوران سول"
             features={NEW_FEATURES}
           />
         </section>
 
-
         {/* demo */}
-        <section id="demo">
+        <section id="demo" className="mt-24">
           <ConsultingAndDemo />
         </section>
 
         {/* modules */}
-        <section id="modules">
-          <h2 className=" mx-auto lg:mt-52 mt-24 mb-8 extrabold-fanum-font text-center text-2xl xl:text-[48px] lg:leading-17.5 tracking-[0] max-w-4xl  text-[#0A2745] ">
-            لیست ماژول های تخصصی نرم افزار سول
-          </h2>
-
-          <div className="w-full h-auto">
+        <section id="modules" className="lg:mt-40 mt-24">
+          <div className="w-full h-full py-6 xl:py-12 bg-accent">
+            <h2 className=" mx-auto  mb-8 extrabold-fanum-font text-center text-2xl xl:text-[48px] lg:leading-17.5 tracking-[0] max-w-4xl  text-[#0A2745] ">
+              لیست ماژول های تخصصی نرم افزار سول
+            </h2>
             <SolModuleCarousel />
           </div>
         </section>
 
         {/* hardware */}
-        <section id="hardware" className="mt-24">
-          <h2 className=" mx-auto lg:mt-52 mt-24 mb-16 extrabold-fanum-font text-center text-2xl xl:text-[48px] lg:leading-17.5 tracking-[0] max-w-4xl  text-[#0A2745] ">
-            یکپارچه با تجهیزات سخت افزاری فروشگاهی
-          </h2>
-
-          <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 lg:gap-10 place-items-center">
-            {[
-              { title: "کیوسک سفارشگیر", image: "/hardwares/kiosk.jpg" },
-              { title: "صندوق فروشگاهی", image: "/hardwares/sandogh.png" },
-              {
-                title: "کالر آی دی رستورانی",
-                image: "/hardwares/callerid.png",
-              },
-              { title: "فیش پرینتر", image: "/hardwares/fish-printer.png" },
-              {
-                title: "آل این وان (کامپیوتر بدون کیس)",
-                image: "/hardwares/allinone.png",
-              },
-              {
-                title: "میز سفارشگیر لمسی",
-                image: "/hardwares/order-table.png",
-              },
-              {
-                title: "استند بارکد و منوی دیجیتال(NFC و QR)",
-                image: "/hardwares/stand-barcode.jpg",
-              },
-              { title: "تبلت سفارشگیر", image: "/hardwares/tablet.jpg" },
-            ].map((item, index) => (
-              <div
-                key={index}
-                className="group flex flex-col items-center cursor-pointer transition-all duration-300"
-              >
-                {/* IMAGE CIRCLE */}
-                <div
-                  className="  relative w-32 h-32 md:w-44 md:h-44 lg:w-72 lg:h-72 rounded-full  border border-[#FF4C00] bg-white  flex items-center justify-center  overflow-hidden  shadow-sm  
-                  group-hover:shadow-xl  group-hover:-translate-y-2  transition-all duration-300 "
-                >
-                  {/* soft glow */}
-                  <div className="absolute inset-0 rounded-full  opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-300" />
-
-                  {/* image */}
-                  <Image
-                    src={item.image}
-                    alt={item.title}
-                    fill
-                    sizes="(max-width: 768px) 50vw, (max-width: 1200px) 33vw, 25vw"
-                    className="  object-contain  p-8  transition-transform duration-300  group-hover:scale-110 "
-                  />
-                </div>
-
-                {/* TITLE */}
-                <p className="mt-5 text-center text-[#0A2745] font-fanum text-sm lg:text-lg font-medium leading-relaxed max-w-44">
-                  {item.title}
-                </p>
-              </div>
-            ))}
-          </div>
-        </section>
+        <PageHardware
+          title="یکپارچه با تجهیزات سخت افزاری فروشگاهی"
+          hardwareItems={HARDWARE_ITEMS}
+          buttonHref="/hardware"  // Optional - button will show
+          buttonText="خرید تجهیزات"  // Optional - defaults to "خرید تجهیزات"
+        />
 
         {/* customers */}
         <section id="customers" className="w-full">
@@ -265,12 +209,12 @@ const WebRestaurantManagementSoftware = () => {
           />
         </section>
 
-        {/* faq */}
-        <section >
+        {/*  about sol */}
+        <section>
           <AboutSol text={INITIAL_TEXT} collapsedLength={400} />
         </section>
 
-        {/* reviews */}
+        {/* faq */}
         <section id="faq" className="mt-24">
           <Container>
             <FAQAccordion items={FAQ_ITEMS} />

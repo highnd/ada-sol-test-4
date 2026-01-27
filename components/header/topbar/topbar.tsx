@@ -82,16 +82,15 @@ export default function Topbar() {
 
             <Link
               href="/demo"
-              className={`relative font-extrabold text-[#0A2745] text-sm md:text-xs xl:text-sm 2xl:text-base whitespace-nowrap after:absolute after:bottom-[-4px] after:left-0 after:right-0 after:h-[2px] after:bg-[#FF4C00] after:origin-left after:transition-transform after:duration-300 after:ease-out hover:after:scale-x-100 ${
-                pathname === "/demo" ? "after:scale-x-100" : "after:scale-x-0"
-              }`}
+              className={`relative font-extrabold text-[#0A2745] text-sm md:text-xs xl:text-sm 2xl:text-base whitespace-nowrap after:absolute after:bottom-[-4px] after:left-0 after:right-0 after:h-[2px] after:bg-[#FF4C00] after:origin-left after:transition-transform after:duration-300 after:ease-out hover:after:scale-x-100 ${pathname === "/demo" ? "after:scale-x-100" : "after:scale-x-0"
+                }`}
             >
               درخواست دمو رایگان
             </Link>
           </div>
 
           {/*  right list menu  - hidden on mobile, visible on desktop */}
-          <div className="hidden lg:flex items-center gap-2  lg:gap-2 xl:gap-4 2xl:gap-[25px] justify-center sm:justify-end text-xs sm:text-sm md:text-[10px]  xl:text-[11px] 2xl:text-[clamp(13px,0.8vw,18px)]">
+          <div className="hidden lg:flex items-center gap-2  lg:gap-4 xl:gap-6 2xl:gap-[25px] justify-center sm:justify-end text-xs sm:text-sm md:text-[10px]  xl:text-[11px] 2xl:text-[clamp(15px,0.0vw,19px)]">
             {/* Visible items - show all on desktop */}
             <AnimatedtextHoverButton />
 
@@ -121,29 +120,26 @@ export default function Topbar() {
                         e.preventDefault();
                         handleSubmenuToggle(item.label);
                       }}
-                      className={`relative transition-colors leading-[25px] flex items-center min-h-[44px] after:absolute after:bottom-[-4px] after:left-0 after:right-0 after:h-[2px] after:bg-[#FF4C00] after:origin-left after:transition-transform after:duration-300 after:ease-out hover:after:scale-x-100 cursor-pointer bg-transparent border-none p-0 ${
-                        hasActiveSubmenuItem || isSubmenuOpen
-                          ? "text-[#FF4C00] after:scale-x-100"
-                          : "text-[#0A2745] hover:text-[#FF4C00] after:scale-x-0"
-                      }`}
+                      className={`relative transition-colors leading-[25px] flex items-center min-h-[44px] after:absolute after:bottom-[-4px] after:left-0 after:right-0 after:h-[2px] after:bg-[#FF4C00] after:origin-left after:transition-transform after:duration-300 after:ease-out hover:after:scale-x-100 cursor-pointer bg-transparent border-none p-0 ${hasActiveSubmenuItem || isSubmenuOpen
+                        ? "text-[#FF4C00] after:scale-x-100"
+                        : "text-[#0A2745] hover:text-[#FF4C00] after:scale-x-0"
+                        }`}
                       aria-expanded={isSubmenuOpen}
                       aria-haspopup="true"
                     >
                       <IoChevronDownOutline
-                        className={`text-[10px] sm:text-[12px] md:text-[14px] mt-0.5 mx-1 transition-transform ${
-                          isSubmenuOpen ? "rotate-180" : ""
-                        }`}
+                        className={`text-[10px] sm:text-[12px] md:text-[14px] mt-0.5 mx-1 transition-transform ${isSubmenuOpen ? "rotate-180" : ""
+                          }`}
                       />
                       <span className="whitespace-nowrap">{item.label}</span>
                     </button>
                   ) : (
                     <Link
                       href={item.href}
-                      className={`relative text-[#0A2745] transition-colors leading-[25px] flex items-center hover:text-[#FF4C00] min-h-[44px] after:absolute after:bottom-[-4px] after:left-0 after:right-0 after:h-[2px] after:bg-[#FF4C00] after:origin-left after:transition-transform after:duration-300 after:ease-out hover:after:scale-x-100 cursor-pointer ${
-                        pathname === item.href
-                          ? "text-[#FF4C00] after:scale-x-100"
-                          : "after:scale-x-0"
-                      }`}
+                      className={`relative text-[#0A2745] transition-colors leading-[25px] flex items-center hover:text-[#FF4C00] min-h-[44px] after:absolute after:bottom-[-4px] after:left-0 after:right-0 after:h-[2px] after:bg-[#FF4C00] after:origin-left after:transition-transform after:duration-300 after:ease-out hover:after:scale-x-100 cursor-pointer ${pathname === item.href
+                        ? "text-[#FF4C00] after:scale-x-100"
+                        : "after:scale-x-0"
+                        }`}
                     >
                       <span className="whitespace-nowrap">{item.label}</span>
                     </Link>
@@ -161,11 +157,10 @@ export default function Topbar() {
                                 href={sub.href}
                                 onClick={() => setActiveSubmenuItem(null)}
                                 dir="rtl"
-                                className={`px-4 py-2 transition text-sm min-h-[44px] flex items-center cursor-pointer ${
-                                  isActive
-                                    ? "bg-gray-50 text-[#FF4C00] font-medium"
-                                    : "text-gray-600 hover:bg-[#FFF6F2]   hover:text-gray-900"
-                                }`}
+                                className={`px-4 py-2 transition text-sm min-h-[44px] flex items-center cursor-pointer ${isActive
+                                  ? "bg-gray-50 text-[#FF4C00] font-medium"
+                                  : "text-gray-600 hover:bg-[#FFF6F2]   hover:text-gray-900"
+                                  }`}
                               >
                                 {sub.label}
                               </Link>

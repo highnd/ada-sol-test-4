@@ -46,7 +46,7 @@ export const contactData = [
 ];
 
 const inputClass =
-  "md:flex-1 w-full bg-accent text-black rounded-full px-3 sm:px-4 md:px-5 py-3 sm:py-3.5 md:py-4 text-xs sm:text-sm md:text-base regular-fanum-font placeholder:text-secondary text-right border border-white focus:outline-none focus:bg-[#FF4C00] ";
+  "md:flex-1 w-full bg-white/40 text-black rounded-full px-3 sm:px-4 md:px-5 py-3 sm:py-3.5 md:py-4 text-xs sm:text-sm md:text-base regular-fanum-font placeholder:text-white text-right border border-white focus:outline-none focus:bg-white/60 ";
 
 const SUBMIT_BUTTON_CLASSES =
   "inline-flex cursor-pointer items-center justify-center gap-2 bg-white text-[#0A2745] rounded-full p-1 pl-6 text-sm sm:text-base md:text-lg font-bold transition-colors duration-200 hover:bg-gray-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#FF4C00] self-end mt-2";
@@ -203,7 +203,7 @@ const Contact = () => {
                     name="service"
                     options={SERVICE_OPTIONS}
                     placeholder="نوع کسبو کار را انتخاب کنید"
-                    placeholderColor="text-secondary"
+
                     value={formData.service}
                     onChange={handleServiceChange}
                     buttonClassName={`${inputClass} cursor-pointer`}

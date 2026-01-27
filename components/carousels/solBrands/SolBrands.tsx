@@ -19,7 +19,7 @@ const BRANDS_CONTAINER_CLASSES =
 const BRAND_CIRCLE_CLASSES =
   "w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 cursor-pointer rounded-full bg-[#FFF6F2] flex flex-col items-center justify-center p-3 sm:p-4 md:p-5 flex-shrink-0 border-2 border-transparent transition-all duration-300 ease-out hover:scale-130 hover:border-[#FF4C00] will-change-transform backface-visibility-hidden z-10 relative group";
 const BUTTON_CLASSES =
-  "inline-flex items-center justify-center bg-[#FF4C00] hover:bg-[#E64500] text-white font-extrabold rounded-full px-8 sm:px-10 md:px-12 lg:px-16 py-2 md:py-3 text-sm sm:text-base md:text-lg transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF4C00] focus-visible:ring-offset-2 cursor-pointer";
+  "inline-flex items-center justify-center bg-[#FF4C00] hover:bg-[#E64500] text-white bold-fanum-font rounded-full px-8 sm:px-10 md:px-12 lg:px-16 py-2 md:py-3 text-sm sm:text-base md:text-lg transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF4C00] focus-visible:ring-offset-2 cursor-pointer";
 
 // Brand logos data
 const BRAND_LOGOS = [

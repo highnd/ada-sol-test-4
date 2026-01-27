@@ -168,7 +168,7 @@ export const FEATURE_PILLS: readonly FeaturePill[] = [
   },
   {
     id: 18,
-    label: "سایت اختصاصی",
+    label: "سایت اختصاصی  برای هر رستوران",
     imageSrc: "/why-management-sol/tab1-Image.svg",
     whiteBoxText:
       "سول برای هر رستوران یک سایت اختصاصی و حرفه‌ای ایجاد می‌کند. این سایت شامل منوی آنلاین، امکان سفارش، اطلاعات رستوران و گالری تصاویر است.",
@@ -222,7 +222,7 @@ export const FEATURE_PILLS: readonly FeaturePill[] = [
   },
   {
     id: 24,
-    label: "مدیریت پیک ها و سفارشات با امکان نظارت از طریق GPS",
+    label: "مدیریت پیک ها و ارسال سفارشات",
     imageSrc: "/why-management-sol/tab1-Image.svg",
     whiteBoxText:
       "سیستم مدیریت پیک سول با ردیابی GPS امکان نظارت کامل بر پیک‌ها و سفارش‌های ارسالی را فراهم می‌کند. می‌توانید موقعیت پیک‌ها را در لحظه مشاهده کنید.",

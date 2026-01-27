@@ -30,7 +30,7 @@ export const PRO_FEATURES: ProFeatureCard[] = [
       "ثبت سریع سفارشات و صدور فاکتور – پراستفاده ترین بخش نرم افزار رستوران",
     imageSrc: "/software-sol-images/pos-banner-EN.webp",
     imageAlt: "ثبت سریع سفارش",
-    reverse: false,
+    reverse: true,
     bullets: [
       {
         iconName: "FaTabletAlt",
@@ -75,7 +75,7 @@ export const PRO_FEATURES: ProFeatureCard[] = [
       "تعریف باشگاه مشتریان و اعمال تخفیفات متنوع – تبدیل نرم افزار رستورانی به مدیر مشتری‌ها",
     imageSrc: "/software-sol-images/laptop.webp",
     imageAlt: "باشگاه مشتریان رستوران",
-    reverse: true,
+    reverse: false,
     bullets: [
       {
         iconName: "FaSms",
@@ -99,7 +99,7 @@ export const PRO_FEATURES: ProFeatureCard[] = [
     title: "قابلیت‌های کاربردی مدیریت مجموعه",
     imageSrc: "/software-sol-images/sol-software-pannel.jpg",
     imageAlt: "قابلیت‌های کاربردی مدیریت مجموعه",
-    reverse: false,
+    reverse: true,
     bullets: [
       {
         iconName: "FaUserCheck",
@@ -136,7 +136,7 @@ export const PRO_FEATURES: ProFeatureCard[] = [
       "مدیریت انبار، فرمول تولید و فاکتور خرید – لزوم تعریف انبار در نرم افزار رستوران",
     imageSrc: "/software-sol-images/poss-slider1.avif",
     imageAlt: "مدیریت انبار رستوران",
-    reverse: true,
+    reverse: false,
     bullets: [
       {
         iconName: "FaWarehouse",
@@ -180,7 +180,7 @@ export const PRO_FEATURES: ProFeatureCard[] = [
     title: "مدیریت حسابداری و مالی مجموعه",
     imageSrc: "/software-sol-images/free-sol-software.png",
     imageAlt: "مدیریت حسابداری و مالی مجموعه",
-    reverse: false,
+    reverse: true,
     bullets: [
       {
         iconName: "FaChartLine",
@@ -220,7 +220,7 @@ export const PRO_FEATURES: ProFeatureCard[] = [
     title: "قابلیت نصب روی انواع سخت افزارها",
     imageSrc: "/software-sol-images/sol-hardware.jpg",
     imageAlt: "قابلیت نصب روی انواع سخت افزارها",
-    reverse: true,
+    reverse: false,
     bullets: [
       {
         iconName: "FaPhoneAlt",
@@ -264,7 +264,7 @@ export const PRO_FEATURES: ProFeatureCard[] = [
     title: "گزارشگیری پیشرفته و لحظه ای – اصلی ترین نیاز نرم افزار رستوران",
     imageSrc: "/software-sol-images/sol-software-pannel2.webp",
     imageAlt: "گزارشگیری پیشرفته و لحظه‌ای",
-    reverse: false,
+    reverse: true,
     customHeight: "xl:h-[70vh]",
     bullets: [
       {
