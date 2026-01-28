@@ -76,7 +76,7 @@ const WebRestaurantManagementSoftware = () => {
         <Container>
           {/*  video container */}
           <div className="w-full h-full flex flex-col items-center justify-center translate-y-[-57%]">
-            <div className="w-full h-50 md:h-60 xl:h-122 2xl:h-130 bg-[#F0F5F7] rounded-4xl flex items-center justify-center  border-2 border-black">
+            <div className="w-full h-50 md:h-70 xl:h-122 2xl:h-130 bg-[#F0F5F7] rounded-4xl flex items-center justify-center  border-2 border-black">
               <FaRegPlayCircle className="text-black text-xl sm:text-3xl md:text-4xl lg:text-6xl cursor-pointer hover:opacity-80 transition-opacity" />
             </div>
           </div>
@@ -112,7 +112,7 @@ const WebRestaurantManagementSoftware = () => {
 
         {/* packages */}
         <section id="packages" className="w-full h-full mt-24   bg-accent">
-          <h2 className=" mx-auto lg:mt-52 pt-20 mt-24 mb-8 extrabold-fanum-font text-center text-2xl xl:text-[48px] lg:leading-17.5 tracking-[0] max-w-4xl  text-[#0A2745] ">
+          <h2 className=" mx-auto lg:mt-52 pt-20 mt-24 mb-8 px-4 extrabold-fanum-font text-center text-2xl xl:text-[48px] lg:leading-17.5 tracking-[0] max-w-4xl  text-[#0A2745] ">
             پکیج‌های نرم افزار رستورانی تحت وب سُول
           </h2>
 
@@ -189,8 +189,8 @@ const WebRestaurantManagementSoftware = () => {
         <PageHardware
           title="یکپارچه با تجهیزات سخت افزاری فروشگاهی"
           hardwareItems={HARDWARE_ITEMS}
-          buttonHref="/hardware"  // Optional - button will show
-          buttonText="خرید تجهیزات"  // Optional - defaults to "خرید تجهیزات"
+          buttonHref="/hardware" // Optional - button will show
+          buttonText="خرید تجهیزات" // Optional - defaults to "خرید تجهیزات"
         />
 
         {/* customers */}

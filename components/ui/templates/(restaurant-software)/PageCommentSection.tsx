@@ -59,7 +59,7 @@ const PageCommentSection: React.FC<PageCommentSectionProps> = ({
     });
 
     const handleInputChange = (
-        e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+        e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
     ) => {
         const { name, value } = e.target;
         setFormData((prev) => ({ ...prev, [name]: value }));
@@ -97,7 +97,6 @@ const PageCommentSection: React.FC<PageCommentSectionProps> = ({
                                 >
                                     <FaUser className="text-primary text-xl" />
                                     {nameLabel}
-
                                 </label>
                                 <input
                                     type="text"
@@ -155,7 +154,7 @@ const PageCommentSection: React.FC<PageCommentSectionProps> = ({
                         <div className="flex justify-start pt-2">
                             <button
                                 type="submit"
-                                className="bg-primary cursor-pointer text-white rounded-full px-6 sm:px-8 lg:px-10 py-3 sm:py-3.5 lg:py-4 text-sm sm:text-base lg:text-lg bold-fanum-font hover:bg-[#E64500] transition-colors duration-200  "
+                                className="bg-[#FF4C00] cursor-pointer text-white rounded-full px-6 sm:px-8 lg:px-10 py-3 sm:py-3.5 lg:py-4 text-sm sm:text-base lg:text-lg bold-fanum-font  hover:bg-[#E64500] transition-colors duration-200  "
                             >
                                 {submitButtonText}
                             </button>

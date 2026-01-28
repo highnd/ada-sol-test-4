@@ -58,6 +58,7 @@ const Hero = () => {
             height={605}
             className="w-full h-full object-contain "
             priority
+            // quality={100}
           />
         </div>
       </div>

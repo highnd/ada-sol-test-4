@@ -10,7 +10,7 @@ export const WindowsSoftwareTab = () => {
     link: "/software1",
   };
   return (
-    <div className="w-full  h-auto  flex lg:flex-row flex-col items-center justify-center gap-14 mt-20 bg-[#FFF6F2] md:p-24 p-6">
+    <div className="w-full  h-auto  flex lg:flex-row flex-col items-center justify-center gap-14 md:mt-20 bg-[#FFF6F2] md:p-24 p-6">
       <PlanCard
         planName="پلن پایه"
         description="راهکار ساده و مقرون‌به‌صرفه برای کسب‌وکارهای کوچک و نوپا"

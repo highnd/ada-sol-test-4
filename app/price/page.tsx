@@ -4,7 +4,8 @@ import { WindowsSoftwareTab } from "@/components/price/WindowsSoftwareTab";
 import { SolModuleCarousel } from "@/components/carousels/solModuleCS/SolModuleCarousel";
 import { SoftwareCard } from "@/components/ui/cards";
 import { softwareList } from "@/data/softwares";
-import React, { useState } from "react";
+import React, { useState, useMemo } from "react";
+import { PillsCarousel, type PillsCarouselItem } from "@/components/ui/PillsCarousel";
 
 interface TabContent {
   label: string;
@@ -91,6 +92,18 @@ const tabContents: TabContent[] = [
 function Price() {
   const [activeTab, setActiveTab] = useState(0);
 
+  // Convert tabContents to PillsCarouselItem format
+  const carouselItems: PillsCarouselItem[] = useMemo(
+    () =>
+      tabContents.map((tab, index) => ({
+        id: index,
+        label: tab.label,
+        content: tab.content,
+      })),
+    []
+  );
+
+  // Desktop handlers
   const handleTabClick = (tabIndex: number) => {
     setActiveTab(tabIndex);
   };
@@ -101,27 +114,47 @@ function Price() {
         <h2 className=" mx-auto  pt-20 pb-4 extrabold-fanum-font text-center text-2xl lg:text-4xl lg:leading-[70px] tracking-[0] max-w-4xl  text-[#0A2745] ">
           لیست قیمت نرم افزار های رستورانی و اتوماسیون تغذیه سول
         </h2>
-        <div className=" flex flex-wrap justify-center gap-2 sm:gap-3 lg:gap-4 px-4 sm:px-8 lg:px-24 2xl:px-72 py-4">
-          {tabContents.map((tab, index) => (
-            <button
-              key={index}
-              onClick={() => handleTabClick(index)}
-              className={`whitespace-nowrap rounded-xl border-2 border-[#FF4C00] px-4 py-2 sm:px-5 sm:py-2.5 lg:px-6 lg:py-3 text-sm sm:text-base bold-fanum-font font-medium  
-                transition-all duration-150  cursor-pointer ${
-                  activeTab === index
-                    ? "bg-[#FF4C00] text-white hover:bg-[#FF4C00]/80"
-                    : "bg-white text-[#FF4C00] hover:bg-[#FF4C00]/20"
-                }
-                
-                `}
-            >
-              {tab.label}
-            </button>
-          ))}
+
+        {/* Mobile Carousel Layout (lg and below) */}
+        <div className="block lg:hidden w-full">
+          <PillsCarousel
+            items={carouselItems}
+            initialIndex={activeTab}
+            pillsTopMargin="mt-6 sm:mt-8"
+            arrowTopPosition={{
+              mobile: "18%",
+              sm: "20%",
+              md: "22%",
+            }}
+            onSlideChange={setActiveTab}
+            ariaLabel="محتوای تب‌ها"
+            pillsAriaLabel="تب‌های نرم‌افزار"
+          />
         </div>
 
-        <div className=" text-black text-3xl text-center ">
-          {tabContents[activeTab].content}
+        {/* Desktop Layout (lg and above) */}
+        <div className="hidden lg:block">
+          <div className=" flex flex-wrap justify-center gap-2 sm:gap-3 lg:gap-4 px-4 sm:px-8 lg:px-24 2xl:px-72 py-4">
+            {tabContents.map((tab, index) => (
+              <button
+                key={index}
+                onClick={() => handleTabClick(index)}
+                className={`whitespace-nowrap rounded-xl border-2 border-[#FF4C00] px-4 py-2 sm:px-5 sm:py-2.5 lg:px-6 lg:py-3 text-sm sm:text-base bold-fanum-font font-medium  
+                  transition-all duration-150  cursor-pointer ${activeTab === index
+                    ? "bg-[#FF4C00] text-white hover:bg-[#FF4C00]/80"
+                    : "bg-white text-[#FF4C00] hover:bg-[#FF4C00]/20"
+                  }
+                  
+                  `}
+              >
+                {tab.label}
+              </button>
+            ))}
+          </div>
+
+          <div className=" text-black text-3xl text-center ">
+            {tabContents[activeTab].content}
+          </div>
         </div>
 
         <div className="w-full h-auto mt-24">
@@ -131,11 +164,11 @@ function Price() {
           <SolModuleCarousel />
         </div>
 
-        <div className="py-44 w-full h-full px-24">
+        <div className="py-44 w-full h-full md:px-24 px-4">
           <h2 className=" mx-auto  pb-16 extrabold-fanum-font text-center text-2xl lg:text-4xl lg:leading-[70px] tracking-[0] max-w-4xl  text-[#0A2745] ">
             نرم افزار تخصصی سول مناسب برای همه کسبو کار ها
           </h2>
-          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
+          <div className="grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
             {softwareList.map((item) => (
               <SoftwareCard
                 key={item.id}

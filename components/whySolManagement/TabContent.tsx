@@ -73,9 +73,8 @@ export const TabContent = React.memo(
                 alt={selectedPill.label}
                 width={400}
                 height={500}
-                className={`2xl:object-contain object-cover object-top w-full h-full transition-all duration-300 group-hover:scale-105 ${
-                  isVisible ? "opacity-100" : "opacity-0"
-                }`}
+                className={`2xl:object-contain object-cover object-top w-full h-full transition-all duration-300 group-hover:scale-110 scale-105 ${isVisible ? "opacity-100" : "opacity-0"
+                  }`}
                 sizes="(max-width: 768px) 100vw, 50vw"
                 priority={selectedPill.id === 17}
               />

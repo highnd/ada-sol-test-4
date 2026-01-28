@@ -1,5 +1,3 @@
-"use client";
-
 import React from "react";
 import Container from "@/components/ui/container";
 import { FeatureCard } from "@/components/ui/cards";

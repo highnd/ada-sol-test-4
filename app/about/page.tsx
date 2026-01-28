@@ -51,7 +51,7 @@ const About = () => {
       </div>
 
       {/*  */}
-      <div className="min-h-screen w-full  bg-accent pt-84 ">
+      <div className="min-h-screen w-full  bg-accent md:pt-84 pt-24 ">
         <section className="">
           <Container>
             <p className=" md:text-xl text-md text-secondary leading-loose text-justify">
@@ -113,7 +113,7 @@ const About = () => {
         <section className="mt-44">
           <Container>
             <StateSection />
-            <p className="text-center text-xl px-44 pt-24 leading-loose ">
+            <p className="text-center text-xl md:px-44  pt-24 leading-loose ">
               با سول، از هرجایی می‌تونی همه سفارش‌های حضوری و آنلاین رو مدیریت
               کنی و با کنترل راحت سالن، آشپزخونه، انبار،سفارش‌های آنلاین و حضوری
               کاری کنی همه‌چی خودکار و بی‌دردسر انجام بشه.

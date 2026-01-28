@@ -1,8 +1,9 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useMemo } from "react";
 import { HiOutlineMagnifyingGlassPlus } from "react-icons/hi2";
 import Image from "next/image";
+import { PillsCarousel, type PillsCarouselItem } from "@/components/ui/PillsCarousel";
 
 type ButtonItem = {
   label: string;
@@ -18,6 +19,39 @@ type PageViewImagesProps = {
 const PageViewImages: React.FC<PageViewImagesProps> = ({ title, buttons }) => {
   const [selectedIndex, setSelectedIndex] = useState<number>(0);
 
+  // Convert buttons to PillsCarouselItem format with image slides
+  const carouselItems: PillsCarouselItem[] = useMemo(
+    () =>
+      buttons.map((btn, index) => ({
+        id: index,
+        label: btn.label,
+        content: (
+          <div className="w-full h-full p-2 sm:p-3">
+            <div className="w-full h-full bg-[#F0F5F7] rounded-2xl sm:rounded-3xl relative overflow-hidden min-h-[300px] sm:min-h-[400px]">
+              {btn.imageSrc ? (
+                <Image
+                  src={btn.imageSrc}
+                  alt={btn.imageAlt || btn.label}
+                  fill
+                  className="object-contain p-4 sm:p-6 transition-opacity duration-300"
+                  sizes="100vw"
+                />
+              ) : (
+                <div className="w-full h-full flex items-center justify-center">
+                  <div className="text-[#595B5C] text-xs sm:text-sm text-center px-4">
+                    {/* Placeholder for future image */}
+                  </div>
+                </div>
+              )}
+              <HiOutlineMagnifyingGlassPlus className="absolute top-2 right-2 sm:top-3 sm:right-3 text-[#595B5C] text-lg sm:text-xl md:text-2xl cursor-pointer hover:opacity-80 transition-opacity z-10" />
+            </div>
+          </div>
+        ),
+      })),
+    [buttons]
+  );
+
+  // Desktop handlers
   const handleButtonClick = (index: number) => {
     setSelectedIndex(index);
   };
@@ -30,7 +64,24 @@ const PageViewImages: React.FC<PageViewImagesProps> = ({ title, buttons }) => {
         {title}
       </h2>
 
-      <div className="w-full h-full flex lg:flex-row flex-col items-center justify-center xl:h-105.25 2xl:h-120 min-h-[400px] sm:min-h-[500px] lg:min-h-[600px]">
+      {/* Mobile Carousel Layout (lg and below) */}
+      <div className="block lg:hidden w-full">
+        <PillsCarousel
+          items={carouselItems}
+          initialIndex={selectedIndex}
+          arrowTopPosition={{
+            mobile: "30%",
+            sm: "32%",
+            md: "35%",
+          }}
+          onSlideChange={setSelectedIndex}
+          ariaLabel="تصاویر نرم‌افزار"
+          pillsAriaLabel="دکمه‌های تصاویر"
+        />
+      </div>
+
+      {/* Desktop Layout (lg and above) */}
+      <div className="hidden lg:flex w-full h-full flex-row items-center justify-center xl:h-105.25 2xl:h-120 min-h-[400px] sm:min-h-[500px] lg:min-h-[600px]">
         <div className="xl:w-1/2 w-full h-full grid place-items-center">
           <div className="p-4 sm:p-6 lg:p-12 xl:p-16 2xl:p-16 gap-2 sm:gap-3 lg:gap-6  grid grid-cols-2 w-full">
             {buttons.map((btn, idx) => {
@@ -38,10 +89,11 @@ const PageViewImages: React.FC<PageViewImagesProps> = ({ title, buttons }) => {
               return (
                 <button
                   key={idx}
-                  className={`w-full  h-fit bold-fanum-font px-3 sm:px-4 lg:px-6 xl:px-4 rounded-[50px] border-2 transition-all duration-200 cursor-pointer py-1.5 sm:py-2 text-xs sm:text-sm 2xl:text-base ${isSelected
-                    ? "border-[#FF4C00] text-white bg-[#FF4C00] hover:bg-[#E64500]"
-                    : "border-[#FF4C00] text-[#FF4C00] bg-transparent hover:bg-[#FF4C00]/10"
-                    }`}
+                  className={`w-full  h-fit bold-fanum-font px-3 sm:px-4 lg:px-6 xl:px-4 rounded-[50px] border-2 transition-all duration-200 cursor-pointer py-1.5 sm:py-2 text-xs sm:text-sm 2xl:text-base ${
+                    isSelected
+                      ? "border-[#FF4C00] text-white bg-[#FF4C00] hover:bg-[#E64500]"
+                      : "border-[#FF4C00] text-[#FF4C00] bg-transparent hover:bg-[#FF4C00]/10"
+                  }`}
                   onClick={() => handleButtonClick(idx)}
                 >
                   {btn.label}

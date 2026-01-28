@@ -95,6 +95,7 @@ export default function PageFeatures({
 
       <div className="relative z-10 flex flex-wrap justify-center gap-4 lg:gap-6 pb-6">
         {features.map((feature, idx) => (
+          // feature card
           <div
             key={idx}
             className="group relative w-full sm:max-w-[calc(50%-0.5rem)] lg:max-w-[calc(33.333%-1rem)] xl:max-w-[calc(20%-1.2rem)]"
@@ -103,10 +104,10 @@ export default function PageFeatures({
           >
             <div className="absolute -inset-0.5 bg-linear-to-br from-[#FF4C00]/10 via-orange-300/5 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 blur transition-opacity duration-500"></div>
 
-            <div className="relative h-full rounded-2xl shadow-md hover:shadow-xl transition-all duration-500 p-3 border border-gray-100 group-hover:border-orange-100 group-hover:-translate-y-1 overflow-hidden">
+            <div className="relative h-full  rounded-2xl shadow-md hover:shadow-xl transition-all duration-500 p-3 border border-gray-300 group-hover:border-orange-100 group-hover:-translate-y-1 overflow-hidden">
 
 
-              <div className="relative my-4 flex items-center justify-center">
+              <div className="relative my-4 flex items-center justify-center ">
                 <div className="relative">
                   <div
                     className={`absolute -top-1 -right-1 w-12 h-12 rounded-full ${hoveredIndex === idx

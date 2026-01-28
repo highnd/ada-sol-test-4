@@ -38,7 +38,7 @@ export const PlanCard: React.FC<PlanCardProps> = ({
       </h3>
 
       {features && (
-        <p className="text-secondary fanum-font my-8 text-xs lg:text-sm  2xl:text-lg text-center">
+        <p className="text-secondary fanum-font my-8 text-sm  2xl:text-lg text-center">
           {features}
         </p>
       )}

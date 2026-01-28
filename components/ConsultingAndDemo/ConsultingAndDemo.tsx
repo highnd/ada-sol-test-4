@@ -191,7 +191,7 @@ const ConsultingAndDemo: React.FC = () => {
                   id="service"
                   name="service"
                   options={SERVICE_OPTIONS}
-                  placeholder=" نوع کسبو کار خود را انتخاب کنید"
+                  placeholder=" نوع  نرم افزار خود را انتخاب کنید"
                   value={formData.service}
                   onChange={handleServiceChange}
                   buttonClassName={`${FORM_INPUT_CLASSES} cursor-pointer`}
@@ -201,7 +201,7 @@ const ConsultingAndDemo: React.FC = () => {
             </div>
 
             {/* Free Consultation Checkbox and Submit Button */}
-            <div className="flex items-center justify-between gap-4 mt-2">
+            <div className="flex md:flex-row flex-col items-center justify-between gap-4 mt-2">
               <div className="flex items-center gap-3">
                 <input
                   type="checkbox"

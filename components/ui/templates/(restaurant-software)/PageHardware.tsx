@@ -1,5 +1,3 @@
-"use client";
-
 import React from "react";
 import Image from "next/image";
 import { HardwareItem } from "@/data/hardware";
@@ -44,7 +42,6 @@ const PageHardware: React.FC<PageHardwareProps> = ({
                 {title}
             </h2>
             <Container>
-
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 lg:gap-10 place-items-center">
                     {hardwareItems.map((item, index) => (
                         <div
@@ -52,14 +49,12 @@ const PageHardware: React.FC<PageHardwareProps> = ({
                             className="group flex flex-col items-center cursor-pointer transition-all duration-300"
                         >
                             {/* CIRCLE CONTAINER - Image and Text inside using flexbox */}
-                            <div
-                                className="relative w-72 h-72 rounded-full border-4 border-[#FF4C00] bg-white flex flex-col items-center justify-between overflow-hidden shadow-sm group-hover:shadow-xl group-hover:-translate-y-2 transition-all duration-300 p-2 md:p-3 lg:p-4"
-                            >
+                            <div className="relative w-72 h-72 rounded-full border-4 border-[#FF4C00] bg-white flex flex-col items-center justify-between overflow-hidden shadow-sm group-hover:shadow-xl group-hover:-translate-y-2 transition-all duration-300 p-2 md:p-3 lg:p-4">
                                 {/* soft glow */}
                                 <div className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-300 bg-[#FF4C00]/20" />
 
                                 {/* IMAGE CONTAINER - Takes most of the space */}
-                                <div className="relative flex-1 w-full flex items-center justify-center min-h-0 p-4 md:p-6 lg:p-8">
+                                <div className="relative flex-1 w-full flex items-center justify-center min-h-0 p-8">
                                     <Image
                                         src={item.image}
                                         alt={item.title}
@@ -79,8 +74,6 @@ const PageHardware: React.FC<PageHardwareProps> = ({
                             </div>
                         </div>
                     ))}
-
-
                 </div>
                 {/* Button - Only shown if buttonHref is provided */}
                 {buttonHref && (
@@ -97,4 +90,3 @@ const PageHardware: React.FC<PageHardwareProps> = ({
 };
 
 export default PageHardware;
-
