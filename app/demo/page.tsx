@@ -1,10 +1,9 @@
 "use client";
 import { SERVICE_OPTIONS } from "@/components/ConsultingAndDemo/ConsultingAndDemo";
-import FAQAccordion from "@/components/FaqAccordian/FaqAccordian";
-import { getSocialIcon } from "@/components/Footer/Footer";
+
 import SolBrands from "@/components/carousels/solBrands/SolBrands";
 import Dropdown from "@/components/ui/dropdown";
-import { SOCIAL_MEDIA } from "@/data/footerData";
+
 import React, { useState } from "react";
 import { BsTelephoneFill } from "react-icons/bs";
 import { FiPhone, FiMail, FiMapPin } from "react-icons/fi";
@@ -90,8 +89,8 @@ const DemoConsultingPage = () => {
   return (
     <div>
       {/* Header */}
-      <div className="w-full min-h-56 lg:h-72 bg-accent flex items-center justify-center flex-col gap-4 px-4 text-center">
-        <h1 className="text-primary extrabold-fanum-font text-center text-5xl py-2">
+      <div className="w-full min-h-56 lg:h-72 bg-accent flex items-center justify-center py-4 flex-col gap-4 px-4 text-center">
+        <h1 className="text-primary extrabold-fanum-font text-center text-5xl py-4">
           دمو و مشاوره رایگان
         </h1>
 

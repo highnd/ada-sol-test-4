@@ -60,7 +60,7 @@ const FAQAccordion: React.FC<FAQAccordionProps> = ({
           {title}
         </h2>
 
-        <h3 className="bold-fanum-font  ">آیا سوال بیشتری دارید؟</h3>
+        <h3 className="extrabold-fanum-font  ">آیا سوال بیشتری دارید؟</h3>
 
         <Link href={buttonHref} className={BUTTON_SOLID_HERO_CLASSES}>
           {buttonText}

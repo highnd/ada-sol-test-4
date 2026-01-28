@@ -205,11 +205,10 @@ export const PillsCarousel: React.FC<PillsCarouselProps> = ({
                 role="tab"
                 aria-selected={isSelected}
                 tabIndex={isSelected ? 0 : -1}
-                className={`${MOBILE_PILL_BASE_CLASSES} ${
-                  isSelected
+                className={`${MOBILE_PILL_BASE_CLASSES} ${isSelected
                     ? MOBILE_PILL_SELECTED_CLASSES
                     : MOBILE_PILL_UNSELECTED_CLASSES
-                }`}
+                  }`}
               >
                 {item.label}
               </button>
